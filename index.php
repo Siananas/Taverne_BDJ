@@ -10,6 +10,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body>
         hello
+        wsh la team
+        dites moi qu'c'est t'y pas le projet de l'année la
         <?php
         // put your code here
         ?>

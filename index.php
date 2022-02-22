@@ -12,7 +12,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </style>
         
     <body>
-        <h1> Taverne BDJ </h1>
+        <h1 center> Taverne BDJ </h1>
         <h2> Introduction </h2> 
         
         <?php

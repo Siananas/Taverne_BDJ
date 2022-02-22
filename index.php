@@ -6,14 +6,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>TaverneBDJ</title>
     </head>
+    <style>
+        .Parableu {
+        color: blue;
+        }
+    </style>
     <body>
-        hello
-        wsh la team
-        dites moi qu'c'est t'y pas le projet de l'année la
+        <h1>TavernBDJ</h1>
+        <p class="Parableu"> Saisir texte </p>
+        <form action="verif.php" METHOD=""GET>
+            Saisissez Login : <input name="LeLogin"> <BR/>
+            Saisissez MDP : <input name="LeMDP"> <BR/>
+            
+            <button type="summit">Cliquez ici</button>
+        </form>
         <?php
-        // put your code here
+        
         ?>
     </body>
 </html>

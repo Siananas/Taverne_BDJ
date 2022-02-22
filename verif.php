@@ -9,9 +9,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <title></title>
     </head>
     <body>
-        <p>Page de Verif</p>
+        <H1>Page de Verif</H1>
         <?php
-        echo "Bonjour - Bonsoir - h - 32";
+        echo "votre login est : <BR/> ".$_GET['LeLogin'];
+        $a = "bonjour";
+        $b = 45;
+        for($i=0; $i < 100; $i++){
+            
+        }
+        echo "<h2>$a $b</h2>"
+        
         ?>
     </body>
 </html>

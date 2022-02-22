@@ -7,16 +7,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <head>
         <meta charset="UTF-8">
         <title>TaverneBDJ</title>
-    </head>
-    <style>
+         <style>
         .Parableu {
         color: blue;
         }
     </style>
+    </head>
+   
     <body>
         <h1>TavernBDJ</h1>
         <p class="Parableu"> Saisir texte </p>
-        <form action="verif.php" METHOD=""GET>
+        <form action="verif.php" METHOD="GET">
             Saisissez Login : <input name="LeLogin"> <BR/>
             Saisissez MDP : <input name="LeMDP"> <BR/>
             

@@ -10,14 +10,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <style>
         h1 { text-align: center; }
+        h3 { text-align: center; }
     </style>
         
     <body>
         <h1> Taverne BDJ </h1>
         <h2> Introduction </h2> 
-        intro à définir<BR/>
-        on peut écrire les in fos là <BR/>
-        voir comment on peut mettre une jolie mise en page
+        <h3> on peut écrire les infos là <BR/>
+            voir comment on peut mettre une jolie mise en page </h3>
         <?php
         // put your code here
         ?>

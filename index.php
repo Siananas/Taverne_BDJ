@@ -17,8 +17,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <body>
         <h1> Taverne BDJ </h1>
         <h2> Introduction </h2> 
-        <h3> on peut écrire les infos là <BR/>
-            voir comment on peut mettre une jolie mise en page </h3>
+        <h5> on peut écrire les infos là <BR/>
+            voir comment on peut mettre une jolie mise en page </h5>
         <?php
         // put your code here
         ?>

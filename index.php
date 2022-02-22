@@ -13,6 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         
     <body>
         <h1> Taverne BDJ </h1>
+        <h2> Introduction </h2> 
         
         <?php
         // put your code here

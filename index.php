@@ -9,10 +9,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title></title>
     </head>
     <style>
+        h1 { text-align: center; }
     </style>
         
     <body>
-        <h1 center> Taverne BDJ </h1>
+        <h1> Taverne BDJ </h1>
         <h2> Introduction </h2> 
         
         <?php

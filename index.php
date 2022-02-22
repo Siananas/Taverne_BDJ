@@ -8,8 +8,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta charset="UTF-8">
         <title></title>
     </head>
+    <style>
+        H2 { text-align: center }
+    </style>
+        
     <body>
-        <h1> Taverne BDJ </h1>
+        <h1 style = "H2"> Taverne BDJ </h1>
         
         <?php
         // put your code here

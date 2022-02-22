@@ -9,9 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title></title>
     </head>
     <body>
-        hello
-        wsh la team
-        dites moi qu'c'est t'y pas le projet de l'année la
+        <h1> Taverne BDJ </h1>
+        
         <?php
         // put your code here
         ?>

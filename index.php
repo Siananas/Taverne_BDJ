@@ -6,21 +6,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <style>
-        h1 { text-align: center; }
-        h2 { text-align: center; }
-        p { text-align: center; }
+        <title>TaverneBDJ</title>
+         <style>
+        .Parableu {
+        color: red;
+        }
     </style>
-        
+    </head>
+   
     <body>
-        <h1> Taverne BDJ </h1>
-        <h2> Introduction </h2> 
-        <p> on peut écrire les infos là <BR/>
-            voir comment on peut mettre une jolie mise en page </p>
+        <h1>TavernBDJ</h1>
+        <p class="Parableu"> Saisir texte </p>
+        <form action="verif.php" METHOD="GET">
+            Saisissez Login : <input name="LeLogin"> <BR/>
+            Saisissez MDP : <input name="LeMDP"> <BR/>
+            
+            <button type="summit">Cliquez ici</button>
+        </form>
         <?php
-        // put your code here
+        
         ?>
     </body>
-</html>

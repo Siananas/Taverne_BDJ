@@ -9,7 +9,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title>TaverneBDJ</title>
          <style>
         .Parableu {
-        color: blue;
+        color: red;
         }
     </style>
     </head>

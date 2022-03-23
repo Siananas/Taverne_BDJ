@@ -10,18 +10,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <title>TaverneBDJ</title>
          <style>
         .Parableu {
-        color: red;
+        color: blue;
         }
     </style>
     </head>
    
     <body>
         <h1>TavernBDJ</h1>
-        <p class="Parableu"> Saisir texte </p>
-        <form action="verif.php" METHOD="GET">
-            Saisissez Login : <input name="LeLogin"> <BR/>
-            Saisissez MDP : <input name="LeMDP"> <BR/>
-            
+        <p class="Parableu"> Introduction </p>
+        
+        <!-- écrire ici les conditions d'utilisation et les valeurs générales du site --> 
+        
             <button type="summit">Cliquez ici</button>
         </form>
         <?php

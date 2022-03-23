@@ -2,23 +2,26 @@
  <!DOCTYPE html>
  <<html>
      <head>
+         <meta charset="UTF-8">
          <title>title</title>
+             <link rel="stylesheet" href="anais_style.css"/>
+
      </head>
      <body>
         <h1>TavernBDJ</h1>
-         <nav> <!--création d'un menu navigation-->
+         <nav class="menu-nav"> <!--création d'un menu navigation-->
              <ul> <!--//Stocker les differentes puces dans une balise-->
-                 <li> <!--//création d'un nouvelle puce-->
-                     <a href=index.php> <!--//relie a un lien-->
+                 <li class="btn"> <!--//création d'un nouvelle puce-->
+                     <a href=../accueil.php> <!--//relie a un lien-->
                          Connexion admin
                      </a>
                  </li>
-                 <li>
+                 <li class="btn">
                      <a href=""> 
-                         mentions légales
+                         Mentions légales
                      </a>
                  </li>
-                 <li>
+                 <li class="btn">
                      <a href=""> 
                          Nous contacter
                      </a>

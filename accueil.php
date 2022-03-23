@@ -21,6 +21,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         
         <!-- écrire ici les conditions d'utilisation et les valeurs générales du site --> 
         
+            <form action="verif.php" METHOD="GET">
+            Saisissez Login : <input name="LeLogin"> <BR/>
+            Saisissez MDP : <input name="LeMDP"> <BR/>
+            
             <button type="summit">Cliquez ici</button>
         </form>
         <?php

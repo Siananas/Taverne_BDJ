@@ -1,7 +1,18 @@
 // texte en bleu
-    p {
-        color: blue ;
-    }
+//    p {
+//       color: blue ;
+//   }
+
+h1   {
+background-color: blue; 
+color: white;
+}
+
+p    {
+color: blue;
+font-size: 25px;
+font-style: italic;
+}
     
 
 

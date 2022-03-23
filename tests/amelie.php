@@ -4,7 +4,7 @@
     
     <body>
 
-        <Parableu> test mise en page </Parableu>
+        <p> test mise en page </p>
 
     </body>
 </html>

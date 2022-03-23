@@ -1,7 +1,8 @@
-<?php
+<html>
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+<body>
+ 
+        <p class="Parableu"> Saisir texte </p>
+        test de mise en page
 
+</body>

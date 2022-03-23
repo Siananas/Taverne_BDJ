@@ -2,7 +2,7 @@
 
 <body>
  
-        <p class="Parableu"> Saisir texte </p>
-        test de mise en page
+        <p class="Parableu"> test mise en page </p>
+
 
 </body>

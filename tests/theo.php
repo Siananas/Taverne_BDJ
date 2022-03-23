@@ -3,7 +3,7 @@
 <html>
     <head> <!-- https://fr.wikipedia.org/wiki/Raclette -->
         <meta charset="UTF-8"> <!-- encodage pour les accent etc... -->
-        
+        <!--<link rel="stylesheet" href="style"/>-->
         <title>Test de Théo ;) </title>
         
          <style>
@@ -20,15 +20,13 @@
         <nav> <!--création d'un menu navigation-->
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li> <!--//création d'un nouvelle puce-->
-                     <a href=https://fr.wikipedia.org/wiki/Raclette> <!--//relie a un lien-->
-                         Connexion admin
-                     </a>
+                     <a href=https://fr.wikipedia.org/wiki/Raclette target="_BLANK"> <!--//relie a un lien-->Connexion admin</a>
                  </li>
              
             <ul>
         <nav>
        
-                 
+            <img src="Image_test/le_saucisson">         
         <p class="Parableu"> Wesh ici c'est chez Théo </p>
         <form action="verif.php" METHOD="GET">
             Saisissez Login : <input name="LeLogin"> <BR/>

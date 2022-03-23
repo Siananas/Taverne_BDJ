@@ -20,13 +20,17 @@
         <nav> <!--création d'un menu navigation-->
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li> <!--//création d'un nouvelle puce-->
-                     <a href=https://fr.wikipedia.org/wiki/Raclette target="_BLANK"> <!--//relie a un lien-->Connexion admin</a>
+                     <a href=https://fr.wikipedia.org/wiki/Raclette target="_BLANK">
+                      <!--//relie a un lien Blank  = ouverture nvl page-->
+                      Connexion admin</a>
                  </li>
              
             <ul>
         <nav>
        
-            <img src="Image_test/le_saucisson">         
+            <img src="Image_test/le_saucisson"> <-<!-- ajout image -->    
+            
+            
         <p class="Parableu"> Wesh ici c'est chez Théo </p>
         <form action="verif.php" METHOD="GET">
             Saisissez Login : <input name="LeLogin"> <BR/>

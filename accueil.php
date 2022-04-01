@@ -4,6 +4,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
 -->
 
+<?php
+//Connect to databse
+$conn = mysqli_connect('localhost','root'.'root','test1');
+
+//if connection=false
+if(!$conn){
+    echo 'Connection error: ' . mysqli_connect_error();
+}
+
+
+?>
+
+
 <html>
     <head>
         <meta charset="UTF-8">

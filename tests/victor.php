@@ -1,8 +1,23 @@
+
+
 <?php
+//Connect to databse
+$conn = mysqli_connect('localhost','Victor','root','test1');
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+//if connection=false
+if(!$conn){
+    echo 'Connection error: ' . mysqli_connect_error();
+}
+// Write querry for all users
+$sql = 'SELECT * FROM utilisateurs';
 
+//Make query and get resuklt
+$result = mysqli_query($conn, $sql);
 
+//Fetch the resulting row in an array
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+//Print the array
+print_r($users);
+
+?>

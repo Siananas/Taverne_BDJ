@@ -17,12 +17,12 @@
                      </a>
                  </li>
                  <li class="btn">
-                     <a href=""> 
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                          Mentions légales
                      </a>
                  </li>
                  <li class="btn">
-                     <a href=""> 
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                          Nous contacter
                      </a>
                  </li>

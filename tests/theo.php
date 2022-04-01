@@ -21,10 +21,22 @@
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li> <!--//création d'un nouvelle puce-->
                      <a href=https://fr.wikipedia.org/wiki/Raclette target="_BLANK">
-                      <!--//relie a un lien Blank  = ouverture nvl page-->
+                      <!--//relie a un lien, Blank  = ouverture nvl page-->
                       Connexion admin</a>
                  </li>
-             
+                 
+                 <li><a href=../tests/theo.php target="_BLANK">
+                      <!--//relie a un lien, Blank  = ouverture nvl page-->
+                      Duplique la page</a></li>
+                <li><a href=../tests/theo.php target="_BLANK">
+                      <!--//relie a un lien, Blank  = ouverture nvl page-->
+                      Duplique la page</a></li>
+                <li><a href=../tests/theo.php target="_BLANK">
+                      <!--//relie a un lien, Blank  = ouverture nvl page-->
+                      Duplique la page</a></li>
+                <li><a href=../tests/theo.php target="_BLANK">
+                      <!--//relie a un lien, Blank  = ouverture nvl page-->
+                      Duplique la page</a></li>
             <ul>
         <nav>
        

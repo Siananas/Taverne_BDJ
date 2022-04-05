@@ -13,7 +13,7 @@
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li class="btn"> <!--//création d'un nouvelle puce-->
                      <a href=../accueil.php> <!--//relie a un lien-->
-                         Connexion admin
+                         Connexion admin 
                      </a>
                  </li>
                  <li class="btn">

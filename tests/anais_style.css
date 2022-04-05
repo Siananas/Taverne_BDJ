@@ -5,11 +5,9 @@ nav.menu-nav ul li.btn{
 }
 
 
-/*nav.menu-nav ul li.btn{
-     list-style-type: none;
-}*/
-
 nav.menu-nav ul li.btn a{
-    color:red;
+    color:white;
+    background-color:red ;
     text-decoration: none;
+    padding : 10px;
 }

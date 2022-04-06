@@ -5,8 +5,8 @@ nav.menu-nav ul li.btn{
 
 
 nav.menu-nav ul li.btn a{
-    color:blue;
-    background-color:blue ;
+    color:white;
+    background-color:#FDB304 ;
     text-decoration: none;
     padding : 10px;
 }
@@ -21,3 +21,14 @@ footer {
     background-color : black;
     color : white ;
 }
+
+div#snacks {
+    background-color:#FFF1D0;
+}
+div#jeux {
+    background-color:#FFEBBD;
+}
+div#matos {
+    background-color:#FFE2A0;
+}
+

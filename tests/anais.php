@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="style_anais.css"/>
+             <link rel="stylesheet" href="style_anais2.css"/>
 
      </head>
      <body>
@@ -29,5 +29,60 @@
              </ul>
          </nav>
 
+        <div id="accueil">
+            
+        </div>
+        <div id="snacks">
+            <h1>
+                SNACKS
+            </h1>
+            <p>
+                Voici tous les snacks que nous vous proposons
+            </p>
+        </div>
+                <div id="jeux">
+            <h1>
+                JEUX
+            </h1>
+            <p>
+                Voici tous les jeux que nous vous proposons
+            </p>
+        </div>
+                <div id="matos">
+            <h1>
+                SNACKS
+            </h1>
+            <p>
+                Voici tous les materiel que nous vous proposons
+            </p>
+        </div>
+        
+        <form method="post">
+            <input type="text" name="mdp" id="mdp">
+            <input type="submit" name="formsend" id=formsend">
+        </form>
+        <?php
+            if(isset($_POST["formsend"])){
+                echo "good";
+                if($_POST["mdp"]==="hello"){
+                    echo "very very good";
+                        
+                }
+                else{
+                    echo "ca sent good";
+                }
+            }
+        
+        
+        
+        ?>
+        
+        
+        
+        <footer>
+            <p>
+                N'hésitez pas à nous contacter pour toute question
+            </p>
+        </footer>
      </body>
  </html>

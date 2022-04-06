@@ -53,7 +53,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
              </ul>
          </nav>
         
-        
+                </div>
+        <div id="snacks">
+            <h1>
+                SNACKS
+            </h1>
+            <p>
+                Voici tous les snacks que nous vous proposons
+            </p>
+        </div>
+                <div id="jeux">
+            <h1>
+                JEUX
+            </h1>
+            <p>
+                Voici tous les jeux que nous vous proposons
+            </p>
+        </div>
+                <div id="matos">
+            <h1>
+                SNACKS
+            </h1>
+            <p>
+                Voici tous les materiel que nous vous proposons
+            </p>
+        </div>
         <?php
         
         ?>

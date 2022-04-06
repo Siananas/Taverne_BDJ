@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="anais_style.css"/>
+             <link rel="stylesheet" href="style_anais.css"/>
 
      </head>
      <body>
@@ -13,17 +13,17 @@
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li class="btn"> <!--//création d'un nouvelle puce-->
                      <a href=../accueil.php> <!--//relie a un lien-->
-                         Connexion admin
+                         Matos
                      </a>
                  </li>
                  <li class="btn">
                      <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Mentions légales
+                         Snack
                      </a>
                  </li>
                  <li class="btn">
                      <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Nous contacter
+                         Jeux
                      </a>
                  </li>
              </ul>

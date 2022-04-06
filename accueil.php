@@ -11,6 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <head>
         <meta charset="UTF-8">
         <title>TaverneBDJ</title>
+            <link rel="stylesheet" href="style.css"/>
          <style>
         .Parableu {
         color: blue;
@@ -30,6 +31,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             
             <button type="summit">Cliquez ici</button>
         </form>
+        
+        <!-- 3 BOUTONS -->
+         <nav class="menu-nav"> <!--création d'un menu navigation-->
+             <ul> <!--//Stocker les differentes puces dans une balise-->
+                 <li class="btn"> <!--//création d'un nouvelle puce-->
+                     <a href=../accueil.php> <!--//relie a un lien-->
+                         Matos
+                     </a>
+                 </li>
+                 <li class="btn">
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                         Snack
+                     </a>
+                 </li>
+                 <li class="btn">
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                         Jeux
+                     </a>
+                 </li>
+             </ul>
+         </nav>
+        
+        
         <?php
         
         ?>

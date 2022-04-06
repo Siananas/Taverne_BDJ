@@ -23,7 +23,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <h1>TavernBDJ</h1>
         <p class="Parableu"> Introduction </p>
         
-        <!-- écrire ici les conditions d'utilisation et les valeurs générales du site --> 
+        <!-- écrire ici les conditions d'utilisation et les valeurs générales du site  
         
             <form action="verif.php" METHOD="GET">
             Saisissez Login : <input name="LeLogin"> <BR/>
@@ -32,7 +32,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             <button type="summit">Cliquez ici</button>
         </form>
         
-        <!-- 3 BOUTONS -->
+         3 BOUTONS -->
          <nav class="menu-nav"> <!--création d'un menu navigation-->
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li class="btn"> <!--//création d'un nouvelle puce-->

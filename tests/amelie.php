@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
+    
     <head> 
-        <!--<link rel="stylesheet" href="../style.css"> -->
+        
         <style> 
             ul {
                 list-style-type: none;
@@ -9,6 +10,8 @@
                 padding: 0;
                 overflow: hidden;
                 background-color: #333;
+                position : fixed;
+                width: 100%;
             }
 
             li {
@@ -24,7 +27,7 @@
             }
 
             li a:hover, .dropdown:hover .dropbtn {
-                background-color: #FFD500;
+                background-color: #FFAB00;
             }
 
             li.dropdown {
@@ -47,19 +50,28 @@
                 display: block;
                 text-align: left;
             }
+            
+            h1.banniere {
+                color: white;
+                text-align: center;
+            }
+            
+            p.faire_du_vide {
+                color : white;
+            }
 
             .dropdown-content a:hover {background-color: #f1f1f1}
 
             .show {display:block;}
         </style>
-    </head> <!-- permet d'aller chercher les stlyes définis dans style.css -->
-    
+    </head> 
+         
     <body>
         
         <ul>
-
+          <h1 class = "banniere">TaverneBDJ</h1>
           <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()">Menu roulant</a>
+            <a href="javascript:void(0)" class="dropbtn" onclick="myFunction()"><img src="Image_test/Tibou.jpg"></a>
             <div class="dropdown-content" id="myDropdown">
               <a href="#">Connection administrateur</a>
               <a href="#">Mentions légales</a>
@@ -68,7 +80,7 @@
           </li>
         </ul>
 
-        <!-- comment -->
+      
     
         <script>
         /* When the user clicks on the button, 
@@ -91,6 +103,16 @@
           }
         }
         </script>
-
+        <!--<p class = "faire_du_vide">.</p>
+        <p class = "faire_du_vide">.</p>
+        <p class = "faire_du_vide">.</p>
+        <p class = "faire_du_vide">.</p>
+        <p class = "faire_du_vide">.</p>
+        <p class = "faire_du_vide">.</p>-->
+        
+        <img src="Image_test/le_saucisson.jpg"> 
+        <img src="Image_test/le_saucisson.jpg">
+        <img src="Image_test/le_saucisson.jpg">
     </body>
+    
 </html>

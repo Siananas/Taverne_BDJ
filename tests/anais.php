@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="style_anais2.css"/>
+             <link rel="stylesheet" href="style_anais3.css"/>
 
      </head>
      <body>
@@ -50,7 +50,7 @@
         </div>
                 <div id="matos">
             <h1>
-                SNACKS
+                MATOS
             </h1>
             <p>
                 Voici tous les materiel que nous vous proposons
@@ -63,13 +63,12 @@
         </form>
         <?php
             if(isset($_POST["formsend"])){
-                echo "good";
                 if($_POST["mdp"]==="hello"){
                     echo "very very good";
                         
                 }
                 else{
-                    echo "ca sent good";
+                    echo "Mot de passe incorrect";
                 }
             }
         

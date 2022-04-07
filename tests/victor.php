@@ -2,14 +2,14 @@
 
 <?php
 //Connect to databse
-$conn = mysqli_connect('localhost','Victor','root','test1');
+$conn = mysqli_connect('localhost','Victor','root','taverne_bdj');
 
 //if connection=false
 if(!$conn){
     echo 'Connection error: ' . mysqli_connect_error();
 }
 // Write querry for all users
-$sql = 'SELECT * FROM utilisateurs';
+$sql = 'SELECT * FROM snacks';
 
 //Make query and get resuklt
 $result = mysqli_query($conn, $sql);

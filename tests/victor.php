@@ -2,7 +2,7 @@
 
 <?php
 //Connect to databse
-$conn = mysqli_connect('localhost','Victor','root','taverne_bdj');
+$conn = mysqli_connect('localhost','general','root','taverne_bdj');
 
 //if connection=false
 if(!$conn){
@@ -15,9 +15,9 @@ $sql = 'SELECT * FROM snacks';
 $result = mysqli_query($conn, $sql);
 
 //Fetch the resulting row in an array
-$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$snacks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 //Print the array
-print_r($users);
+print_r($snacks);
 
 ?>

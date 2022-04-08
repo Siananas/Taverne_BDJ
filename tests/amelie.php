@@ -298,7 +298,7 @@
 <html>
     <?php  
     // DATA 
-        include('../conn.php');
+        //include('../conn.php');
     ?>
 
     <head>
@@ -330,6 +330,7 @@
             nav.menu-nav ul li.btn{
                 display: inline-block;
                 list-style-type: none;
+                width :30%;
             }
 
             nav.menu-nav ul li.btn a{
@@ -360,6 +361,10 @@
                 transition:0.5s all;
             }
             
+            div#item_snack p{
+                backgroung-color : #FFBC81;
+            }
+            
         </style>
     </head>
 
@@ -368,17 +373,6 @@
         <!-- insérer le code pour la bannière -->
         
         <p> Introduction </p>
-
-        
-            <?php
-            $intro = "intro";
-            
-            for($i = 0 ; $i<= 10; $i++ ){
-                echo "<strong>"
-                . "<p class=".$intro."> $snacks[$i] </p>"
-                . "</strong>";
-            }
-            ?>
         
         <!-- 3 BOUTONS -->
         <nav class="menu-nav"> <!--création d'un menu navigation-->
@@ -410,6 +404,20 @@
             <p>
                 Voici tous les snacks que nous vous proposons :
             </p>
+                    
+            <?php
+            $intro = "intro";
+            $item_snack = "item_snack";
+            $snack[] = "snack[]";
+            
+            for($i = 0 ; $i<= 10; $i++ ){
+                echo "<strong>"
+                . "<div id=".$item_snack.">"
+                        . "<p class=".$intro."> snack".$i." </p>"
+                . "</strong>";
+            }
+            ?>
+            
         </div>
         
         <!-- 2eme section : matériel -->

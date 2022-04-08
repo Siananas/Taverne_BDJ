@@ -361,8 +361,8 @@
                 transition:0.5s all;
             }
             
-            div#item_snack p{
-                backgroung-color : #FFBC81;
+            div#snacks  {
+                backgroung-color : #FF9700;
             }
             
         </style>
@@ -406,14 +406,14 @@
             </p>
                     
             <?php
-            $intro = "intro";
             $item_snack = "item_snack";
-            $snack[] = "snack[]";
             
             for($i = 0 ; $i<= 10; $i++ ){
-                echo "<strong>"
-                . "<div id=".$item_snack.">"
-                        . "<p class=".$intro."> snack".$i." </p>"
+                echo 
+                "<strong>"
+                    . "<div id=".$item_snack.">"
+                            . "snack".$i.""
+                    . "</div>"
                 . "</strong>";
             }
             ?>

@@ -2,12 +2,7 @@
 
 <?php
 //Connect to databse
-$conn = mysqli_connect('localhost','general','root','taverne_bdj');
-
-//if connection=false
-if(!$conn){
-    echo 'Connection error: ' . mysqli_connect_error();
-}
+include '../conn.php';
 
 // Write querry for all users
 $sql = 'SELECT * FROM snacks';

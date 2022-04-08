@@ -113,14 +113,13 @@
         <ul>
             <?php
             for($i=0;$i<sizeof($snacks);$i++){
-                echo "<li>
-                    okokokok
-                </li>";
+                echo "<li>".$snacks[$i]["nom"]."<img src ='".$snacks[$i]['lien_img']."' width='800px' 'class='img'></li>";
+                
             }
             
             ?>
         </ul>
-        
+                   $snacks[$i]["lien_img"]; 
         
         
         

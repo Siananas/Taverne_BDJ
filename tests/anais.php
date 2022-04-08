@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="style_anais2.css"/>
+             <link rel="stylesheet" href="style_anais3.css"/>
 
      </head>
      <body>
@@ -50,7 +50,7 @@
         </div>
                 <div id="matos">
             <h1>
-                SNACKS
+                MATOS
             </h1>
             <p>
                 Voici tous les materiel que nous vous proposons
@@ -63,19 +63,84 @@
         </form>
         <?php
             if(isset($_POST["formsend"])){
-                echo "good";
                 if($_POST["mdp"]==="hello"){
                     echo "very very good";
-                        
+                    header("Location: ../accueil.php");
+                    die();
                 }
                 else{
-                    echo "ca sent good";
+                    echo "Mot de passe incorrect";
                 }
             }
-        
-        
-        
         ?>
+        
+        <?php
+        //Connect to databse
+        $conn = mysqli_connect('localhost','general','root','taverne_bdj');
+
+        //if connection=false
+        if(!$conn){
+            echo 'Connection error: ' . mysqli_connect_error();
+        }
+
+        // Write querry for all users
+        $sql = 'SELECT * FROM snacks';
+
+        //Make query and get resuklt
+        $result = mysqli_query($conn, $sql);
+        //Fetch the resulting row in an array
+        $snacks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        //print_r($snacks[1]["nom"]);
+
+        //Print the array
+        //print_r($snacks);
+        
+        
+        $nombre_snacks = sizeof($snacks);
+        
+        print_r($nombre_snacks);
+        ?>
+        
+        <?= $nombre_snacks ;?>
+            <script>
+        for(i=0;i<5;i++){
+            echo "boo"; 
+            }    
+            </script>
+        
+        
+        
+        <ul>
+            <?php
+            for($i=0;$i<sizeof($snacks);$i++){
+                echo "<li>
+                    okokokok
+                </li>";
+            }
+            
+            ?>
+        </ul>
+        
+        
+        
+        
+        <ul> <!--//Stocker les differentes puces dans une balise-->
+                 <li class="btn"> <!--//création d'un nouvelle puce-->
+                     <a href=../accueil.php> <!--//relie a un lien-->
+                         Matos
+                     </a>
+                 </li>
+                 <li class="btn">
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                         Snack
+                     </a>
+                 </li>
+                 <li class="btn">
+                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                         Jeux
+                     </a>
+                 </li>
+             </ul>
         
         
         

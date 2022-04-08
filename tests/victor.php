@@ -19,5 +19,4 @@ $snacks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 //Print the array
 print_r($snacks);
-
 ?>

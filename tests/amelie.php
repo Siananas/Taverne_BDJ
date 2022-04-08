@@ -316,7 +316,7 @@
                 color: white;
             }
 
-            p    {
+            p.intro    {
                 color: black;
                 font-size: 25px;
                 font-style: italic;

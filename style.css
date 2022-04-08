@@ -14,7 +14,13 @@ h1.jeux   {
     color: white;
 }
 
-p    {
+p          {
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+}
+
+p.intro    {
     color: black;
     font-size: 25px;
     font-style: italic;

@@ -11,8 +11,10 @@
         
         <!-- insérer le code pour la bannière -->
         
-        <p> Introduction </p>
-
+        <p class = "intro"> Introduction </p>
+        
+        <p> insérer blabla pour l'introduction </p>
+        
         <!-- 3 BOUTONS -->
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->

@@ -1,13 +1,23 @@
 
-h1   {
-background-color: blue; 
-color: white;
+h1.snack   {
+    background-color: #FF7700;
+    color: white;
+}
+
+h1.matos   {
+    background-color: #FF9435;
+    color: white;
+}
+
+h1.jeux   {
+    background-color: #FFAC58;
+    color: white;
 }
 
 p    {
-color: black;
-font-size: 25px;
-font-style: italic;
+    color: black;
+    font-size: 25px;
+    font-style: italic;
 }
 
 /*Style des boutons snacks matos et jeux*/
@@ -17,15 +27,20 @@ nav.menu-nav ul li.btn{
 }
 
 nav.menu-nav ul li.btn a{
-    color:white;
-    background-color:red ;
+    color: white;
+    background-color: #FF7700 ;
     text-decoration: none;
     padding : 10px;
+    border : #FF4D00;
+    position : center;
+    border-radius: 100px;
+    border: 4px double #cccccc;
+    font-size : 30px;
 }
 
 nav.menu-nav ul li.btn:hover a{
-    color: red;
-    background-color: white ;
+    color: black;
+    background-color: #FFAC58 ;
     transition:0.5s all;
 }
-    
+

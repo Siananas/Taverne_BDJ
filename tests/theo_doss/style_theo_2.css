@@ -1,4 +1,12 @@
 
+header{
+    background-color: black
+}
+
+p.En_tete {
+    color: orange
+}
+
 
 h1.Titre {
     font-size: 50px; /*taille*/
@@ -14,3 +22,8 @@ nav.liste{
     font-weight: bold; /*le gras*/
 }
 
+
+
+footer{
+    background-color: orange
+}

@@ -14,8 +14,14 @@ h1.jeux   {
     color: white;
 }
 
-p    {
+p          {
     color: black;
+    font-size: 20px;
+    font-style: italic;
+}
+
+p.intro    {
+    color: red;
     font-size: 25px;
     font-style: italic;
 }
@@ -28,7 +34,6 @@ nav.menu-nav ul li.btn{
 
 nav.menu-nav ul li.btn a{
     color: white;
-    background-color: #FF7700 ;
     text-decoration: none;
     padding : 10px;
     border : #FF4D00;
@@ -38,9 +43,20 @@ nav.menu-nav ul li.btn a{
     font-size : 30px;
 }
 
+a.snack {
+    background-color: #FF7700 ;
+}
+
+a.matos {
+    background-color: #FF9435 ;
+}
+
+a.jeux {
+    background-color: #FFAC58 ;
+}
+
 nav.menu-nav ul li.btn:hover a{
     color: black;
-    background-color: #FFAC58 ;
     transition:0.5s all;
 }
 

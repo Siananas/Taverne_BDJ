@@ -296,6 +296,10 @@
 <!-- Partie style page accueil -->
 
 <html>
+    <?php  
+    // DATA 
+        //include('../conn.php');
+    ?>
 
     <head>
         <meta charset="UTF-8">
@@ -316,7 +320,7 @@
                 color: white;
             }
 
-            p    {
+            p.intro    {
                 color: black;
                 font-size: 25px;
                 font-style: italic;
@@ -326,18 +330,29 @@
             nav.menu-nav ul li.btn{
                 display: inline-block;
                 list-style-type: none;
+                width :30%;
             }
 
             nav.menu-nav ul li.btn a{
                 color: white;
-                background-color: #FF7700 ;
                 text-decoration: none;
                 padding : 10px;
                 border : #FF4D00;
-                position : center;
                 border-radius: 100px;
                 border: 4px double #cccccc;
                 font-size : 30px;
+            }
+            
+            a.snack {
+                background-color: #FF7700 ;
+            }
+            
+            a.matos {
+                background-color: #FF9435 ;
+            }
+            
+            a.jeux {
+                background-color: #FFAC58 ;
             }
 
             nav.menu-nav ul li.btn:hover a{
@@ -346,7 +361,9 @@
                 transition:0.5s all;
             }
             
-            
+            div#item_snack p{
+                backgroung-color : #FFBC81;
+            }
             
         </style>
     </head>
@@ -356,22 +373,22 @@
         <!-- insérer le code pour la bannière -->
         
         <p> Introduction </p>
-
+        
         <!-- 3 BOUTONS -->
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->
                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                    <a href=../accueil.php> <!--//relie a un lien-->
+                    <a class = "snack" href=../accueil.php> <!--//relie a un lien-->
                         Snacks
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "matos" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Matériel
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "jeux" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Jeux
                     </a>
                 </li>
@@ -387,6 +404,20 @@
             <p>
                 Voici tous les snacks que nous vous proposons :
             </p>
+                    
+            <?php
+            $intro = "intro";
+            $item_snack = "item_snack";
+            $snack[] = "snack[]";
+            
+            for($i = 0 ; $i<= 10; $i++ ){
+                echo "<strong>"
+                . "<div id=".$item_snack.">"
+                        . "<p class=".$intro."> snack".$i." </p>"
+                . "</strong>";
+            }
+            ?>
+            
         </div>
         
         <!-- 2eme section : matériel -->

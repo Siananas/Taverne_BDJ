@@ -2,7 +2,7 @@
 
 h1.Titre {
     font-size: 50px; /*taille*/
-    color: #fff; 
+    color: #000; 
     font-weight: bold; /*le gras*/
    /* opacity: 0.8 opacité*/
         
@@ -10,7 +10,7 @@ h1.Titre {
 
 nav.liste{
     font-size: 20px; /*taille*/
-    color: #fff; 
+    color: #000; 
     font-weight: bold; /*le gras*/
 }
 

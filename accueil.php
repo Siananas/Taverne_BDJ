@@ -12,73 +12,65 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <meta charset="UTF-8">
         <title>TaverneBDJ</title>
             <link rel="stylesheet" href="style.css"/>
-         <style>
-        .Parableu {
-        color: blue;
-        }
-    </style>
     </head>
-   
+    
     <body>
-        <h1>TavernBDJ</h1>
-        <p class="Parableu"> Introduction </p>
         
-        <!-- écrire ici les conditions d'utilisation et les valeurs générales du site  
+        <!-- insérer le code pour la bannière -->
         
-            <form action="verif.php" METHOD="GET">
-            Saisissez Login : <input name="LeLogin"> <BR/>
-            Saisissez MDP : <input name="LeMDP"> <BR/>
-            
-            <button type="summit">Cliquez ici</button>
-        </form>
-        
-         3 BOUTONS -->
-         <nav class="menu-nav"> <!--création d'un menu navigation-->
-             <ul> <!--//Stocker les differentes puces dans une balise-->
-                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                     <a href=../accueil.php> <!--//relie a un lien-->
-                         Matos
-                     </a>
-                 </li>
-                 <li class="btn">
-                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Snack
-                     </a>
-                 </li>
-                 <li class="btn">
-                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Jeux
-                     </a>
-                 </li>
-             </ul>
-         </nav>
-        
-                </div>
+        <p> Introduction </p>
+
+        <!-- 3 BOUTONS -->
+        <nav class="menu-nav"> <!--création d'un menu navigation-->
+            <ul> <!--//Stocker les differentes puces dans une balise-->
+                <li class="btn"> <!--//création d'un nouvelle puce-->
+                    <a href=../accueil.php> <!--//relie a un lien-->
+                        Snacks
+                    </a>
+                </li>
+                <li class="btn">
+                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                        Matériel
+                    </a>
+                </li>
+                <li class="btn">
+                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                        Jeux
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 1ere section : snacks -->
+        </div>
         <div id="snacks">
-            <h1>
+            <h1 class = "snack">
                 SNACKS
             </h1>
             <p>
-                Voici tous les snacks que nous vous proposons
+                Voici tous les snacks que nous vous proposons :
             </p>
         </div>
-                <div id="jeux">
-            <h1>
+        
+        <!-- 2eme section : matériel -->
+        <div id="matos">
+            <h1 class = "matos">
+                MATERIEL
+            </h1>
+            <p>
+                Voici tout le matériel que nous vous proposons :
+            </p>
+        </div>
+        
+        <!-- 3eme section : location jeux de société -->
+        <div id="jeux">
+            <h1 class = "jeux">
                 JEUX
-            </h1>
+            </h3>
             <p>
-                Voici tous les jeux que nous vous proposons
-            </p>
-        </div>
-                <div id="matos">
-            <h1>
-                SNACKS
-            </h1>
-            <p>
-                Voici tous les materiel que nous vous proposons
+                Voici tous les jeux que nous vous proposons :
             </p>
         </div>
         <?php
-        
         ?>
     </body>

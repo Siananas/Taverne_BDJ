@@ -330,14 +330,24 @@
 
             nav.menu-nav ul li.btn a{
                 color: white;
-                background-color: #FF7700 ;
                 text-decoration: none;
                 padding : 10px;
                 border : #FF4D00;
-                position : center;
                 border-radius: 100px;
                 border: 4px double #cccccc;
                 font-size : 30px;
+            }
+            
+            a.snack {
+                background-color: #FF7700 ;
+            }
+            
+            a.matos {
+                background-color: #FF9435 ;
+            }
+            
+            a.jeux {
+                background-color: #FFAC58 ;
             }
 
             nav.menu-nav ul li.btn:hover a{
@@ -345,8 +355,6 @@
                 background-color: #FFAC58 ;
                 transition:0.5s all;
             }
-            
-            
             
         </style>
     </head>
@@ -361,17 +369,17 @@
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->
                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                    <a href=../accueil.php> <!--//relie a un lien-->
+                    <a class = "snack" href=../accueil.php> <!--//relie a un lien-->
                         Snacks
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "matos" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Matériel
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "jeux" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Jeux
                     </a>
                 </li>

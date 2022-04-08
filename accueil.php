@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
-
-
-
 
 <html>
     <head>
@@ -24,17 +17,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->
                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                    <a href=../accueil.php> <!--//relie a un lien-->
+                    <a class = "snack" href=../accueil.php> <!--//relie a un lien-->
                         Snacks
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "matos" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Matériel
                     </a>
                 </li>
                 <li class="btn">
-                    <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                    <a class = "jeux" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
                         Jeux
                     </a>
                 </li>

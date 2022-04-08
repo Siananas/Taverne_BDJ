@@ -1,18 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+         <title>title</title>
+             <link rel="stylesheet" href="style_anais2.css"/>
+
+    </head>
+    <body>
+
+    
+
+    <?php
+    //On se connecte a la bdd, et on recupere les differentes variables
+    include '../conn.php';
+    ?>
+
+    <form action="action.php" method="post">
+    <p>Votre nom : <input type="text" name="nom" /></p>
+    <p>Votre âge : <input type="text" name="age" /></p>
+    <p><input type="submit" value="OK"></p>
+    </form>
+
+    <body>
 
 
-<?php
-//Connect to databse
-include '../conn.php';
-
-// Write querry for all users
-$sql = 'SELECT * FROM snacks';
-
-//Make query and get resuklt
-$result = mysqli_query($conn, $sql);
-//Fetch the resulting row in an array
-$snacks = mysqli_fetch_all($result, MYSQLI_ASSOC);
-print_r($snacks[1]["nom"]);
-
-//Print the array
-print_r($snacks);
-?>
+</html>

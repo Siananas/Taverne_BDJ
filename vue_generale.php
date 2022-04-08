@@ -66,6 +66,8 @@
                 Voici tous les jeux que nous vous proposons :
             </p>
         </div>
+        
+        <!-- 
         <?php
         ?>
     </body>

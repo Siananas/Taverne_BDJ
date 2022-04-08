@@ -296,6 +296,10 @@
 <!-- Partie style page accueil -->
 
 <html>
+    <?php  
+    // DATA 
+        include('../conn.php');
+    ?>
 
     <head>
         <meta charset="UTF-8">
@@ -365,6 +369,17 @@
         
         <p> Introduction </p>
 
+        
+            <?php
+            $intro = "intro";
+            
+            for($i = 0 ; $i<= 10; $i++ ){
+                echo "<strong>"
+                . "<p class=".$intro."> $snacks[$i] </p>"
+                . "</strong>";
+            }
+            ?>
+        
         <!-- 3 BOUTONS -->
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->

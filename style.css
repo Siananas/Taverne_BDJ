@@ -21,7 +21,7 @@ p          {
 }
 
 p.intro    {
-    color: black;
+    color: red;
     font-size: 25px;
     font-style: italic;
 }

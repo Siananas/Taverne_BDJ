@@ -1,0 +1,16 @@
+
+
+h1.Titre {
+    font-size: 50px; /*taille*/
+    color: #fff; 
+    font-weight: bold; /*le gras*/
+   /* opacity: 0.8 opacité*/
+        
+}
+
+nav.liste{
+    font-size: 20px; /*taille*/
+    color: #fff; 
+    font-weight: bold; /*le gras*/
+}
+

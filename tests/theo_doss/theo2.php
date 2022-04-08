@@ -7,7 +7,18 @@
     // DATA 
         //Connect to databse
         include('../../conn.php');
-
+        $i = 0;
+         
+        
+       function show_tableau($tab){
+         foreach ($tab as $val) {
+             if (is_array($val)) {
+                show_tableau($val);
+              } else {
+                echo $val . '<br />';
+              } 
+            } 
+           } 
         ?>
     
     
@@ -23,7 +34,15 @@
         <h1 class="Titre">TavernBDJ</h1> <!-- en tête -->
        <nav class = "liste" >
             <ul> 
-            <?php echo $snacks[1]["nom"]   ?>
+                <li>
+                    <?php
+                     
+                        show_tableau($snacks);      
+
+                ?>
+                
+                </li>
+                
             <ul>
         <nav>
         

@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="style_anais3.css"/>
+             <link rel="stylesheet" href="style_anais2.css"/>
 
      </head>
      <body>
@@ -102,46 +102,16 @@
         ?>
         
         <?= $nombre_snacks ;?>
-            <script>
-        for(i=0;i<5;i++){
-            echo "boo"; 
-            }    
-            </script>
         
         
         
-        <ul>
+        <ul class="snacks_objet">
             <?php
             for($i=0;$i<sizeof($snacks);$i++){
-                echo "<li>".$snacks[$i]["nom"]."<img src ='".$snacks[$i]['lien_img']."' width='800px' 'class='img'></li>";
-                
+                echo "<li class='snacks_list'><img src ='".$snacks[$i]['lien_img']."' width='80px' 'class='img'><div class='snacks_elements' >".$snacks[$i]["nom"]."</div> prix </li>";
             }
-            
             ?>
-        </ul>
-                   $snacks[$i]["lien_img"]; 
-        
-        
-        
-        <ul> <!--//Stocker les differentes puces dans une balise-->
-                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                     <a href=../accueil.php> <!--//relie a un lien-->
-                         Matos
-                     </a>
-                 </li>
-                 <li class="btn">
-                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Snack
-                     </a>
-                 </li>
-                 <li class="btn">
-                     <a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                         Jeux
-                     </a>
-                 </li>
-             </ul>
-        
-        
+        </ul>   
         
         <footer>
             <p>

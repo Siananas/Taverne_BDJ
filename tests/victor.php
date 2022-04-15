@@ -8,27 +8,23 @@
     </head>
     <body>
 
-    
-
-    <?php
-    //On se connecte a la bdd, et on recupere les differentes variables
-    include '../conn.php';
-    ?>
-
-    <form action="victor.php" method="post">
-    <p>nouveau nom du snack : <input type="text" name="nom" /></p>
-    <p>lien img : <input type="text" name="lien" /></p>
-    <p><input type="submit" value="OK"></p>
+    <form method="post">
+        <input type = "text" name="snack_name" placeholder="Non du snack" required><br/>
+        <input type = "text" name="snack_img" placeholder="lien image" required>
+        <input type="submit" name="formsend" if="formsend">
     </form>
 
     <?php
-    $new_name = $_POST['nom'];
-    $new_lien = $_POST['lien'];
-    $sql = "INSERT INTO `Snacks`(`nom`, `lien_img`, `dispo`) VALUES ('".$new_name."','".$new_lien."','0')";
-    echo $sql
+    //On se connecte a la bdd
+    include '../database.php';
+    global $db;
+    
+    $q = $db -> query("SELECT * FROM snacks");
+    while ($test = $q -> fetch()) {
+        echo "nom du snack : " . $nom['nom'];
+    }
     
     ?>
-    
 
     <body>
 

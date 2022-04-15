@@ -28,21 +28,19 @@ ul.snacks_objet{
 /* Style SNACK */
 
 div.snacks_elements{
-    color:red;
     display: inline-block;
     vertical-align: text-top;
-    background-color: yellow;
+    background-color: orange;
 }
 
 div.prix{
-    color:red;
     vertical-align: text-top;
-    background-color: yellow;
+    background-color: orange;
 }
 
 div.img{
     vertical-align: text-top;
-    background-color: yellow;
+    background-color: orange;
 }
 
 li.snacks_list{

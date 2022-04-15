@@ -20,8 +20,15 @@
     global $db;
     
     $q = $db -> query("SELECT * FROM snacks");
-    while ($test = $q -> fetch()) {
-        echo "nom du snack : " . $nom['nom'];
+    while ($snacks = $q -> fetch()) {
+        ?>
+        <li>
+            <a href="profil.php?q = " <?= $snacks['nom'];?>>
+                
+            </a>
+        </li>
+
+    <?php
     }
     
     ?>

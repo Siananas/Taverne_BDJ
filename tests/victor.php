@@ -15,11 +15,20 @@
     include '../conn.php';
     ?>
 
-    <form action="action.php" method="post">
-    <p>Votre nom : <input type="text" name="nom" /></p>
-    <p>Votre âge : <input type="text" name="age" /></p>
+    <form action="victor.php" method="post">
+    <p>nouveau nom du snack : <input type="text" name="nom" /></p>
+    <p>lien img : <input type="text" name="lien" /></p>
     <p><input type="submit" value="OK"></p>
     </form>
+
+    <?php
+    $new_name = $_POST['nom'];
+    $new_lien = $_POST['lien'];
+    $sql = "INSERT INTO `Snacks`(`nom`, `lien_img`, `dispo`) VALUES ('".$new_name."','".$new_lien."','0')";
+    echo $sql
+    
+    ?>
+    
 
     <body>
 

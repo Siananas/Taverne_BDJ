@@ -12,9 +12,28 @@ nav.menu-nav ul li.btn a{
 }
 
 nav.menu-nav ul li.btn:hover a{
-    color: red;
+    color: #FDB304;
     background-color: white ;
     transition:0.5s all;
+}
+
+ul.snacks_objet{
+    list-style-type: none;
+    vertical-align: sub;
+    background-color: red;
+    padding:10px;
+}
+
+div.snacks_elements{
+    color:red;
+    display: inline-block;
+    vertical-align: text-top;
+    background-color: yellow;
+}
+
+li.snacks_list{
+    background-color: green;
+    vertical-align: baseline;
 }
 
 footer {
@@ -31,4 +50,5 @@ div#jeux {
 div#matos {
     background-color:#FFE2A0;
 }
+
 

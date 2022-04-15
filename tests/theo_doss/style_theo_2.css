@@ -1,4 +1,6 @@
 
+/* le HAUT DE PAGE */
+
 header{
     background-color: black
 }
@@ -6,7 +8,6 @@ header{
 p.En_tete {
     color: orange
 }
-
 
 h1.Titre {
     font-size: 50px; /*taille*/
@@ -16,14 +17,44 @@ h1.Titre {
         
 }
 
-nav.liste{
-    font-size: 20px; /*taille*/
-    color: #000; 
-    font-weight: bold; /*le gras*/
+ul.snacks_objet{
+    list-style-type: none;
+    vertical-align: sub;
+    background-color: red;
+    padding:10px;
 }
 
 
+/* Style SNACK */
+
+div.snacks_elements{
+    color:red;
+    display: inline-block;
+    vertical-align: text-top;
+    background-color: yellow;
+}
+
+div.prix{
+    color:red;
+    vertical-align: text-top;
+    background-color: yellow;
+}
+
+div.img{
+    vertical-align: text-top;
+    background-color: yellow;
+}
+
+li.snacks_list{
+    background-color: green;
+    vertical-align: baseline;
+}
+
+
+/* le PIED */
 
 footer{
     background-color: orange
 }
+
+

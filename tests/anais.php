@@ -1,10 +1,17 @@
 
+
+            <?php
+    //On se connecte a la bdd, et on recupere les differentes variables
+    include '../conn.php';
+    ?>
+
+
  <!DOCTYPE html>
  <<html>
      <head>
          <meta charset="UTF-8">
          <title>title</title>
-             <link rel="stylesheet" href="style_anais2.css"/>
+             <link rel="stylesheet" href="style_anais3.css"/>
 
      </head>
      <body>
@@ -38,6 +45,18 @@
             </h1>
             <p>
                 Voici tous les snacks que nous vous proposons
+                
+                        <ul class="snacks_objet">
+            <?php
+            for($i=0;$i<sizeof($snacks);$i++){
+                echo "<li class='snacks_list'><img src ='".$snacks[$i]['lien_img']."' width='80px' 'class='img'>". ""
+                        . "<div class='snacks_elements' >".$snacks[$i]["nom"].""
+                        . "</div> prix </li>";
+            }
+            ?>
+        </ul>  
+                
+                
             </p>
         </div>
                 <div id="jeux">
@@ -73,42 +92,20 @@
                 }
             }
         ?>
-        
-        <?php
-        //Connect to databse
-        $conn = mysqli_connect('localhost','general','root','taverne_bdj');
 
-        //if connection=false
-        if(!$conn){
-            echo 'Connection error: ' . mysqli_connect_error();
-        }
+        
+        
 
-        // Write querry for all users
-        $sql = 'SELECT * FROM snacks';
-
-        //Make query and get resuklt
-        $result = mysqli_query($conn, $sql);
-        //Fetch the resulting row in an array
-        $snacks = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        //print_r($snacks[1]["nom"]);
-
-        //Print the array
-        //print_r($snacks);
-        
-        
-        $nombre_snacks = sizeof($snacks);
-        
-        print_r($nombre_snacks);
-        ?>
-        
-        <?= $nombre_snacks ;?>
+        <?= $nb_snacks ;?>
         
         
         
         <ul class="snacks_objet">
             <?php
             for($i=0;$i<sizeof($snacks);$i++){
-                echo "<li class='snacks_list'><img src ='".$snacks[$i]['lien_img']."' width='80px' 'class='img'><div class='snacks_elements' >".$snacks[$i]["nom"]."</div> prix </li>";
+                echo "<li class='snacks_list'><img src ='".$snacks[$i]['lien_img']."' width='80px' 'class='img'>". ""
+                        . "<div class='snacks_elements' >".$snacks[$i]["nom"].""
+                        . "</div> prix </li>";
             }
             ?>
         </ul>   

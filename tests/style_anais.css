@@ -17,12 +17,7 @@ nav.menu-nav ul li.btn:hover a{
     transition:0.5s all;
 }
 
-ul.snacks_objet{
-    list-style-type: none;
-    vertical-align: sub;
-    background-color: red;
-    padding:10px;
-}
+
 
 div.snacks_elements{
     color:red;

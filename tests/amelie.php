@@ -4,14 +4,15 @@
 <html>
     <head>
         <style>
+
             /* styles de la bannière */
             nav.banniere{
                 width: 100%;
                 background-color: black;
                 position: sticky;
-                top: 0px;
-                margin: 0px;
-                padding: 0px;
+                top : 0px;
+                margin : 0px;
+                padding : 0px;
                 font-family: Lavanderia;
             }
 
@@ -21,7 +22,7 @@
             }
 
             nav.banniere ul li{
-                float: right;
+                float: none;
                 width: 100%;
                 text-align: right;
                 position: relative;
@@ -39,12 +40,11 @@
                 text-decoration: none;
                 color: white;
                 background-color: black;
-                border-bottom: 2px solid transparent;
-                padding: 10px 0px;
+                padding: 10px ;
             }
 
             nav.banniere a:hover{
-                color: orange;
+                color: black;
                 background-color: orange;
                 transition:0.5s all;
             }
@@ -68,7 +68,6 @@
                 background-color: black;
             }
             .sous a{
-                padding: 10px;
                 border-bottom: none;
                 background-color: black;
             }
@@ -81,7 +80,6 @@
             }
 
             .conteneur{
-                margin: 50px 20px;
                 height: 1500px;
                 background-color: black;
             }
@@ -95,30 +93,45 @@
             }
 
 
-            /* styles de la page */
+            /* styles de la page principale*/
 
             h1.snack   {
                 background-color: #FF7700;
                 color: white;
+                font-variant : small-caps;
             }
 
             h1.matos   {
                 background-color: #FF9435;
                 color: white;
+                font-variant : small-caps;
             }
 
             h1.jeux   {
                 background-color: #FFAC58;
                 color: white;
+                font-variant : small-caps;
+            }
+
+            p          {
+                color: black;
+                font-size: 20px;
+                font-style: italic;
+            }
+
+            div.intro {
+                padding : 30px;
             }
 
             p.intro    {
                 color: black;
-                font-size: 25px;
+                font-size: 30px;
                 font-style: italic;
+                font-variant : small-caps;
             }
 
             /*Style des boutons snacks matos et jeux*/
+
             nav.menu-nav ul li.btn{
                 display: inline-block;
                 list-style-type: none;
@@ -129,11 +142,12 @@
                 text-decoration: none;
                 padding : 10px;
                 border : #FF4D00;
+                position : center;
                 border-radius: 100px;
                 border: 4px double #cccccc;
                 font-size : 30px;
+                width : 100%;
                 text-align: center;
-                width: 100%;
             }
 
             a.snack {
@@ -150,14 +164,22 @@
 
             nav.menu-nav ul li.btn:hover a{
                 color: black;
-                background-color: #FFAC58 ;
                 transition:0.5s all;
+                background-color: #FFAC58 ;
             }
-        </style>
+
+            /*Style des items dans la liste snacks*/
+            ul.item_snack{
+                list-style-type: none;
+                padding:10px;
+            }
+
+        </style> <!-- styles -->
     </head>
 
     <body> 
-        <h1 class = banniere>Taverne BDJ</h1>
+
+        <h1 class = "banniere">Taverne BDJ</h1>
         <nav class = "banniere">
             <ul>
                 <li class="deroulant"><a href="#"><img src="Image_test/Tibou.jpg"> &ensp;</a>
@@ -168,87 +190,74 @@
                     </ul>
                 </li>
             </ul>
-        </nav> 
+        </nav> <!-- bannière -->
 
-        <p class = "intro"> Introduction </p>
+        <div class ="intro">
+            <p class = "intro"> Introduction </p>
 
-        <p> insérer blabla pour l'introduction </p>
+            <p> insérer blabla pour l'introduction </p>
 
-        <!-- 3 BOUTONS -->
-        <nav class="menu-nav"> <!--création d'un menu navigation-->
-            <ul> <!--//Stocker les differentes puces dans une balise-->
-                <li class="btn"> <!--//création d'un nouvelle puce-->
-                    <a class = "snack" href=../vue_generale.php> <!--//relie a un lien-->
-                        Snacks
-                    </a>
-                </li>
-                <li class="btn">
-                    <a class = "matos" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                        Matériel
-                    </a>
-                </li>
-                <li class="btn">
-                    <a class = "jeux" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
-                        Jeux
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
+            <!-- 3 BOUTONS -->
+            <nav class="menu-nav"> <!--création d'un menu navigation-->
+                <ul> <!--//Stocker les differentes puces dans une balise-->
+                    <li class="btn"> <!--//création d'un nouvelle puce-->
+                        <a class = "snack" href=vue_generale.php> <!--//relie a un lien-->
+                            Snacks
+                        </a>
+                    </li>
+                    <li class="btn">
+                        <a class = "matos" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                            Matériel
+                        </a>
+                    </li>
+                    <li class="btn">
+                        <a class = "jeux" href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK"> 
+                            Jeux
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <!-- 1ere section : snacks -->
-    </div>
-    <div id="snacks">
-        <h1 class = "snack">
-            SNACKS
-        </h1>
-        <p>
-            Voici tous les snacks que nous vous proposons :
+
+        <div id="snacks">
+            <h1 class = "snack">
+                Snacks
+            </h1>
+            <p>
+                Voici tous les snacks que nous vous proposons :
+
+            <ul class="item_snack">
+                <?php
+                for ($i = 0; $i < sizeof($snacks); $i++) {
+                    echo "<li class='snacks_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
+                    . "<div class='snacks_elements' >" . $snacks[$i]["nom"] . ""
+                    . "</div> prix </li>";
+                }
+                ?>
+            </ul> 
+
         </p>
-
-        <ul class ="item_snack">
-            <?php
-            $item_snack = "item_snack";
-
-            for ($i = 0; $i <= 10; $i++) {
-                echo
-                "<strong>"
-                . "<div id=" . $item_snack . ">"
-                . "snack" . $i . ""
-                . "</div>"
-                . "</strong>";
-            }
-            ?>
-        </ul>
     </div>
 
     <!-- 2eme section : matériel -->
     <div id="matos">
         <h1 class = "matos">
-            MATERIEL
+            Matériel
         </h1>
         <p>
             Voici tout le matériel que nous vous proposons :
         </p>
-        <ul class ="item_matos">
-
-        </ul>
     </div>
 
     <!-- 3eme section : location jeux de société -->
     <div id="jeux">
         <h1 class = "jeux">
-            JEUX
-        </h1>
-        <p>
-            Voici tous les jeux que nous vous proposons :
-        </p>
-        <ul class ="item_jeux">
-            
-        </ul>
+            Jeux
+            </h3>
+            <p>
+                Voici tous les jeux que nous vous proposons :
+            </p>
     </div>
-    <?php
-    ?>
-
-
 </body>
 </html>

@@ -16,7 +16,7 @@ nav.banniere ul{
 }
 
 nav.banniere ul li{
-    float: right;
+    float: none;
     width: 100%;
     text-align: right;
     position: relative;
@@ -34,12 +34,11 @@ nav.banniere a{
     text-decoration: none;
     color: white;
     background-color: black;
-    border-bottom: 2px solid transparent;
-    padding: 10px 0px;
+    padding: 10px;
 }
 
 nav.banniere a:hover{
-    color: orange;
+    color: black;
     background-color: orange;
     transition:0.5s all;
 }
@@ -63,7 +62,6 @@ nav > ul li:hover .sous{
     background-color: black;
 }
 .sous a{
-    padding: 10px;
     border-bottom: none;
     background-color: black;
 }
@@ -76,7 +74,6 @@ nav > ul li:hover .sous{
 }
 
 .conteneur{
-    margin: 50px 20px;
     height: 1500px;
     background-color: black;
 }
@@ -110,35 +107,51 @@ h1.jeux   {
     font-variant : small-caps;
 }
 
-p          {
-    color: black;
-    font-size: 20px;
-    font-style: italic;
+div.intro {
 }
 
 p.intro    {
-    color: red;
-    font-size: 25px;
+    padding: 20px;
+    color: black;
+    font-size: 35px;
     font-style: italic;
     font-variant : small-caps;
 }
 
+p          {
+    margin: 20px;
+    color: black;
+    font-size: 20px;
+}
+
+p.alinea{
+    margin: 20px;
+    color: black;
+    font-size: 20px;
+    text-indent: 40px; 
+}
+
+
 /*Style des boutons snacks matos et jeux*/
+nav.menu-nav ul{
+    width: 100%;
+    margin: 15px;
+}
+
 nav.menu-nav ul li.btn{
     display: inline-block;
     list-style-type: none;
+    position : center;
 }
 
 nav.menu-nav ul li.btn a{
     color: white;
     text-decoration: none;
     padding : 10px;
-    border : #FF4D00;
     position : center;
     border-radius: 100px;
     border: 4px double #cccccc;
     font-size : 30px;
-    width : 100%;
     text-align: center;
 }
 
@@ -165,4 +178,6 @@ ul.item_snack{
     list-style-type: none;
     padding:10px;
 }
+
+
 

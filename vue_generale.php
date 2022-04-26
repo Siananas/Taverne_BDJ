@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-//On se connecte a la bdd, et on recupere les differentes variables
-include 'conn.php';
+include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes variables
 ?>
 
 
@@ -15,7 +14,18 @@ include 'conn.php';
 
     <body>
 
-        <!-- insérer le code pour la bannière -->
+        <h1 class = "banniere">Taverne BDJ</h1>
+        <nav class = "banniere">
+            <ul>
+                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.jpg"> &ensp;</a>
+                    <ul class="sous">
+                        <li><a href="anais.php" target="_BLANK">Connection administrateur</a></li>
+                        <li><a href="https://fr.wikipedia.org/wiki/Raclette" target="_BLANK">Mentions légales</a></li>
+                        <li><a href="https://fr.wikipedia.org/wiki/Saucisson" target="_BLANK">Nous contacter</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav> <!-- bannière -->
 
         <p class = "intro"> Introduction </p>
 
@@ -25,7 +35,7 @@ include 'conn.php';
         <nav class="menu-nav"> <!--création d'un menu navigation-->
             <ul> <!--//Stocker les differentes puces dans une balise-->
                 <li class="btn"> <!--//création d'un nouvelle puce-->
-                    <a class = "snack" href=../accueil.php> <!--//relie a un lien-->
+                    <a class = "snack" href=vue_generale.php> <!--//relie a un lien-->
                         Snacks
                     </a>
                 </li>
@@ -51,7 +61,7 @@ include 'conn.php';
         <p>
             Voici tous les snacks que nous vous proposons :
 
-        <ul class="snacks_objet">
+        <ul class="item_snack">
             <?php
             for ($i = 0; $i < sizeof($snacks); $i++) {
                 echo "<li class='snacks_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
@@ -84,7 +94,8 @@ include 'conn.php';
         </p>
 </div>
 
-<!-- 
+
 <?php
 ?>
 </body>
+</html>

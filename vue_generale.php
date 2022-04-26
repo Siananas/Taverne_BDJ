@@ -18,7 +18,9 @@ include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes va
         <nav class = "banniere">
             <h1 class = "banniere">Taverne BDJ</h1>
             <ul>
-                <li><a href="#"><img src="tests/Image_test/icon_tel" width="80px" height="80px"/></a></li>
+                <li class = "appel">
+                    <a href="#"><img src="tests/Image_test/icon_tel" width="80px" height="80px"/></a>
+                </li>
                 <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.jpg" width="80px" height="80px"/> &ensp;</a>
                     <ul class="sous">
                         <li><a href="login_admin.php" target="_BLANK">Connection administrateur</a></li>

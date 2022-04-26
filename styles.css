@@ -163,21 +163,19 @@ nav.menu-nav ul li.btn a{
     border: 4px double #cccccc;
     font-size : 40px;
     text-align: center;
+    width: 100%;
 }
 
 a.snack {
     background-color: #FF7700 ;
-    width: 100%;
 }
 
 a.matos {
     background-color: #FF9435 ;
-    width: 100%;
 }
 
 a.jeux {
     background-color: #FFAC58 ;
-    width: 100%;
 }
 
 nav.menu-nav ul li.btn:hover a{

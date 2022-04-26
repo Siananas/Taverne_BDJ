@@ -40,6 +40,7 @@ include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes va
             <p> Voici les règles principales pour un bon fonctionnement général :</p>
             <p class ='alinea'>- Tu ne peux pas appeler un vendeur si quelqu'un en a appelé un il y a moins de 5 minutes</p>
             <p class ='alinea'>- Les jeux empruntés doivent être rendus après 2 semaines maximum</p>
+            <p class ='alinea'>- Chaque </p>
             <p class ='alinea'>- Respecte les vendeurs et responsables du snack, ils sont là pour toi ;)<br><br><br>
             </p>
 
@@ -69,7 +70,7 @@ include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes va
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
-            <h1 class = "snack">Snack</h1>
+            <h1 class = "snack">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
             <ul class="item_snack">
                 <?php

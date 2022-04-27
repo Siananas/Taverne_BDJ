@@ -25,9 +25,11 @@
             <?php
             for($i=0;$i<sizeof($snacks);$i++){
                 echo "<li class='snacks_list'>"
-                        . "<img src ='".$snacks[$i]['lien_img']."' width='80px' 'class='img'>". ""
+                        . "<img src ='".$snacks[$i]['lien_img']."' width='100px' 'class='img'>". ""
                         . "<div class='snacks_elements' >".$snacks[$i]["nom"].""
-                        . "</div class='prix'> prix </li>";
+                        . "<div class='prix'> prix"
+                    ." </li>";
+                
             }
             ?>
         </ul>

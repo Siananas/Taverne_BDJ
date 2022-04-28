@@ -121,8 +121,15 @@ include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes va
         </p>
 </div>
 
+<footer>
+    <p>
+        Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
+    </p>
+</footer>
 
 <?php
 ?>
+
+
 </body>
 </html>

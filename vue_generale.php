@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes variables
+include 'database.php'; 
+global $bd;
 ?>
 
 

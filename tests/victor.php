@@ -44,16 +44,20 @@
                 //On prepaer la requette. Ici, on veut inserer un nom et une img dans le snack. On leur insere les valeurs associées aux variables 'nom' et 'img' (methode securisée)
                 $q = $db -> prepare("INSERT INTO snacks(nom, lien_img)  VALUES(:nom, :img)");
                 //On execute la requette en attribuant aux variables 'nom' et 'img' les variables du Form
-                $q-> execute([
+                $q -> execute([
                     'nom' => $snack_name,
                     'img' => $snack_img
-                ]);
-                
+                ]); 
             }
         }
+
+        //Extraire le nombre de colomnes d'une table
+        
+        $result = $db -> query("SELECT * FROM snacks");
+        $row -> mysql_fetch_array($result);
+        
+        
     ?>
 
     <body>
-
-
 </html>

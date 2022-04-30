@@ -19,7 +19,7 @@
          <nav class="menu-nav"> <!--création d'un menu navigation-->
              <ul> <!--//Stocker les differentes puces dans une balise-->
                  <li class="btn"> <!--//création d'un nouvelle puce-->
-                     <a href=../accueil.php> <!--//relie a un lien-->
+                     <a href=../vue_generale.php> <!--//relie a un lien-->
                          Matos
                      </a>
                  </li>
@@ -83,8 +83,7 @@
         <?php
             if(isset($_POST["formsend"])){
                 if($_POST["mdp"]==="hello"){
-                    echo "very very good";
-                    header("Location: ../accueil.php");
+                    header("Location: ../vue_generale.php");
                     die();
                 }
                 else{

@@ -49,6 +49,18 @@ li.snacks_list{
 }
 
 
+
+/* Style MATOS version ADMIN */
+
+div.action_email div.action{
+    display: inline-block;
+}
+
+div.action form div.form{
+    display: inline-block;
+}
+
+
 /* le PIED */
 
 footer{

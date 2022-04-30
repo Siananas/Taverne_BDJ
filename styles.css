@@ -189,3 +189,9 @@ ul.item_snack{
     list-style-type: none;
     padding:10px;
 }
+
+footer{
+    background-color: #FF9435;
+    font-style: italic;
+    padding: 30 px;
+}

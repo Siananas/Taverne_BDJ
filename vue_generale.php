@@ -122,8 +122,15 @@ global $bd;
         </p>
 </div>
 
+<footer>
+    <p>
+        Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
+    </p>
+</footer>
 
 <?php
 ?>
+
+
 </body>
 </html>

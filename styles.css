@@ -196,3 +196,8 @@ footer{
     font-style: italic;
     padding: 30 px;
 }
+
+h3.mentions {
+    text-align: center;
+    font-style: italic;
+}

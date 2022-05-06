@@ -1,10 +1,15 @@
-
+<?php
+session_start();
+?>
 
 <html>
     
     <?php
-    // DATA 
+    // DATA
         include('../../conn.php');
+    
+        
+    // Lien : http://localhost/tavernebdj/tests/theo_doss/theo3.php http://localhost/tavernebdj/session.php
         ?>
     
     
@@ -44,7 +49,7 @@
             $supprimer = "supprimer";
             $nb = 0;
             $message = "Non";
-            
+            if (!isset($_SESSION['appuyer'])) $_SESSION['appuyer'] = false; // !!!!! Il faut la créer dans session puis include !!!!!!!
            
             for($i=0;$i<$nb;$i++){
                 echo "<form action=".$verif." METHOD=".$GET."> Saisissez @mail : <input name=".$mail."> <BR/>"
@@ -58,11 +63,13 @@
            
            <?php
            if(isset($_POST['test'])){ // Si Lecture du bouton ...
-               if ($message == "Non"){
-                   $message = "Oui";
+               if ($_SESSION['appuyer'] == false){
+                   $_SESSION['appuyer'] = true;
+                   $message = "C'est allumé";
                }
                else {
-                  $message = "Non"; 
+                  $message = "C'est éteint";
+                  $_SESSION['appuyer'] = false;
                }
                
                echo $message;

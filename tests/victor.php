@@ -9,6 +9,23 @@
     <body>
 
     <?php
+
+    /*On se connecte a la bdd
+    !!! Etape Nécessaire à TOUTES les pages ou on a besoins d'utiliser la BDD*/
+    include '../database.php';
+    global $db;
+
+
+    $sql = $db -> prepare("SELECT * FROM snacks");
+    $sql -> execute();
+    $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
+   
+
+
+
+
+
+
     /*
     Form pour rajouter un snack. pour le Snack, on a besoins du nom et de l'image.
     l'id et la dispo sont definis par defaut (la dispo est a 0 de base. elle passe a 1 si il y a du stock)
@@ -21,11 +38,6 @@
     </form>
 
     <?php
-        /*On se connecte a la bdd
-        !!! Etape Nécessaire à TOUTES les pages ou on a besoins d'utiliser la BDD
-        */
-        include '../database.php';
-        global $db;
 
         //Une fois qu'on valide le Form, on effectue cette action
         if (isset($_POST['formsend'])){ //Si on valide le form
@@ -50,13 +62,6 @@
                 ]); 
             }
         }
-
-        //Extraire le nombre de colomnes d'une table
-        
-        $result = $db -> query("SELECT * FROM snacks");
-        $row -> mysql_fetch_array($result);
-        
-        
     ?>
 
     <body>

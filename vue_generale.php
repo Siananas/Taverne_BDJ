@@ -3,6 +3,12 @@
 <?php
 include 'database.php'; 
 global $bd;
+
+$sql = $db -> prepare("SELECT * FROM snacks");
+$sql -> execute();
+$snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
+   
+
 ?>
 
 

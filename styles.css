@@ -191,7 +191,13 @@ ul.item_snack{
 }
 
 footer{
-    background-color: #FF9435;
+    background-color: black;
+    color: white;
     font-style: italic;
     padding: 30 px;
+}
+
+h3.mentions {
+    text-align: center;
+    font-style: italic;
 }

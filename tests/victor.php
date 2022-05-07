@@ -33,7 +33,8 @@
     ?>
     <form method="post">
         <input type = "text" name="snack_name" placeholder="Non du snack" required><br/>
-        <input type = "text" name="snack_img" placeholder="lien image" required>
+        <input type = "text" name="snack_img" placeholder="Lien image" required><br/>
+        <input type = "float" name="snack_prix" placeholder="Prix" required>
         <input type="submit" name="formsend" if="formsend">
     </form>
 
@@ -46,19 +47,20 @@
             extract($_POST);
 
             //On verifie que des valeurs ont bien été rentrées
-            if (!empty($snack_name) && !empty($snack_img)){
+            if (!empty($snack_name) && !empty($snack_img) && $snack_prix!=0){
                 
                 //Echo des variables pour verifier visuellement
-                echo $snack_name . '<br/>' . $snack_img;
+                echo $snack_name . '<br/>' . $snack_img . '<br/>' . $snack_prix ;
             
                 
                 //Inserer des données dans la BDD
                 //On prepaer la requette. Ici, on veut inserer un nom et une img dans le snack. On leur insere les valeurs associées aux variables 'nom' et 'img' (methode securisée)
-                $q = $db -> prepare("INSERT INTO snacks(nom, lien_img)  VALUES(:nom, :img)");
+                $q = $db -> prepare("INSERT INTO snacks(nom, lien_img, prix)  VALUES(:nom, :img, :prix)");
                 //On execute la requette en attribuant aux variables 'nom' et 'img' les variables du Form
                 $q -> execute([
                     'nom' => $snack_name,
-                    'img' => $snack_img
+                    'img' => $snack_img,
+                    'prix' => $snack_img
                 ]); 
             }
         }

@@ -2,8 +2,8 @@
 
 <?php
 //On se connecte a la bdd, et on recupere les differentes variables
-        include '../database.php';
-        global $db;
+include '../database.php';
+global $db;
 ?>
 
 
@@ -91,13 +91,29 @@
         }
     }
     ?>
+    <div classe="bigbloc">
         <div class="bloc">
-            test
             <div class="element">
-                Un autre test
+                <h4 class="titre">
+                    SNACKS
+                </h4>
             </div>
         </div>
-
+        <div class="bloc">
+            <div class="element">
+                <h4 class="titre">
+                    JEUX
+                </h4>
+            </div>
+        </div>
+        <div class="bloc">
+            <div class="element">
+                <h4 class="titre">
+                    MATERIEL
+                </h4>
+            </div>
+        </div>
+    </div>
 
     <?=
     $nb_snacks;
@@ -123,3 +139,33 @@
     </footer>
 </body>
 </html>
+
+
+
+<nav class="menu-nav"> <!--création d'un menu navigation-->
+    <ul> <!--//Stocker les differentes puces dans une balise-->
+        <div class = "case">
+            <li class="btn"> <!--//création d'un nouvelle puce-->
+                <a class = "snack" href="#snacks"> <!--//relie a un lien-->
+                    Snacks
+                </a>
+            </li>
+        </div>
+        <div>
+            <li class="btn">
+                <a class = "matos" href="#matos" target="_BLANK"> 
+                    Matériel
+                </a>
+            </li>
+        </div>
+        <div>
+            <li class="btn">
+                <a class = "jeux" href="#jeux" target="_BLANK"> 
+                    Jeux
+                </a>
+            </li>
+        </div>
+    </ul>
+</nav>
+
+

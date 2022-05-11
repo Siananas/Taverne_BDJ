@@ -54,6 +54,7 @@ li.snacks_list{
 
 div.action_email div.action{
     display: inline-block;
+    background-color: orange
 }
 
 div.action form div.form{

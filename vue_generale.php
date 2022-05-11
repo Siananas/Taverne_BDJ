@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 
 <?php
-include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes variables
+include 'database.php'; 
+global $bd;
+
+$sql = $db -> prepare("SELECT * FROM snacks");
+$sql -> execute();
+$snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
+   
+
 ?>
 
 
@@ -40,7 +47,6 @@ include 'conn.php'; //On se connecte a la bdd, et on recupere les differentes va
             <p> Voici les règles principales pour un bon fonctionnement général :</p>
             <p class ='alinea'>- Tu ne peux pas appeler un vendeur si quelqu'un en a appelé un il y a moins de 5 minutes</p>
             <p class ='alinea'>- Les jeux empruntés doivent être rendus après 2 semaines maximum</p>
-            <p class ='alinea'>- Chaque </p>
             <p class ='alinea'>- Respecte les vendeurs et responsables du snack, ils sont là pour toi ;)<br><br><br>
             </p>
 

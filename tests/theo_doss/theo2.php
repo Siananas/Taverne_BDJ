@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); // démarrage de la session pour sauvegarder les variable (doit etre la première ligne du code)
 ?>
 
 <html>
@@ -42,26 +42,56 @@ session_start();
        <ul class ="Matériel">
            
             <?php
-            $verif = "verif.php";
-            $GET = "GET";
-            $mail = "mail";
-            $summit = "summit";
-            $supprimer = "supprimer";
-            $nb = 0;
-            $message = "Non";
-            if (!isset($_SESSION['appuyer'])) $_SESSION['appuyer'] = false; // !!!!! Il faut la créer dans session puis include !!!!!!!
+ 
+            if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
            
-            for($i=0;$i<$nb;$i++){
-                echo "<form action=".$verif." METHOD=".$GET."> Saisissez @mail : <input name=".$mail."> <BR/>"
-                        . "<button type=".$summit.">Valider</button>  
-                        <button class = ".$supprimer.">Supprimer</button>  
-                        </form>" ;
+            
+            if(isset($_POST['ajout'])){ // Si Lecture du bouton ...
+               $_SESSION['nb'] += 1;
+               echo $_SESSION['nb'];
+           }
+           
+           if(isset($_POST['zero'])){ // Si Lecture du bouton ...
+               $_SESSION['nb'] = 0;
+               echo $_SESSION['nb'];
+           }
+            
+            
+            for($i=0;$i<$_SESSION['nb'];$i++){ // *ici* voir note plus bas
+
+                echo "<div class = 'action_email'> 
+                
+                <div class = 'action'> 
+                    
+                    <form action='verif.php' METHOD='GET'>
+                        <div class='form'>
+                            Saisissez @mail : <input name='mail'> <BR/>
+                        </div>
+                        
+                        <div class='form'> 
+                            <button type='summit'>Valider</button> 
+                        </div>
+                        
+                    </form>
+                </div>
+
+                <div class = 'action'> 
+                    <button class = 'modifier'>Modifier</button>
+                </div>
+
+                <div class = 'action'> 
+                    <button class = 'supprimer'>Supprimer</button>
+                </div>            
+            </div>";
             }
   
            ?>
            
+         
+           <?php // Bouton TEST php on/off
+           $message = "Non";
+           if (!isset($_SESSION['appuyer'])) $_SESSION['appuyer'] = false;
            
-           <?php
            if(isset($_POST['test'])){ // Si Lecture du bouton ...
                if ($_SESSION['appuyer'] == false){
                    $_SESSION['appuyer'] = true;
@@ -76,43 +106,24 @@ session_start();
            }
            ?>
            
-           <form method="post"> <!-- Ajout du bouton (il doit etre dans un form) -->
+           <form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
                     <input class = "" name="test" type ="submit" value = "Test" >
            </form>
            
         
        </ul>
        
-        <div class ="formulaire_matos">
+       <div class ="formulaire_matos"> <!-- permet d'afficher le formulaire et les boutons à coté (cette partit est utiliser pour écho ensuite dans du php *ici*  -->
             
-            <div class = "action_email"> 
-                
-                <div class = "action"> 
-                    
-                    <form action="verif.php" METHOD="GET">
-                        <div class="form"> 
-                            Saisissez @mail : <input name="mail1"> <BR/>
-                        </div>
-                        
-                        <div class="form"> 
-                            <button type="summit">Valider</button> 
-                        </div>
-                        
-                    </form>
-                </div>
-
-                <div class = "action"> 
-                    <button class = "modifier">Modifier</button>
-                </div>
-
-                <div class = "action"> 
-                    <button class = "supprimer">Supprimer</button>
-                </div>            
-            </div>
-            
-            <div class = "ajout"> 
+           <div class = "ajout">  <!-- BOUTON + (ajouter) -->
                    <form method="post"> <!-- Ajout du bouton (il doit etre dans un form) -->
                         <input class = "" name="ajout" type ="submit" value = "+" >
+                   </form>
+            </div>
+           
+           <div class = "zero">  <!-- BOUTON + (ajouter) -->
+                   <form method="post"> <!-- Ajout du bouton (il doit etre dans un form) -->
+                        <input class = "" name="zero" type ="submit" value = "0" >
                    </form>
             </div>
             

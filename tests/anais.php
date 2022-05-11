@@ -120,7 +120,7 @@ global $db;
     echo $snack_name;
     ?>
 
-
+<img src="Image_test/Tibou.jpg" class='img'width="100px" height="100px"/>
 
     <ul class="snacks_objet">
         <?php

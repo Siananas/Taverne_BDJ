@@ -84,12 +84,12 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <div id="snacks">
             <h1 class = "snack">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
-            <ul class="item_snack">
+            <ul class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
-                    echo "<li class='snacks_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                    . "<div class='snacks_elements' >" . $snacks[$i]["nom"] . ""
-                    . "</div> prix </li>";
+                    echo "<div class='snack_element'><li class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px'>" . ""
+                    . "<div class='nom' >" . $snacks[$i]["nom"] . ""
+                    . "</div> prix </li></div>";
                 }
                 ?>
             </ul>

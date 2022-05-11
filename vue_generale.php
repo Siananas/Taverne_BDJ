@@ -8,7 +8,13 @@ $sql = $db -> prepare("SELECT * FROM snacks");
 $sql -> execute();
 $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
    
+$sql = $db -> prepare("SELECT * FROM jeux");
+$sql -> execute();
+$jeux = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
+$sql = $db -> prepare("SELECT * FROM materiel");
+$sql -> execute();
+$materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 
@@ -78,12 +84,12 @@ $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <div id="snacks">
             <h1 class = "snack">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
-            <ul class="item_snack">
+            <ul class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
-                    echo "<li class='snacks_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                    . "<div class='snacks_elements' >" . $snacks[$i]["nom"] . ""
-                    . "</div> prix </li>";
+                    echo "<div class='snack_element'><li class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px'>" . ""
+                    . "<div class='nom' >" . $snacks[$i]["nom"] . ""
+                    . "</div> prix </li></div>";
                 }
                 ?>
             </ul>
@@ -100,9 +106,9 @@ $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
             Voici tout le matériel que nous vous proposons :
         <ul class="item_matos">
             <?php
-            for ($i = 0; $i < sizeof($matos); $i++) {
-                echo "<li class='matos_list'><img src ='" . $matos[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $matos[$i]["nom"];
+            for ($i = 0; $i < sizeof($materiel); $i++) {
+                echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
+                . "<div class='matos_elements' >" . $materiel[$i]["nom"];
             }
             ?>
         </ul> 
@@ -118,9 +124,9 @@ $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
             Voici tous les jeux que nous vous proposons :
         <ul class="item_jeux">
             <?php
-            for ($i = 0; $i < sizeof($snacks); $i++) {
-                echo "<li class='jeux_list'><img src ='" . $jeux[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $snacks[$i]["nom"] . "";
+            for ($i = 0; $i < sizeof($jeux); $i++) {
+                echo "<li class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='80px' 'class='img'>" . ""
+                . "<div class='matos_elements' >" . $jeux[$i]["nom"] . "";
             }
             ?>
         </ul> 

@@ -88,9 +88,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
                     if ($snacks[$i]["dispo"] != 0) {
-                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px'>" . ""
-                        . "<div class='nom' >" . $snacks[$i]["nom"] . ""
-                        . "</div>" . "<div class='prix' >" . $snacks[$i]["prix"] . ""
+                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                        . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+                        . "</div>" . "<div class='prix' id='prout' >" . $snacks[$i]["prix"] . ""
                         . "</div> </ul>";
                     }
                 }

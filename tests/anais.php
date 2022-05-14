@@ -77,6 +77,19 @@ global $db;
         </p>
     </div>
 
+
+    <form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
+        <input class = "" name="test" type ="submit" value = "Test" >
+    </form>
+
+    <?php
+    if (isset($_POST['test'])) { // Si Lecture du bouton ...
+        echo prout;
+    }
+    ?> 
+
+        
+        
     <form method="post">
         <input type="text" name="mdp" id="mdp">
         <input type="submit" name="formsend" id=formsend">
@@ -120,7 +133,7 @@ global $db;
     echo $snack_name;
     ?>
 
-<img src="Image_test/Tibou.jpg" class='img'width="100px" height="100px"/>
+    <img src="../Images/bounty.jpg" class='img'/>
 
     <ul class="snacks_objet">
         <?php
@@ -140,7 +153,9 @@ global $db;
 </body>
 </html>
 
-
+<div class="popup" onclick="myFunction()">Click me!
+    <span class="popuptext" id="myPopup">Popup text...</span>
+</div>
 
 <nav class="menu-nav"> <!--création d'un menu navigation-->
     <ul> <!--//Stocker les differentes puces dans une balise-->

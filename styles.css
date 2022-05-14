@@ -201,3 +201,11 @@ h3.mentions {
     text-align: center;
     font-style: italic;
 }
+
+ul.snack_list img {
+    display: inline-block;
+    background-color: red;
+}
+.prix{
+    color:orange;
+}

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
 <?php
-include 'database.php'; 
+include 'database.php';
 global $bd;
 
-$sql = $db -> prepare("SELECT * FROM snacks");
-$sql -> execute();
+$sql = $db->prepare("SELECT * FROM snacks");
+$sql->execute();
 $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
-   
-$sql = $db -> prepare("SELECT * FROM jeux");
-$sql -> execute();
+
+$sql = $db->prepare("SELECT * FROM jeux");
+$sql->execute();
 $jeux = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
-$sql = $db -> prepare("SELECT * FROM materiel");
-$sql -> execute();
+$sql = $db->prepare("SELECT * FROM materiel");
+$sql->execute();
 $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
@@ -78,7 +78,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             </nav>
             <br><br>
         </div>
-        
+
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
@@ -87,9 +87,12 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             <ul class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
-                    echo "<div class='snack_element'><li class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px'>" . ""
-                    . "<div class='nom' >" . $snacks[$i]["nom"] . ""
-                    . "</div> prix </li></div>";
+                    if ($snacks[$i]["dispo"] != 0) {
+                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px'>" . ""
+                        . "<div class='nom' >" . $snacks[$i]["nom"] . ""
+                        . "</div>" . "<div class='prix' >" . $snacks[$i]["prix"] . ""
+                        . "</div> </ul>";
+                    }
                 }
                 ?>
             </ul>
@@ -97,7 +100,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </div>
 
     <!-- 2eme section : matériel -->
-    
+
     <div id="matos">
         <h1 class = "matos">
             Matériel
@@ -139,8 +142,6 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </p>
 </footer>
 
-<?php
-?>
 
 
 </body>

@@ -79,6 +79,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             <br><br>
         </div>
 
+
+        <hr color="#DEB100" width="80%"> 
+
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
@@ -90,8 +93,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     if ($snacks[$i]["dispo"] != 0) {
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-                        . "</div>" . "<div class='prix' id='prout' >" . $snacks[$i]["prix"] . ""
-                        . "</div> </ul>";
+                        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "</b>"
+                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
                     }
                 }
                 ?>
@@ -128,13 +131,23 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
-                echo "<li class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $jeux[$i]["nom"] . "";
+                echo "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"]. "</div>"
+                        . "<img src =Images/plus width='5%' id='prout'>"
+                        . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] ."</div></ul>";
             }
             ?>
         </ul> 
         </p>
 </div>
+
+
+echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+        . "</div>" . "<div class='prix' id='prout' ><b> ".$snacks[$i]["prix"] . "</b>"
+        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
+
+
 
 <footer>
     <p>

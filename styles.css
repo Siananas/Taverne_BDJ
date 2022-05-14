@@ -99,21 +99,21 @@ h1.banniere {
 /* styles de la page principale*/
 
 h1.snack   {
-    background-color: #FF7700;
+    background-color: #DE9426;
     color: white;
     font-variant : small-caps;
     text-indent: 20px; 
 }
 
 h1.matos   {
-    background-color: #FF9435;
+    background-color: #DE9426;
     color: white;
     font-variant : small-caps;
     text-indent: 20px; 
 }
 
 h1.jeux   {
-    background-color: #FFAC58;
+    background-color: #DE9426;
     color: white;
     font-variant : small-caps;
     text-indent: 20px; 
@@ -190,34 +190,26 @@ ul.item_snack{
     padding:10px;
 }
 
-footer{
-    background-color: black;
-    color: white;
-    font-style: italic;
-    padding: 30 px;
-}
-
-h3.mentions {
-    text-align: center;
-    font-style: italic;
+div#snacks {
+    background-color: #FAF5DE;
 }
 
 ul.snack_list{
-    background-color: #FFF5CA;
+    background-color: white;
     margin: 20px;
+    border-radius: 20px;
 }
 
 ul.snack_list div.nom{
     text-align: left;
-    font-size:3vw;
+    font-size:5vw;
     width: 35%;
 }
 
 ul.snack_list div.prix{
-    color:orange;
     text-align: right;
     vertical-align: top;
-    font-size:3vw;
+    font-size:5vw;
     width: 35%;
 }
 
@@ -225,4 +217,47 @@ ul.snack_list div.prix{
     vertical-align: middle;
     display: inline-block;
     padding:10px;
+}
+
+/* Liste jeux*/
+
+ul.jeux_list{
+    background-color: white;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+div#jeux {
+    background-color: #FAF5DE;
+}
+
+ul.jeux_list div.nom{
+    text-align: left;
+    font-size:5vw;
+    width: 40%;
+}
+
+ul.jeux_list div.dispo{
+    text-align: right;
+    vertical-align: top;
+    font-size:5vw;
+    width: 20%;
+}
+
+
+
+
+
+
+/*footer*/
+h3.mentions {
+    text-align: center;
+    font-style: italic;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 30 px;
 }

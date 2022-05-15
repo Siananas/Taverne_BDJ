@@ -137,21 +137,26 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             Voici tous les jeux que nous vous proposons :
         <ul class="item_jeux">
             <?php
+            
             for ($i = 0; $i < sizeof($jeux); $i++) {
+                
+                $nb = strval($i);
+                $bouton = "btn$nb";
 
                 echo "<ul class='jeux_list'>          
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
                 . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input name='nb'.'test' type ='submit' value = '' class='btnjeux'></form></div>";
+                <input  name=".$bouton." value=".$bouton." type ='submit' class='btnjeux'></form></div>";
                    
-                if (isset($_POST['nb'.'test'])) {
+                if (isset($_POST[$bouton])) {
                     echo "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
                     } 
                     
                 echo '</ul>';
             }
+            
             ?>
         </ul>         
         </p>

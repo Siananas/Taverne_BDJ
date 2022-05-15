@@ -5,11 +5,9 @@ session_start(); // démarrage de la session pour sauvegarder les variable (doit
 <html>
     
     <?php
-    // DATA
-        include('../../conn.php');
-    
+
         
-    // Lien : http://localhost/tavernebdj/tests/theo_doss/theo3.php http://localhost/tavernebdj/session.php
+    // Lien : http://localhost/taverne_bdj/tests/theo_doss/theo3.php http://localhost/taverne_bdj/session.php
         ?>
     
     
@@ -26,28 +24,15 @@ session_start(); // démarrage de la session pour sauvegarder les variable (doit
         
        <h1 class="Titre">TavernBDJ</h1>
         
-       <ul class="snacks_objet">
-            <?php
-            for($i=0;$i<sizeof($snacks);$i++){
-                echo "<li class='snacks_list'>"
-                        . "<img src ='".$snacks[$i]['lien_img']."' width='100px' 'class='img'>". ""
-                        . "<div class='snacks_elements' >".$snacks[$i]["nom"].""
-                        . "<div class='prix'> prix"
-                    ." </li>";
-                
-            }
-            ?>
-        </ul>
-       
        <ul class ="Matériel">
            
             <?php
- 
+                
             if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
            
             
             if(isset($_POST['ajout'])){ // Si Lecture du bouton ...
-               $_SESSION['nb'] += 1;
+               $_SESSION['nb'] = 1;
                echo $_SESSION['nb'];
            }
            
@@ -116,7 +101,7 @@ session_start(); // démarrage de la session pour sauvegarder les variable (doit
        <div class ="formulaire_matos"> <!-- permet d'afficher le formulaire et les boutons à coté (cette partit est utiliser pour écho ensuite dans du php *ici*  -->
             
            <div class = "ajout">  <!-- BOUTON + (ajouter) -->
-                   <form method="post"> <!-- Ajout du bouton (il doit etre dans un form) -->
+                   <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
                         <input class = "" name="ajout" type ="submit" value = image src =https://www.enpaysdelaloire.com/sites/default/files/styles/ogimage/public/edito/produits/images/Foret-de-Mervent.jpg?itok=UDg46oH8" >
                    </form>
             </div>

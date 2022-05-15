@@ -27,11 +27,11 @@
     <form method="post">
         <input type = "text" name="snack_name" placeholder="Nom du snack" required><br/>
         <input type = "text" name="new_name" placeholder="Nouveau nom" required>
-        <input type="submit" name="formmod" value="Confirm"/>
+        <input type="submit" name="formsend" value="formsend"/>
     </form>
 
     <?php
-        if (isset($POST['formmod'])){
+        if (isset($POST['formsend'])){
             print_r($_POST);
             extract($_POST);
 

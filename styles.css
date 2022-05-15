@@ -253,9 +253,9 @@ ul.jeux_list form input.btnjeux{
 
 /*Liste matos*/
 
-ul.matos_list {
-    background-color:red;
+ul.item_matos ul.matos_list {
     width: 30%;
+    display: inline-block;
 }
 
 

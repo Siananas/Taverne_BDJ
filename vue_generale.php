@@ -120,17 +120,10 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                if ($i % 2 == 1) {
-                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $matos[$i]['lien_img'] . "' width='15%' class='matos_img'>"
-                    . "<div class='nom' >" . $matos[$i]["nom"] . ""
-                    . "</div><div class='dispo' >" . $matos[$i]["dispo"] . ""
+                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "' width='15%' class='matos_img'>"
+                    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                    . "</div><div class='dispo' >" . $materiel[$i]["nombre"] . ""
                     . "</div></ul>";
-                } else {
-                    echo "<ul class='matos_list' background-color='white'><img src='" . $matos[$i]['lien_img'] . "' width='15%' class='matos_img'>"
-                    . "<div class='nom' >" . $matos[$i]["nom"] . ""
-                    . "</div><div class='dispo' >" . $matos[$i]["dispo"] . ""
-                    . "</div></ul>";
-                }
             }
             ?>
         </ul> 

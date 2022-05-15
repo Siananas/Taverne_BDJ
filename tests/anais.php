@@ -1,9 +1,20 @@
 
 
 <?php
-//On se connecte a la bdd, et on recupere les differentes variables
-include '../database.php';
-global $db;
+include 'database.php';
+global $bd;
+
+$sql = $db->prepare("SELECT * FROM snacks");
+$sql->execute();
+$snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+$sql = $db->prepare("SELECT * FROM jeux");
+$sql->execute();
+$jeux = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+$sql = $db->prepare("SELECT * FROM materiel");
+$sql->execute();
+$materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 
@@ -60,6 +71,66 @@ global $db;
 
         </p>
     </div>
+    c'est ici
+    <form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
+
+        <input type="image" src="../Images/plus" alt="Submit" width="100" formtarget="test">
+    </form>
+
+
+
+    <?php
+    if (isset($_POST['test'])) { // Si Lecture du bouton ...
+        echo "message";
+    }
+    ?>
+
+    <button type"image" src="../Images/plus" onclick="maFonction()">Bouton</button>
+
+
+    c'est plus ici
+    <form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
+        <input class = "" name="test2" type ="submit" value = "Test" >
+    </form>
+
+
+    <?php
+    if (isset($_POST['test2'])) { // Si Lecture du bouton ...
+        echo "message2";
+    }
+    ?>
+
+    <div id="jeux">
+        <h1 class = "jeux">
+            Jeux
+            </h3>
+            <p>
+                Voici tous les jeux que nous vous proposons :
+            <ul class="item_jeux">
+                <?php
+                for ($i = 0; $i < sizeof($jeux); $i++) {
+                    echo "<ul class='jeux_list'>          
+                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='blocs'>" . ""
+                    . "<div class='nom' id='blocs'>" . $jeux[$i]["nom"] . "</div>"
+                    . "<div class='dispo' id='blocs'>" . $jeux[$i]["nombre_reserves"] . "</div>"
+                    . "<div class='btnjeux' id='blocs'><form method='post'> 
+                <input name='test2' type ='submit' value = '' class='btnjeux'></form></div>
+                   
+                <?php 
+                if (isset(" . $_POST['test2'] . ")) {
+                    echo 'message2';
+                    } ?>
+                    </ul>";
+                }
+                ?>
+            </ul> 
+            </p>
+    </div>
+
+
+
+
+
     <div id="jeux">
         <h1>
             JEUX
@@ -88,8 +159,8 @@ global $db;
     }
     ?> 
 
-        
-        
+
+
     <form method="post">
         <input type="text" name="mdp" id="mdp">
         <input type="submit" name="formsend" id=formsend">
@@ -153,34 +224,19 @@ global $db;
 </body>
 </html>
 
-<div class="popup" onclick="myFunction()">Click me!
-    <span class="popuptext" id="myPopup">Popup text...</span>
-</div>
-
-<nav class="menu-nav"> <!--création d'un menu navigation-->
-    <ul> <!--//Stocker les differentes puces dans une balise-->
-        <div class = "case">
-            <li class="btn"> <!--//création d'un nouvelle puce-->
-                <a class = "snack" href="#snacks"> <!--//relie a un lien-->
-                    Snacks
-                </a>
-            </li>
-        </div>
-        <div>
-            <li class="btn">
-                <a class = "matos" href="#matos" target="_BLANK"> 
-                    Matériel
-                </a>
-            </li>
-        </div>
-        <div>
-            <li class="btn">
-                <a class = "jeux" href="#jeux" target="_BLANK"> 
-                    Jeux
-                </a>
-            </li>
-        </div>
-    </ul>
-</nav>
 
 
+<ul class="item_jeux">
+    <?php
+    for ($i = 0; $i < sizeof($jeux); $i++) {
+        echo "<ul class='jeux_list'>          
+                <div class='btnjeux'><form method='post'> 
+                <input name='test2' type ='submit' value = '' class='btnjeux'></form></div>
+                   
+                <?php if (isset(" . $_POST['test2'] . ")) {
+                    echo 'message2';
+                    } ?>
+            </ul>";
+    }
+    ?>
+</ul>

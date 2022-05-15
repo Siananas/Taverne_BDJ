@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 
 <?php
-include 'database.php'; 
+include 'database.php';
 global $bd;
+
+$sql = $db->prepare("SELECT * FROM snacks");
+$sql->execute();
+$snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+$sql = $db->prepare("SELECT * FROM jeux");
+$sql->execute();
+$jeux = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+$sql = $db->prepare("SELECT * FROM materiel");
+$sql->execute();
+$materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
 
@@ -40,12 +52,15 @@ global $bd;
 
         <div id="snacks">
             <h1 class = "snack">Snacks</h1>
-            <ul class="item_snack">
+            <ul class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
-                    echo "<li class='snacks_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                    . "<div class='snacks_elements' >" . $snacks[$i]["nom"] . ""
-                    . "</div> prix </li>";
+                    if ($snacks[$i]["dispo"] != 0) {
+                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                        . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+                        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
+                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
+                    }
                 }
                 ?>
             </ul>
@@ -61,12 +76,12 @@ global $bd;
         <p>
         <ul class="item_matos">
             <?php
-            for ($i = 0; $i < sizeof($matos); $i++) {
-                echo "<li class='matos_list'><img src ='" . $matos[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $matos[$i]["nom"];
+            for ($i = 0; $i < sizeof($materiel); $i++) {
+                echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
+                . "<div class='matos_elements' >" . $materiel[$i]["nom"];
             }
             ?>
-        </ul> 
+        </ul>  
     </p>
 </div>
 
@@ -78,9 +93,14 @@ global $bd;
         <p>
         <ul class="item_jeux">
             <?php
-            for ($i = 0; $i < sizeof($snacks); $i++) {
-                echo "<li class='jeux_list'><img src ='" . $jeux[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $snacks[$i]["nom"] . "";
+            for ($i = 0; $i < sizeof($jeux); $i++) {
+                echo "<form method='post'> 
+                <input name='test2' type ='submit' value = 'Test' ></form>"
+                
+                . "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                . "<img src =Images/plus width='5%' id='prout'>"
+                . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div></ul>";
             }
             ?>
         </ul> 

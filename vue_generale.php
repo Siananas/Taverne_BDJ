@@ -17,6 +17,10 @@ $sql->execute();
 $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
+<form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
+    <input class = "" name="test2" type ="submit" value = "Test" >
+</form>
+
 
 <html>
     <head>
@@ -93,7 +97,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     if ($snacks[$i]["dispo"] != 0) {
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-                        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "</b>"
+                        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
                         . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
                     }
                 }
@@ -131,22 +135,26 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
-                echo "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"]. "</div>"
-                        . "<img src =Images/plus width='5%' id='prout'>"
-                        . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] ."</div></ul>";
+                echo "<ul class='jeux_list'>          
+                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='blocs'>" . ""
+                . "<div class='nom' id='blocs'>" . $jeux[$i]["nom"] . "</div>"
+                . "<div class='dispo' id='blocs'>" . $jeux[$i]["nombre_reserves"] . "</div>"
+                . "<div class='btnjeux' id='blocs'><form method='post'> 
+                <input name=".$jeux[$i]["nom"] . " type ='submit' value = '' class='btnjeux'></form></div>";
+                   
+                if (isset($jeux[$i]["nom"])) {
+                    echo 'message2';
+                    } 
+                    
+                echo '</ul>';
             }
             ?>
-        </ul> 
+        </ul>         
         </p>
 </div>
 
 
-echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
-    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-        . "</div>" . "<div class='prix' id='prout' ><b> ".$snacks[$i]["prix"] . "</b>"
-        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
-
+<img src="Images/plus2.png">
 
 
 <footer>

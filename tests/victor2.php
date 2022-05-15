@@ -25,21 +25,22 @@
     */
     ?>
     <form method="post">
-        <input type = "text" name="snack_name" placeholder="Nom du snack" required><br/>
+        <input type = "text" name="snack_name" placeholder="Non du snack" required><br/>
         <input type = "text" name="new_name" placeholder="Nouveau nom" required>
-        <input type="submit" name="formmod" value="Confirm"/>
+        <input type="submit" name="formsend" if="formsend">
     </form>
 
     <?php
-        if (isset($POST['formmod'])){
+        //Une fois qu'on valide le Form, on effectue cette action
+        if (isset($_POST['formsend'])){ //Si on valide le form
+
             print_r($_POST);
+            //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
             extract($_POST);
 
             if (!empty($snack_name) && !empty($new_name)){
                 
                 echo $snack_name . '<br/>' . $new_name;
-                
-                
 
                 $q = $db -> prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
                 $q -> execute([

@@ -144,7 +144,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
                 . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input name='nb'.'test' type ='submit' value = '' class='btnjeux'></form></div>";
+                <input name=$i type ='submit' value = '' class='btnjeux'></form></div>
+                <input type=hidden name=Id value='".$i."'>";
                    
                 if (isset($_POST['nb'.'test'])) {
                     echo "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";

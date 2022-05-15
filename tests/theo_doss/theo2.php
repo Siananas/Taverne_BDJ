@@ -117,7 +117,7 @@ session_start(); // démarrage de la session pour sauvegarder les variable (doit
             
            <div class = "ajout">  <!-- BOUTON + (ajouter) -->
                    <form method="post"> <!-- Ajout du bouton (il doit etre dans un form) -->
-                        <input class = "" name="ajout" type ="submit" value = "+" >
+                        <input class = "" name="ajout" type ="submit" value = image src =https://www.enpaysdelaloire.com/sites/default/files/styles/ogimage/public/edito/produits/images/Foret-de-Mervent.jpg?itok=UDg46oH8" >
                    </form>
             </div>
            

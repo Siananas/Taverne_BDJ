@@ -148,10 +148,10 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
                 . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input  name=".$bouton." value=".$bouton." type ='submit' class='btnjeux'></form></div>";
+                <input  name=".$bouton." value='' type='submit' class='btnjeux'></form></div>";
                    
                 if (isset($_POST[$bouton])) {
-                    echo "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
+                    echo "<div class='nom' id='prout'> Description de " . $jeux[$i]["nom"] . "</div>";
                     } 
                     
                 echo '</ul>';

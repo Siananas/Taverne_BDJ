@@ -1,3 +1,6 @@
+<?php
+session_start(); // démarrage de la session pour sauvegarder les variable (doit etre la première ligne du code)
+?>
 <!DOCTYPE html>
 
 <?php
@@ -135,15 +138,16 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
+
                 echo "<ul class='jeux_list'>          
-                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='blocs'>" . ""
-                . "<div class='nom' id='blocs'>" . $jeux[$i]["nom"] . "</div>"
-                . "<div class='dispo' id='blocs'>" . $jeux[$i]["nombre_reserves"] . "</div>"
-                . "<div class='btnjeux' id='blocs'><form method='post'> 
-                <input name=".$jeux[$i]["nom"] . " type ='submit' value = '' class='btnjeux'></form></div>";
+                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
+                . "<div class='btnjeux' id='prout'><form method='post'> 
+                <input name='nb'.'test' type ='submit' value = '' class='btnjeux'></form></div>";
                    
-                if (isset($jeux[$i]["nom"])) {
-                    echo 'message2';
+                if (isset($_POST['nb'.'test'])) {
+                    echo "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
                     } 
                     
                 echo '</ul>';
@@ -152,7 +156,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </ul>         
         </p>
 </div>
-
+if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
 
 <img src="Images/plus2.png">
 

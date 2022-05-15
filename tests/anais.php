@@ -1,4 +1,6 @@
-
+<?php
+session_start(); // démarrage de la session pour sauvegarder les variable (doit etre la première ligne du code)
+?>
 
 <?php
 include 'database.php';
@@ -88,17 +90,21 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <button type"image" src="../Images/plus" onclick="maFonction()">Bouton</button>
 
 
-    c'est plus ici
+    c'est plus ici-------------------
+    <?php
+    if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
+    ?>
     <form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
-        <input class = "" name="test2" type ="submit" value = "Test" >
+        <input class = "" name="nb" type ="submit" value = "Test" >
     </form>
 
 
     <?php
-    if (isset($_POST['test2'])) { // Si Lecture du bouton ...
+    if (isset($_POST['nb'])) { // Si Lecture du bouton ...
         echo "message2";
     }
     ?>
+    -----------------------
 
     <div id="jeux">
         <h1 class = "jeux">

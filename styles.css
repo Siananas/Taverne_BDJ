@@ -202,14 +202,14 @@ ul.snack_list{
 
 ul.snack_list div.nom{
     text-align: left;
-    font-size:5vw;
+    font-size:4vw;
     width: 35%;
 }
 
 ul.snack_list div.prix{
     text-align: right;
     vertical-align: top;
-    font-size:5vw;
+    font-size:4vw;
     width: 35%;
 }
 
@@ -233,14 +233,14 @@ div#jeux {
 
 ul.jeux_list div.nom{
     text-align: left;
-    font-size:5vw;
+    font-size:4vw;
     width: 30%;
 }
 
 ul.jeux_list div.dispo{
     text-align: right;
     vertical-align: top;
-    font-size:5vw;
+    font-size:4vw;
     width: 30%;
 }
 ul.jeux_list form input.btnjeux{
@@ -254,10 +254,39 @@ ul.jeux_list form input.btnjeux{
 /*Liste matos*/
 
 ul.item_matos ul.matos_list {
-    width: 30%;
     display: inline-block;
+    background-color: #FAF5DE;
+    text-align: center;
+    
 }
 
+ul.item_matos{
+    background-color: red;
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.matos_list {
+    padding:0;
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
+    margin: 40px;
+    list-style-type: none;
+}
+ul.matos_list .matos_img{
+    margin:10px;
+}
+
+ul.matos_list{
+    margin:10px;
+    font-size:3vw;
+}
+
+ul.mato_list div.dispo {
+    
+}
 
 
 

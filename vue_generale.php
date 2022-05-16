@@ -120,9 +120,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "' width='15%' class='matos_img'>"
+                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "'  width='50%' class='matos_img'>"
                     . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-                    . "</div><div class='dispo' >" . $materiel[$i]["nombre"] . ""
+                    . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
                     . "</div></ul>";
             }
             ?>

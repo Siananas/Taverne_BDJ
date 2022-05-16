@@ -64,14 +64,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                     <input type = 'text' name='snack_name' placeholder='Non du snack' required><br/>
                                     <input type = 'text' name='snack_img' placeholder='Lien image' required><br/>
                                     <input type = 'float' name='snack_prix' placeholder='Prix' required>
-                                    <input type='submit' name='formsend' if='formsend'>
+                                    <input type='submit' name='form_ajout' if='form_ajout'>
                                 </form>
                              </div>
                             </div>";
                         }
                    
                     //Une fois qu'on valide le Form, on effectue cette action
-                    if (isset($_POST['formsend'])){ //Si on valide le form
+                    if (isset($_POST['form_ajout'])){ //Si on valide le form
 
                         //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
                         extract($_POST);
@@ -111,110 +111,99 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     $boutonmodif = "modif$nb";
                     $boutondispo = "dispo$nb";
                     $boutonsupr = "supr$nb";
+                    $form_modif = "form_modif$nb";
+                    $form_dispo = "form_dispo$nb";
+                    $form_supr = "form_supr$nb";
                 
                     if ($snacks[$i]["dispo"] != 0) {
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
                         . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
-                        
+                    }    
                     // il faut afficher les snack non dispo !
                         
-                        // btn modifier
-                        echo "<div class='btnjeux'><form method='post'> 
-                        <input  name=".$boutonmodif." value='modifier' type='submit' class='btnjeux'></form></div>";
-                       
-                        // btn rendre indisponilbe
+                    // btn modifier
+                    echo "<div class='btnjeux'><form method='post'> 
+                    <input  name=".$boutonmodif." value='modifier' type='submit' class='btnjeux'></form></div>";
+
+                        if (isset($_POST[$boutonmodif])) {
+                        echo "<div class = 'action_email'> 
+                             <div class = 'action'> 
+                             <div class = 'ancienne donne'> 
+                             Nom actuel : ".  $snacks[$i]["nom"] ."<br/> Lien actuel : ". $snacks[$i]['lien_img']."<br/> Prix_actuel : ". $snacks[$i]["prix"]. "
+                             </div>
+                                <form method='post'>
+                                    <input type = 'text' name='snack_name' placeholder='Nouveau nom du snack' required><br/>
+                                    <input type = 'text' name='snack_img' placeholder='Nouveau Lien image' required><br/>
+                                    <input type = 'float' name='snack_prix' placeholder='Nouveau Prix' required>
+                                    <input type='submit' name=".$form_modif." if=".$form_modif.">
+                                </form>
+                             </div>
+                            </div>";
+                        }
+                        
+                        if (isset($_POST[$form_modif])){ //Si on valide le form
+
+                                print_r($_POST);
+                                //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
+                                extract($_POST);
+
+                                if (!empty($snack_name) && !empty($snack_img) && !empty($snack_prix)){
+
+                                    $q = $db -> prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
+                                    $q -> execute([
+                                            'old_name' => $snacks[$i]["nom"],
+                                            'new_name' => $snack_name,
+                                    ]);
+
+                                    $q = $db -> prepare("UPDATE snacks set lien_img = :new_image WHERE lien_img = :old_image");
+                                    $q -> execute([
+                                            'old_image' => $snacks[$i]['lien_img'],
+                                            'new_image' => $snack_img,     
+                                    ]);
+
+                                    $q = $db -> prepare("UPDATE snacks set prix = :new_prix WHERE prix = :old_prix");
+                                    $q -> execute([
+                                            'old_prix' => $snacks[$i]["prix"],
+                                            'new_prix' => $snack_prix   
+
+                                    ]);
+                                    echo '<br/> modify worked ';
+                                }             
+                            }
+
+                        /* btn rendre indisponilbe
                         echo "<div class='btnjeux'><form method='post'> 
                         <input  name=".$boutondispo." value='rendre indisponible' type='submit' class='btnjeux'></form></div>";
-                        
+
+                            if (isset($_POST[$boutondispo])) {
+                                if ($snacks[$i]["dispo"] == 1){
+                                        $q = $db -> prepare("UPDATE snacks set dispo = :new_dispo WHERE dispo = :old_dispo");
+                                        $q -> execute([
+                                                'old_dispo' => $snacks[$i]["dispo"],
+                                                'new_dispo' => 0,
+                                        ]);
+                                        echo '<br/> modify worked ';
+                                        
+                                }
+                                else {
+                                        $q = $db -> prepare("UPDATE snacks set dispo = :new_dispo WHERE dispo = :old_dispo");
+                                        $q -> execute([
+                                                'old_dispo' => $snacks[$i]["dispo"],
+                                                'new_dispo' => 1,
+                                        ]);
+                                        echo '<br/> modify worked ';
+                                } 
+                                
+                            } */   
+                            
+
                         // btn supprimer
                         echo "<div class='btnjeux'><form method='post'> 
-                        <input  name=".$boutonsupr." value='supprimer' type='submit' class='btnjeux'></form></div>";
-
-                        
-                            if (isset($_POST[$boutonmodif])) {
-                            echo "<div class = 'action_email'> 
-                                 <div class = 'action'> 
-                                 <div class = 'ancienne donne'> 
-                                 Nom actuel : ".  $snacks[$i]["nom"] ."<br/> Lien actuel : ". $snacks[$i]['lien_img']."<br/> Prix_actuel : ". $snacks[$i]["prix"]. "
-                                 </div>
-                                    <form method='post'>
-                                        <input type = 'text' name='snack_name' placeholder='Nouveau nom du snack' required><br/>
-                                        <input type = 'text' name='snack_img' placeholder='Nouveau Lien image' required><br/>
-                                        <input type = 'float' name='snack_prix' placeholder='Nouveau Prix' required>
-                                        <input type='submit' name='formsend' if='formsend'>
-                                    </form>
-                                 </div>
-                                </div>";
-                                
-                                /*Une fois qu'on valide le Form, on effectue cette action
-                                if (isset($_POST['formsend'])){ //Si on valide le form
-
-                                    print_r($_POST);
-                                    //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
-                                    extract($_POST);
-
-                                    if (!empty($snack_name) && !empty($snack_img) && !empty($snack_prix)){
-
-                                        $q = $db -> prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
-                                        $q -> execute([
-                                                'old_name' => $snacks[$i]["nom"],
-                                                'new_name' => $snack_name,
-                                        ]);
-
-                                        $q = $db -> prepare("UPDATE snacks set lien_img = :new_image WHERE lien_img = :old_image");
-                                        $q -> execute([
-                                                'old_image' => $snacks[$i]['lien_img'],
-                                                'new_image' => $snack_img,     
-                                        ]);
-
-                                        $q = $db -> prepare("UPDATE snacks set prix = :new_prix WHERE prix = :old_prix");
-                                        $q -> execute([
-                                                'old_prix' => $snacks[$i]["prix"],
-                                                'new_prix' => $snack_prix   
-
-                                        ]);
-                                        echo '<br/> modify worked ';
-                                    }             
-                                }*/
-                           
-                            }
-                             
-                            
-                            if (isset($_POST['formsend'])){ //Si on valide le form
-
-                                    print_r($_POST);
-                                    //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
-                                    extract($_POST);
-
-                                    if (!empty($snack_name) && !empty($snack_img) && !empty($snack_prix)){
-
-                                        $q = $db -> prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
-                                        $q -> execute([
-                                                'old_name' => $snacks[$i]["nom"],
-                                                'new_name' => $snack_name,
-                                        ]);
-
-                                        $q = $db -> prepare("UPDATE snacks set lien_img = :new_image WHERE lien_img = :old_image");
-                                        $q -> execute([
-                                                'old_image' => $snacks[$i]['lien_img'],
-                                                'new_image' => $snack_img,     
-                                        ]);
-
-                                        $q = $db -> prepare("UPDATE snacks set prix = :new_prix WHERE prix = :old_prix");
-                                        $q -> execute([
-                                                'old_prix' => $snacks[$i]["prix"],
-                                                'new_prix' => $snack_prix   
-
-                                        ]);
-                                        echo '<br/> modify worked ';
-                                    }             
-                                }
-                            
-                    } 
-                        
-                }
+                        <input  name=".$boutonsupr." value='supprimer' type='submit' class='btnjeux'></form></div>";        
+     
+                } 
          
                 ?>
             </ul>

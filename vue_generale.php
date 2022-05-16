@@ -101,7 +101,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
+                        . "</div> <hr color='#38281B' size='5px' width='95%'> </ul>";
                     }
                 }
                 ?>
@@ -120,7 +120,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "'  width='50%' class='matos_img'>"
+                    echo "<ul class='matos_list'><img src='" . $materiel[$i]['img'] . "'  width='50%' class='matos_img'>"
                     . "<div class='nom' >" . $materiel[$i]["nom"] . ""
                     . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
                     . "</div></ul>";
@@ -148,8 +148,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
-                . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input  name=" . $bouton . " value='' type='submit' class='btnjeux'></form></div>";
+                . "<i><div class='btnjeux'><form method='post'> 
+                <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
 
                 if (isset($_POST[$bouton])) {
                     echo "<div class='nom' id='prout'> Description de " . $jeux[$i]["nom"] . "</div>";
@@ -161,7 +161,6 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </ul>         
         </p>
 </div>
-if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
 
 <img src="Images/plus2.png">
 

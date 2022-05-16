@@ -198,6 +198,7 @@ ul.snack_list{
     background-color: white;
     margin: 20px;
     border-radius: 20px;
+    box-shadow: 1px 1px 1px lightgray;
 }
 
 ul.snack_list div.nom{
@@ -222,13 +223,17 @@ ul.snack_list div.prix{
 /* Liste jeux*/
 
 ul.jeux_list{
+    padding:0;
     background-color: white;
     margin: 20px;
     border-radius: 20px;
+    box-shadow: 1px 1px 1px lightgray;
+    text-align: center;
 }
 
 div#jeux {
     background-color: #FAF5DE;
+    
 }
 
 ul.jeux_list div.nom{
@@ -244,11 +249,13 @@ ul.jeux_list div.dispo{
     width: 30%;
 }
 ul.jeux_list form input.btnjeux{
-    background-image :url(http://www.localhost/tavernebdj/Images/plus2.png);
-    width:40px;
-    height: 40px;
     border-radius: 40px;
     text-align:center ;
+    border: none;
+    background:none;
+    color:#DE9426;
+    font-size:2vw;
+    margin-bottom:20px;
 }
 
 /*Liste matos*/
@@ -256,12 +263,12 @@ ul.jeux_list form input.btnjeux{
 ul.item_matos ul.matos_list {
     display: inline-block;
     background-color: #FAF5DE;
+    border-radius:40px; 
     text-align: center;
-    
+    box-shadow: 3px 3px 3px grey;
 }
 
 ul.item_matos{
-    background-color: red;
     text-align: center;
     list-style-type: none;
     padding: 0;
@@ -276,16 +283,17 @@ ul.matos_list {
     list-style-type: none;
 }
 ul.matos_list .matos_img{
-    margin:10px;
+    margin:5%;
 }
 
-ul.matos_list{
-    margin:10px;
+ul.matos_list div.nom{
     font-size:3vw;
+    margin:5%;
 }
 
-ul.mato_list div.dispo {
-    
+ul.matos_list div.dispo {
+    font-size:2vw;
+    margin:5%;
 }
 
 

@@ -251,6 +251,15 @@ ul.jeux_list form input.btnjeux{
     text-align:center ;
 }
 
+/*Liste matos*/
+
+ul.item_matos ul.matos_list {
+    width: 30%;
+    display: inline-block;
+}
+
+
+
 
 
 

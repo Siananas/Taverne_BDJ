@@ -120,15 +120,17 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-                . "<div class='matos_elements' >" . $materiel[$i]["nom"];
+                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "' width='15%' class='matos_img'>"
+                    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                    . "</div><div class='dispo' >" . $materiel[$i]["nombre"] . ""
+                    . "</div></ul>";
             }
             ?>
         </ul> 
     </p>
 </div>
 
-<!-- 3eme section : location jeux de société -->
+<!-- 3eme section : tion jeux de société -->
 <div id="jeux">
     <h1 class = "jeux">
         Jeux
@@ -137,9 +139,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             Voici tous les jeux que nous vous proposons :
         <ul class="item_jeux">
             <?php
-            
             for ($i = 0; $i < sizeof($jeux); $i++) {
-                
+
                 $nb = strval($i);
                 $bouton = "btn$nb";
 
@@ -148,15 +149,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
                 . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input  name=".$bouton." value='' type='submit' class='btnjeux'></form></div>";
-                   
+                <input  name=" . $bouton . " value='' type='submit' class='btnjeux'></form></div>";
+
                 if (isset($_POST[$bouton])) {
                     echo "<div class='nom' id='prout'> Description de " . $jeux[$i]["nom"] . "</div>";
-                    } 
-                    
+                }
+
                 echo '</ul>';
             }
-            
             ?>
         </ul>         
         </p>

@@ -11,15 +11,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
 
         <style>
-            .format{
-                vertical-align: baseline;
-                background-color: #F6F3E4;
-                width: max-content;
-                padding:2em;
-                margin: 20% auto;
-                border-style: double;
-                border-width: 8px;
-            }
             .body {
                 padding: 2em;
             }
@@ -45,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         </a>
                     </li>
                     <li class="btn">
-                        <a class = "retour" href="vue_generale"> 
+                        <a class = "retour" href="vue_generale" target="_BLANK"> 
                             Retour sur la page principale
                         </a>
                     </li>

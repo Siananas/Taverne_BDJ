@@ -140,6 +140,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                 </div>
                                </div>";
                     }
+                }
 
                     // BTN DISPO
                     // Affichage du formulaire pour selectionner l'objet à modifier

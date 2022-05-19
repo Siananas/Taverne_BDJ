@@ -102,14 +102,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                          <div class = 'action'> 
                             <form method='post'>
                                 <input type = 'text' name='snack_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_snack' if='selection_snack'> 
+                                <input type='submit' name='selection_modif_snack' if='selection_snack'> 
                             </form>
                          </div>
                         </div>";
                 }
 
                 // Affichage du formulaire de modification
-                if (isset($_POST['selection_snack'])) {
+                if (isset($_POST['selection_modif_snack'])) {
                     extract($_POST);
                     if (!empty($snack_name)) {
 
@@ -143,7 +143,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     }
                 }
 
-                // Modification des données
+                // Modification des données MODIF
                 if (isset($_POST['form_snack_modif'])) {
                     extract($_POST);
                     if (!empty($snack_name)) {
@@ -186,12 +186,46 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                          <div class = 'action'> 
                             <form method='post'>
                                 <input type = 'text' name='snack_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_snack' if='selection_snack'> 
+                                <input type='submit' name='selection_dispo_snack' if='selection_dispo_snack'> 
                             </form>
                          </div>
                         </div>";
                 }
+                
+                // Modification des données DISPO
+                if (isset($_POST['selection_dispo_snack'])) {
+                    extract($_POST);
+                    if (!empty($snack_name)) {
 
+                        $sql = $db->prepare("SELECT * FROM snacks WHERE nom = :name");
+                        $sql->execute(
+                            [
+                                'name' => $snack_name
+                            ]);
+                        $snacks_cible = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+                        for ($i = 0; $i < sizeof($snacks_cible); $i++) {
+
+                            if ($snacks_cible[$i]["dispo"] == 0) {
+                                $q = $db->prepare("UPDATE snacks set dispo = :new_dispo WHERE dispo = :old_dispo");
+                                $q->execute([
+                                'old_dispo' => $snacks_cible[$i]["dispo"],
+                                'new_dispo' => 1
+                                ]);
+                                echo $snacks_cible[$i]["nom"]." est maintenant disponible !";
+                            }
+                            else {
+                                $q = $db->prepare("UPDATE snacks set dispo = :new_dispo WHERE dispo = :old_dispo");
+                                $q->execute([
+                                'old_dispo' => $snacks_cible[$i]["dispo"],
+                                'new_dispo' => 0
+                                ]);
+                                echo $snacks_cible[$i]["nom"]." n'est plus disponible disponible.";
+                            }
+                              
+                        }
+                    }
+                }   
 
                 ?>
 

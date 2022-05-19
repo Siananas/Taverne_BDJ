@@ -54,7 +54,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
         <div id="snacks">
             <h1 class = "titre_part">Snacks</h1>
-            <ul class="snack_bloc">
+            <div class="snack_bloc">
 
                 <?php
                 // BTN AJOUTER
@@ -196,27 +196,27 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 ?>
 
                 <!-- Ajout des boutons SNACKS HTML -->
-                <div class = "ajout_snack">
+                <div class = "ajout_snack" id='inline'>
                     <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-                        <input class = "" name="ajout_snack" type ="submit" value = ajouter >
+                        <input class = "" name="ajout_snack" type ="submit" value = ajouter id='btn_modif'>
                     </form>
                 </div>
 
-                <div class = "modif_snack">
+                <div class = "modif_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="modif_snack" type ="submit" value = modifier >
+                        <input class = "" name="modif_snack" type ="submit" value = modifier id='btn_modif'>
                     </form>
                 </div>
 
-                <div class = "dispo_snack">
+                <div class = "dispo_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="dispo_snack" type ="submit" value = "rendre disponible"  >
+                        <input class = "" name="dispo_snack" type ="submit" value = "rendre disponible" id='btn_modif'>
                     </form>
                 </div>
 
-                <div class = "supr_snack">
+                <div class = "supr_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="supr_snack" type ="submit" value = suprimer >
+                        <input class = "" name="supr_snack" type ="submit" value = suprimer id='btn_modif'>
                     </form>
                 </div>
 
@@ -226,14 +226,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 for ($i = 0; $i < sizeof($snacks); $i++) {
 
                     if ($snacks[$i]["dispo"] != 0) {
-                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                        echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
                         . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
                     }
                 }
                 ?>
-            </ul>
+            </div>
         </p>
     </div>
 

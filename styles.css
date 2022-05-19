@@ -175,7 +175,7 @@ nav.menu-nav ul li.btn:hover a{
 }
 
 /*Style des items dans la liste snacks*/
-ul.item_snack{
+div.item_snack{
     list-style-type: none;
     padding:10px;
 }
@@ -185,20 +185,20 @@ div#snacks {
 }
 
 
-ul.snack_list{
+div.snack_list{
     background-color: white;
     margin: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 1px lightgray;
 }
 
-ul.snack_list div.nom{
+div.snack_list div.nom{
     text-align: left;
     font-size:4vw;
     width: 35%;
 }
 
-ul.snack_list div.prix{
+div.snack_list div.prix{
     text-align: right;
     vertical-align: top;
     font-size:4vw;
@@ -312,7 +312,23 @@ div.description{
     padding:10px 50px 20px;
 }
 
+/*boutons modifs*/
+div.snack_bloc{
+    text-align: center;
+}
 
+div#inline{
+    display: inline-block;
+    text-align: center;
+}
+
+input#btn_modif {
+    background-color: red;
+    display: inline-block;
+    margin: 1em;
+    padding:1em;
+    font-size: 2vw;
+}
 
 
 

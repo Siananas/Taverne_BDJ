@@ -44,7 +44,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 padding : 10px;
                 border-radius: 100px;
                 border: 4px double #cccccc;
-                font-size : 1vw;
+                font-size : 2vw;
                 text-align: center;
                 width: 100%;
             }
@@ -66,7 +66,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body class='body'>
         <h1 class="banniere">Es-tu sûr(e) de vouloir contacter un vendeur ?</h1>
-
+        <br><br><br>
+        
         <div class ="intro">
             <nav class="menu-nav"> 
                 <ul> <!--//Stocker les differentes puces dans une balise-->
@@ -84,5 +85,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </nav>
         </div>
     </body>
-
+    <br><br><br>
     <footer>PS. Si quelqu'un a appelé un vendeur il y a moins de 5 minutes, tu ne peux pas appeler.</footer>

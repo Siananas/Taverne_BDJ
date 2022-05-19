@@ -223,16 +223,16 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     </form>
                 </div>
 
-<?php
+                <?php
 // AFFICHAGE
 
-for ($i = 0; $i < sizeof($snacks); $i++) {
-    echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
-    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-    . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-    . "</div> <hr color='#8d6951' size='5px' width='95%'> </div>";
-}
-?>
+                for ($i = 0; $i < sizeof($snacks); $i++) {
+                    echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+                    . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
+                    . "</div> <hr color='#8d6951' size='5px' width='95%'> </ul>";
+                }
+                ?>
             </div>
         </p>
     </div>
@@ -247,14 +247,14 @@ for ($i = 0; $i < sizeof($snacks); $i++) {
         </h1>
         <p>
         <ul class="item_matos">
-<?php
-for ($i = 0; $i < sizeof($materiel); $i++) {
-    echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
-    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-    . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
-    . "</div></ul>";
-}
-?>
+            <?php
+            for ($i = 0; $i < sizeof($materiel); $i++) {
+                echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
+                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+                . "</div></ul>";
+            }
+            ?>
         </ul>  
     </p>
     <!-- Ajout des boutons MATERIEL HTML -->
@@ -314,16 +314,16 @@ for ($i = 0; $i < sizeof($materiel); $i++) {
 
     <p>
     <div class="item_jeux">
-<?php
-for ($i = 0; $i < sizeof($jeux); $i++) {
-    echo "<ul class='jeux_list'>"
-    . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-    . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
-    . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
-    . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
-}
-?>
+        <?php
+        for ($i = 0; $i < sizeof($jeux); $i++) {
+            echo "<ul class='jeux_list'>"
+            . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+            . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+            . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
+            . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
+            . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
+        }
+        ?>
     </div> 
 </p>
 </div>

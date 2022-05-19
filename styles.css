@@ -323,11 +323,12 @@ div#inline{
 }
 
 input#btn_modif {
-    background-color: red;
+    background: none;
     display: inline-block;
     margin: 1em;
     padding:1em;
     font-size: 2vw;
+    border-radius: 5px;
 }
 
 

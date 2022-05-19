@@ -229,7 +229,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
+                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </div>";
                     }
                 }
                 ?>

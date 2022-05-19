@@ -20,10 +20,6 @@ $sql->execute();
 $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 ?>
 
-<form method="post"> <!-- BONTON TEST html (il doit etre dans un form) -->
-    <input class = "" name="test2" type ="submit" value = "Test" >
-</form>
-
 
 <html>
     <head>
@@ -92,7 +88,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
-            <h1 class = "snack">Snacks</h1>
+            <h1 class = "titre_part">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
             <ul class="snack_bloc">
                 <?php
@@ -101,7 +97,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
+                        . "</div> <hr color='#38281B' size='5px' width='95%'> </ul>";
                     }
                 }
                 ?>
@@ -112,7 +108,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <!-- 2eme section : matériel -->
 
     <div id="matos">
-        <h1 class = "matos">
+        <h1 class = "titre_part">
             Matériel
         </h1>
         <p>
@@ -120,10 +116,10 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                    echo "<ul class='matos_list' background-color='#DE9426'><img src='" . $materiel[$i]['img'] . "' width='15%' class='matos_img'>"
-                    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-                    . "</div><div class='dispo' >" . $materiel[$i]["nombre"] . ""
-                    . "</div></ul>";
+                echo "<ul class='matos_list'><img src='" . $materiel[$i]['img'] . "'  width='50%' class='matos_img'>"
+                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+                . "</div></ul>";
             }
             ?>
         </ul> 
@@ -132,7 +128,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
 <!-- 3eme section : tion jeux de société -->
 <div id="jeux">
-    <h1 class = "jeux">
+    <h1 class = "titre_part">
         Jeux
         </h3>
         <p>
@@ -143,16 +139,23 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                 $nb = strval($i);
                 $bouton = "btn$nb";
-
-                echo "<ul class='jeux_list'>          
+                if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] == 0) {
+                    echo "<ul class='jeux_list'>          
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div>"
-                . "<div class='btnjeux' id='prout'><form method='post'> 
-                <input  name=" . $bouton . " value='' type='submit' class='btnjeux'></form></div>";
-
+                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                    . "<div class='nondispo' id='prout'>Non dispo</div>"
+                    . "<i><div class='btnjeux'><form method='post'> 
+                <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
+                } else {
+                    echo "<ul class='jeux_list'>          
+                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                    . "<div class='dispo' id='prout'>Dispo</div>"
+                    . "<i><div class='btnjeux'><form method='post'> 
+                <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
+                }
                 if (isset($_POST[$bouton])) {
-                    echo "<div class='nom' id='prout'> Description de " . $jeux[$i]["nom"] . "</div>";
+                    echo "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div>";
                 }
 
                 echo '</ul>';
@@ -161,15 +164,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </ul>         
         </p>
 </div>
-if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
-
-<img src="Images/plus2.png">
-
 
 <footer>
-    <p>
-        Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
-    </p>
+    Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
 </footer>
 
 

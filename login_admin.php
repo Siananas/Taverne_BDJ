@@ -29,8 +29,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <body class='body'>
         <div class='format'>
             <h1>TavernBDJ</h1>
-            <p class = 'Parableu'> Saisissez votre mot de passe </p>
-
 
             <form method="post">
                 <input type="text" name="mdp" id="mdp">

@@ -27,7 +27,16 @@
             padding: 10px;
             margin-left: 30px;
         }
-
+        
+        h2.titre{
+            color: white;
+            text-align: left;
+            background-color: black;
+            font-variant : small-caps;
+            padding: 10px;
+            margin-left: 20px;
+        }
+        
         h3.article{
             font-variant : small-caps;
             background-color: grey;
@@ -42,7 +51,20 @@
     </head>
 
     <body>
-        <h1 class="banniere">Mentions légales</h1> 
+        
+        <h1 class="banniere">Règles détaillées et mentions légales</h1> 
+        <h2 class="titre">Règles gégérales</h2>
+        Voici les règles principales concernant l'utilisation du matériel prêté par le BDJ :
+        
+        <p class="mentions"> - Le prêt des jeux est limité à deux semaines. Si vous dépassez ce délais, les vendeurs du BDJ peuvent reffuser de 
+            vous prêter un jeu</p>
+        
+        <p class="mentions"> - Pour emprunter un jeu ou du matériel, vous devez donner votre adresse mail EPF au vendeur qui vous fournira le matériel.
+        Cette adresse mail sera utilisée pour vous contacter en cas de casse ou d'usure inhabituelle de ce qui vous aura été prêté.</p>
+        
+        <p class="mentions"> - Il vous est évidemment demandé de respecter les vendeurs du snack, ils sont là pour vous.</p>
+        
+        <h2 class="titre">Mentions légales</h2>
         <p class="date_mentions">En vigueur au 06/05/2022</p><br>
 
         <p class="mentions">Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la 

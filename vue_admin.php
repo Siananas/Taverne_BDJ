@@ -64,7 +64,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                 <form method='post'>
                                     <input type = 'text' name='snack_name' placeholder='Nom du snack' required><br/>
                                     <input type = 'text' name='snack_img' placeholder='Lien image' required><br/>
-                                    <input type = 'float' name='snack_prix' placeholder='Prix' required>
+                                    <input type = 'float' name='snack_prix' placeholder='Prix' required><br/>
                                     <input type='submit' name='form_ajout' if='form_ajout'>
                                 </form>
                              </div>
@@ -177,8 +177,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             echo '<br/> modify worked ';
                         }
                     }
-                }                
-                
+                }
+
                 // BTN DISPO
                 // Affichage du formulaire pour selectionner l'objet à modifier
                 if (isset($_POST['dispo_snack'])) {
@@ -191,139 +191,134 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                          </div>
                         </div>";
                 }
-
-
                 ?>
 
                 <!-- Ajout des boutons SNACKS HTML -->
                 <div class = "ajout_snack" id='inline'>
                     <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-                        <input class = "" name="ajout_snack" type ="submit" value = ajouter id='btn_modif'>
+                        <input class = "" name="ajout_snack" type ="submit" value = Ajouter id='btn_modif'>
                     </form>
                 </div>
 
                 <div class = "modif_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="modif_snack" type ="submit" value = modifier id='btn_modif'>
+                        <input class = "" name="modif_snack" type ="submit" value = Modifier id='btn_modif'>
                     </form>
                 </div>
 
                 <div class = "dispo_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="dispo_snack" type ="submit" value = "disponibilite" id='btn_modif'>
+                        <input class = "" name="dispo_snack" type ="submit" value = "Disponibilité" id='btn_modif'>
                     </form>
                 </div>
 
                 <div class = "supr_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="supr_snack" type ="submit" value = suprimer id='btn_modif'>
+                        <input class = "" name="supr_snack" type ="submit" value = Supprimer id='btn_modif'>
                     </form>
                 </div>
 
-                <?php
-                // AFFICHAGE
+<?php
+// AFFICHAGE
 
-                for ($i = 0; $i < sizeof($snacks); $i++) {
-
-                    if ($snacks[$i]["dispo"] != 0) {
-                        echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
-                        . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-                        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-                        . "</div> <hr color='#DE9426' size='5px' width='95%'> </div>";
-                    }
-                }
-                ?>
+for ($i = 0; $i < sizeof($snacks); $i++) {
+    echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+    . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
+    . "</div> <hr color='#DE9426' size='5px' width='95%'> </div>";
+}
+?>
             </div>
         </p>
     </div>
 
-        
-        
+
+
     <!-- 2eme section : matériel -->
 
-    <div id="matos">
+    <div id="matos" class='matos_bloc'>
         <h1 class = "titre_part">
             Matériel
         </h1>
         <p>
         <ul class="item_matos">
-            <?php
-            for ($i = 0; $i < sizeof($materiel); $i++) {
-                echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
-                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
-                . "</div></ul>";
-            }
-            ?>
+<?php
+for ($i = 0; $i < sizeof($materiel); $i++) {
+    echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
+    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+    . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+    . "</div></ul>";
+}
+?>
         </ul>  
     </p>
     <!-- Ajout des boutons MATERIEL HTML -->
-    <div class = "ajout_matos">
+    <div class = "ajout_matos" id='inline'>
         <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-            <input class = "" name="ajout_matos" type ="submit" value = ajouter >
+            <input class = "" name="ajout_matos" type ="submit" value = Ajouter id='btn_modif'>
         </form>
     </div>
 
-    <div class = "modif_matos">
+    <div class = "modif_matos" id='inline'>
         <form method='post'> 
-            <input class = "" name="modif_matos" type ="submit" value = modifier >
+            <input class = "" name="modif_matos" type ="submit" value = Modifier id='btn_modif'>
         </form>
     </div>
 
 
-    <div class = "supr_matos">
+    <div class = "supr_matos" id='inline'>
         <form method='post'> 
-            <input class = "" name="supr_matos" type ="submit" value = suprimer >
+            <input class = "" name="supr_matos" type ="submit" value = Supprimer id='btn_modif'>
         </form>
     </div>
 </div>
 
-    
-    
+
+
 <!-- 3eme section : location jeux de société -->
 
-<div id="jeux">
+<div id="jeux" class='jeux_bloc'>
     <h1 class = "titre_part">
         Jeux
     </h1>
 
     <!-- Ajout des boutons JEUX HTML -->
-    <div class = "ajout_jeux">
+    <div class = "ajout_jeux" id='inline'>
         <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-            <input class = "" name="ajout_jeux" type ="submit" value = ajouter >
+            <input class = "" name="ajout_jeux" type ="submit" value = Ajouter id='btn_modif'>
         </form>
     </div>
 
-    <div class = "modif_jeux">
+    <div class = "modif_jeux" id='inline'>
         <form method='post'> 
-            <input class = "" name="modif_jeux" type ="submit" value = modifier >
+            <input class = "" name="modif_jeux" type ="submit" value = Modifier id='btn_modif'>
         </form>
     </div>
-    
+
     <div class = "dispo_jeux" id='inline'>
         <form method='post'> 
-            <input class = "" name="dispo_jeux" type ="submit" value = "disponibilite" id=''>
+            <input class = "" name="dispo_jeux" type ="submit" value = "Disponibilité" id='btn_modif'>
         </form>
     </div>
 
-    <div class = "supr_jeux">
+    <div class = "supr_jeux" id='inline'>
         <form method='post'> 
-            <input class = "" name="supr_jeux" type ="submit" value = suprimer >
+            <input class = "" name="supr_jeux" type ="submit" value = Supprimer id='btn_modif'>
         </form>
     </div><!-- comment -->
 
     <p>
     <div class="item_jeux">
-        <?php
-        for ($i = 0; $i < sizeof($jeux); $i++) {
-            echo "<ul class='jeux_list'>"
-            . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-            . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-            . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
-            . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
-            . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
-        }
-        ?>
+<?php
+for ($i = 0; $i < sizeof($jeux); $i++) {
+    echo "<ul class='jeux_list'>"
+    . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+    . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
+    . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
+    . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
+}
+?>
     </div> 
 </p>
 </div>

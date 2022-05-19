@@ -90,7 +90,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <div id="snacks">
             <h1 class = "titre_part">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
-            <ul class="snack_bloc">
+            <div class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
                     if ($snacks[$i]["dispo"] != 0) {
@@ -101,7 +101,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     }
                 }
                 ?>
-            </ul>
+            </div>
         </p>
     </div>
 
@@ -133,7 +133,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </h3>
         <p>
             Voici tous les jeux que nous vous proposons :
-        <ul class="item_jeux">
+        <div class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
 
@@ -161,7 +161,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 echo '</ul>';
             }
             ?>
-        </ul>         
+        </div>         
         </p>
 </div>
 

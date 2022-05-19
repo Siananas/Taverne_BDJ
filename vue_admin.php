@@ -210,7 +210,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                 <div class = "dispo_snack" id='inline'>
                     <form method='post'> 
-                        <input class = "" name="dispo_snack" type ="submit" value = "rendre disponible" id='btn_modif'>
+                        <input class = "" name="dispo_snack" type ="submit" value = "disponibilite" id='btn_modif'>
                     </form>
                 </div>
 
@@ -297,6 +297,12 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <div class = "modif_jeux">
         <form method='post'> 
             <input class = "" name="modif_jeux" type ="submit" value = modifier >
+        </form>
+    </div>
+    
+    <div class = "dispo_jeux" id='inline'>
+        <form method='post'> 
+            <input class = "" name="dispo_jeux" type ="submit" value = "disponibilite" id=''>
         </form>
     </div>
 

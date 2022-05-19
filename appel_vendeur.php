@@ -16,11 +16,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             }
 
             a.valider {
-                background-color: greenyellow ;
+                background-color: #8d6951 ;
             }
 
             a.retour {
-                background-color: red ;
+                background-color: #5B4434 ;
             }
 
 

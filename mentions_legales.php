@@ -63,6 +63,7 @@
         Cette adresse mail sera utilisée pour vous contacter en cas de casse ou d'usure inhabituelle de ce qui vous aura été prêté.</p>
         
         <p class="mentions"> - Il vous est évidemment demandé de respecter les vendeurs du snack, ils sont là pour vous.</p>
+        <br>
         
         <h2 class="titre">Mentions légales</h2>
         <p class="date_mentions">En vigueur au 06/05/2022</p><br>
@@ -81,8 +82,8 @@
         
         ARTICLE 2 - L'HEBERGEUR
 
-        <p class="mentions">L'hébergeur du Site est la société _______________, dont le siège social est situé au _______________ , 
-        avec le numéro de téléphone : _______________ + adresse mail de contact</p>
+        <p class="mentions">L'hébergeur du Site est la société "le Grand Benoit", dont le siège social est situé au 21 boulevard Berthelot , 
+        avec le numéro de téléphone : 04 00 00 00 00 et l'adresse mail : efp@epf.efp</p>
 
         ARTICLE 3 - ACCES AU SITE
 

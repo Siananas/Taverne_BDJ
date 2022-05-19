@@ -8,6 +8,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <head>
         <meta charset="UTF-8">
         <title>TaverneBDJ</title>
+        <link rel="stylesheet" href="styles.css"/>
 
 
         <style>
@@ -26,6 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body class='body'>
         <h1 class="banniere">Es-tu sûr(e) de vouloir contacter un vendeur ?</h1>
+        
         <div class ="intro">
             <nav class="menu-nav"> 
                 <ul> <!--//Stocker les differentes puces dans une balise-->
@@ -35,7 +37,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                         </a>
                     </li>
                     <li class="btn">
-                        <a class = "retour" href="vue_generale" target="_BLANK"> 
+                        <a class = "retour" href="vue_generale.php" target="_BLANK"> 
                             Retour sur la page principale
                         </a>
                     </li>

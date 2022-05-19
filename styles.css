@@ -210,6 +210,16 @@ ul.snack_list div.prix{
     display: inline-block;
     padding:10px;
 }
+/*snacks coté admin*/
+div.bloc_nombre {
+    width: 30%;
+}
+.bloc_nombre_item {
+    width: 100%;
+    font-size: 3vw;
+    text-align: right;
+}
+
 
 /* Liste jeux*/
 

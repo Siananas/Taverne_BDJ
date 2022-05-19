@@ -53,7 +53,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
         <div id="snacks">
             <h1 class = "titre_part">Snacks</h1>
-            <ul class="snack_bloc">
+            <div class="snack_bloc">
                 <?php // Modification des données
                     if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
 
@@ -206,7 +206,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 } 
          
                 ?>
-            </ul>
+            </div>
         </p>
     </div>
 
@@ -220,7 +220,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <ul class="item_matos">
             <?php
             for ($i = 0; $i < sizeof($materiel); $i++) {
-                echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
+                echo "<li class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
                 . "<div class='matos_elements' >" . $materiel[$i]["nom"];
             }
             ?>
@@ -234,7 +234,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         Jeux
         </h3>
         <p>
-        <ul class="item_jeux">
+        <div class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
                 echo "<form method='post'> 
@@ -243,11 +243,11 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         
                 . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                . "<img src =Images/plus width='5%' id='prout'>"
-                . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div></ul>";
+                . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
+                . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div></ul>";
             }
             ?>
-        </ul> 
+        </div> 
         </p>
 </div>
 

@@ -321,9 +321,5 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </p>
     </footer>
 
-    <?php ?>
-
-
 </body>
 </html>
-

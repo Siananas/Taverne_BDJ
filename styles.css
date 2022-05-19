@@ -323,12 +323,21 @@ div#inline{
 }
 
 input#btn_modif {
-    background: none;
+    background-color: #8d6951;
     display: inline-block;
     margin: 1em;
     padding:1em;
     font-size: 2vw;
+    border-color: white;
     border-radius: 5px;
+    color:white;
+    box-shadow: 2px 2px 2px lightgray;
+}
+input#btn_modif:hover{
+    color: black;
+    background-color: #FAF5DE;
+    border-color:black;
+    transition:0.5s all;
 }
 
 

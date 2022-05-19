@@ -62,7 +62,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     echo "<div class = 'action_email'> 
                              <div class = 'action'> 
                                 <form method='post'>
-                                    <input type = 'text' name='snack_name' placeholder='Non du snack' required><br/>
+                                    <input type = 'text' name='snack_name' placeholder='Nom du snack' required><br/>
                                     <input type = 'text' name='snack_img' placeholder='Lien image' required><br/>
                                     <input type = 'float' name='snack_prix' placeholder='Prix' required>
                                     <input type='submit' name='form_ajout' if='form_ajout'>

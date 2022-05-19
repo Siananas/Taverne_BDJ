@@ -58,7 +58,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             footer{
                 background-color: black;
                 color: white;
-                font-style: italic;
                 padding: 30 px;
                 font-size : 1vw;
             }

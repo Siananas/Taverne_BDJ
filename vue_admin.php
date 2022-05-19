@@ -108,12 +108,12 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 for ($i = 0; $i < sizeof($snacks); $i++) {
                     
                     $nb = strval($i);
-                    $boutonmodif = "modif$nb";
+                    $boutonmodif = "modif$nb"; // variable permettant de donner des noms différent à chaque bouton "modifier"
                     $boutondispo = "dispo$nb";
                     $boutonsupr = "supr$nb";
-                    $form_modif = "form_modif$nb";
+                    /*$form_modif = "form_modif$nb";
                     $form_dispo = "form_dispo$nb";
-                    $form_supr = "form_supr$nb";
+                    $form_supr = "form_supr$nb";*/
                 
                     if ($snacks[$i]["dispo"] != 0) {
                         echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
@@ -126,8 +126,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     // btn modifier
                     echo "<div class='btnjeux'><form method='post'> 
                     <input  name=".$boutonmodif." value='modifier' type='submit' class='btnjeux'></form></div>";
-
-                        if (isset($_POST[$boutonmodif])) {
+                        
+                        // Affichage du formulaire de modification
+                        if (isset($_POST[$boutonmodif])) { // si le bouton n est cliqué on affiche le formulaire n
                         echo "<div class = 'action_email'> 
                              <div class = 'action'> 
                              <div class = 'ancienne donne'> 
@@ -137,13 +138,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                     <input type = 'text' name='snack_name' placeholder='Nouveau nom du snack' required><br/>
                                     <input type = 'text' name='snack_img' placeholder='Nouveau Lien image' required><br/>
                                     <input type = 'float' name='snack_prix' placeholder='Nouveau Prix' required>
-                                    <input type='submit' name=".$form_modif." if=".$form_modif.">
+                                    <input type='submit' name='form_modif' if='form_modif'> 
                                 </form>
                              </div>
                             </div>";
                         }
                         
-                        if (isset($_POST[$form_modif])){ //Si on valide le form
+                        // Modification des données
+                        if (isset($_POST['form_modif'])){ //Si on valide le "form_modif"
 
                                 print_r($_POST);
                                 //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
@@ -170,6 +172,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                                     ]);
                                     echo '<br/> modify worked ';
+                                    $_POST['form_modif'] = null;
                                 }             
                             }
 

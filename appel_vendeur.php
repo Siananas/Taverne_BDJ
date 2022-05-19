@@ -25,9 +25,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         </style>
     </head>
     <body class='body'>
-        <div class='format'>
-            <h1 class="banniere">Es-tu sûr(e) de vouloir contacter un vendeur ?</h1>
-
+        <h1 class="banniere">Es-tu sûr(e) de vouloir contacter un vendeur ?</h1>
+        <div class ="intro">
             <nav class="menu-nav"> 
                 <ul> <!--//Stocker les differentes puces dans une balise-->
                     <li class="btn"> <!--//création d'un nouvelle puce-->

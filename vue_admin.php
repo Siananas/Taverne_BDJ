@@ -104,7 +104,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                          <div class = 'action'> 
                             <form method='post'>
                                 <input type = 'text' name='snack_name' placeholder='Nom actuel' required class='item'><br/>
-                                <input type='submit' name='selection_snack' if='selection_snack' class='item'> 
+                                <input type='submit' name='selection_modif_snack' if='selection_snack' class='item'> 
                                 <hr color='#DE9426' size='3px' width='50%'>
                             </form>
                          </div>

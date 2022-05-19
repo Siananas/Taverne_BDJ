@@ -30,7 +30,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <h1 class = "banniere">Taverne BDJ</h1>
         <nav class = "banniere">
             <ul>
-                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.jpg" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.png" width="100px" height="100px"/> &ensp;</a>
                     <ul class="sous">
                         <li><a href="vue_generale.php" target="_BLANK">Déconnection administrateur</a></li>
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>
@@ -52,7 +52,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
-            <h1 class = "snack">Snacks</h1>
+            <h1 class = "titre_part">Snacks</h1>
             <ul class="snack_bloc">
                 <?php // Modification des données
                     if (!isset($_SESSION['nb'])) $_SESSION['nb'] = 0;
@@ -213,7 +213,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <!-- 2eme section : matériel -->
     
     <div id="matos">
-        <h1 class = "matos">
+        <h1 class = "titre_part">
             Matériel
         </h1>
         <p>
@@ -230,7 +230,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
 <!-- 3eme section : location jeux de société -->
 <div id="jeux">
-    <h1 class = "jeux">
+    <h1 class = "titre_part">
         Jeux
         </h3>
         <p>
@@ -239,8 +239,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             for ($i = 0; $i < sizeof($jeux); $i++) {
                 echo "<form method='post'> 
                 <input name='test2' type ='submit' value = 'Test' ></form>"
-                
-                . "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                . "<ul class='jeux_list'>"
+                        
+                . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
                 . "<img src =Images/plus width='5%' id='prout'>"
                 . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div></ul>";

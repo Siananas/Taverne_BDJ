@@ -60,6 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 color: white;
                 font-style: italic;
                 padding: 30 px;
+                font-size : 2vw;
             }
 
         </style>
@@ -85,5 +86,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             </nav>
         </div>
     </body>
-    <br><br><br>
+    <br><br><br><br>
     <footer>PS. Si quelqu'un a appelé un vendeur il y a moins de 5 minutes, tu ne peux pas appeler.</footer>

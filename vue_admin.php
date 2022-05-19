@@ -142,10 +142,45 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     }
                 }
 
-                    // BTN DISPO
-                    // Affichage du formulaire pour selectionner l'objet à modifier
-                    if (isset($_POST['dispo_snack'])) {
-                        echo "<div class = 'action_email'> 
+                if (isset($_POST['form_snack_modif'])) {
+                    extract($_POST);
+                    if (!empty($snack_name)) {
+
+                        // On récupère les données des items ayant le nom rentré par l'utilisateur 
+                        $sql = $db->prepare("SELECT * FROM snacks WHERE nom = :name");
+                        $sql->execute(
+                                [
+                                    'name' => $snack_name
+                        ]);
+                        $snacks_cible = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+                        for ($i = 0; $i < sizeof($snacks_cible); $i++) {
+                            $q = $db->prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $snacks_cible[$i]["nom"],
+                                'new_name' => $snack_name,
+                            ]);
+
+                            $q = $db->prepare("UPDATE snacks set lien_img = :new_image WHERE lien_img = :old_image");
+                            $q->execute([
+                                'old_image' => $snacks_cible[$i]['lien_img'],
+                                'new_image' => $snack_img,
+                            ]);
+
+                            $q = $db->prepare("UPDATE snacks set prix = :new_prix WHERE prix = :old_prix");
+                            $q->execute([
+                                'old_prix' => $snacks_cible[$i]["prix"],
+                                'new_prix' => $snack_prix
+                            ]);
+                            echo '<br/> modify worked ';
+                        }
+                    }
+                }
+                
+                // BTN DISPO ON EST LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                // Affichage du formulaire pour selectionner l'objet rendre dispo
+                if (isset($_POST['dispo_snack'])) {
+                    echo "<div class = 'action_email'> 
                          <div class = 'action'> 
                             <form method='post'>
                                 <input type = 'text' name='snack_name' placeholder='Nom actuel' required><br/>
@@ -153,187 +188,157 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             </form>
                          </div>
                         </div>";
-                    }
+                }
+                ?>
 
-                    // Modification des données
-                    if (isset($_POST['selection_snack'])) {
-                        extract($_POST);
-                        if (!empty($snack_name)) {
+                <!-- Ajout des boutons SNACKS HTML -->
+                <div class = "ajout_snack">
+                    <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
+                        <input class = "" name="ajout_snack" type ="submit" value = ajouter >
+                    </form>
+                </div>
 
-                            // On récupère les données des items ayant le nom rentré par l'utilisateur 
-                            $sql = $db->prepare("SELECT * FROM snacks WHERE nom = :name");
-                            $sql->execute(
-                                    [
-                                        'name' => $snack_name
-                            ]);
-                            $snacks_cible = $sql->fetchAll(\PDO::FETCH_ASSOC);
+                <div class = "modif_snack">
+                    <form method='post'> 
+                        <input class = "" name="modif_snack" type ="submit" value = modifier >
+                    </form>
+                </div>
 
-                            for ($i = 0; $i < sizeof($snacks_cible); $i++) {
-                                $q = $db->prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
-                                $q->execute([
-                                    'old_name' => $snacks_cible[$i]["nom"],
-                                    'new_name' => $snack_name,
-                                ]);
+                <div class = "dispo_snack">
+                    <form method='post'> 
+                        <input class = "" name="dispo_snack" type ="submit" value = "rendre disponible"  >
+                    </form>
+                </div>
 
-                                $q = $db->prepare("UPDATE snacks set lien_img = :new_image WHERE lien_img = :old_image");
-                                $q->execute([
-                                    'old_image' => $snacks_cible[$i]['lien_img'],
-                                    'new_image' => $snack_img,
-                                ]);
-
-                                $q = $db->prepare("UPDATE snacks set prix = :new_prix WHERE prix = :old_prix");
-                                $q->execute([
-                                    'old_prix' => $snacks_cible[$i]["prix"],
-                                    'new_prix' => $snack_prix
-                                ]);
-                                echo '<br/> modify worked ';
-                            }
-                        }
-                    }
-                    ?>
-
-                    <!-- Ajout des boutons SNACKS HTML -->
-                    <div class = "ajout_snack">
-                        <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-                            <input class = "" name="ajout_snack" type ="submit" value = ajouter >
-                        </form>
-                    </div>
-
-                    <div class = "modif_snack">
-                        <form method='post'> 
-                            <input class = "" name="modif_snack" type ="submit" value = modifier >
-                        </form>
-                    </div>
-
-                    <div class = "dispo_snack">
-                        <form method='post'> 
-                            <input class = "" name="dispo_snack" type ="submit" value = "rendre disponible"  >
-                        </form>
-                    </div>
-
-                    <div class = "supr_snack">
-                        <form method='post'> 
-                            <input class = "" name="supr_snack" type ="submit" value = suprimer >
-                        </form>
-                    </div>
+                <div class = "supr_snack">
+                    <form method='post'> 
+                        <input class = "" name="supr_snack" type ="submit" value = suprimer >
+                    </form>
+                </div>
 
 
 
 
-    <?php
-    // AFFICHAGE
+<?php
+// AFFICHAGE
 
-    for ($i = 0; $i < sizeof($snacks); $i++) {
+for ($i = 0; $i < sizeof($snacks); $i++) {
 
-        if ($snacks[$i]["dispo"] != 0) {
-            echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
-            . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-            . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-            . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
-        }
+    if ($snacks[$i]["dispo"] != 0) {
+        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+        . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+        . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
+        . "</div> <hr color='#DE9426' size='5px' width='95%'> </ul>";
     }
-    ?>
-                </ul>
-            </p>
-        </div>
-
-        <!-- 2eme section : matériel -->
-
-        <div id="matos">
-            <h1 class = "matos">
-                Matériel
-            </h1>
-            <p>
-            <ul class="item_matos">
-    <?php
-    for ($i = 0; $i < sizeof($materiel); $i++) {
-        echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
-        . "<div class='matos_elements' >" . $materiel[$i]["nom"];
-    }
-    ?>
-            </ul>  
+}
+?>
+            </ul>
         </p>
-        <!-- Ajout des boutons MATERIEL HTML -->
-        <div class = "ajout_matos">
-            <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-                <input class = "" name="ajout_matos" type ="submit" value = ajouter >
-            </form>
-        </div>
-
-        <div class = "modif_matos">
-            <form method='post'> 
-                <input class = "" name="modif_matos" type ="submit" value = modifier >
-            </form>
-        </div>
-
-
-        <div class = "supr_matos">
-            <form method='post'> 
-                <input class = "" name="supr_matos" type ="submit" value = suprimer >
-            </form>
-        </div>
     </div>
 
     <!-- 2eme section : matériel -->
-    
+
     <div id="matos">
-        <h1 class = "titre_part">
+        <h1 class = "matos">
             Matériel
         </h1>
         <p>
         <ul class="item_matos">
-            <?php
-            for ($i = 0; $i < sizeof($materiel); $i++) {
-                echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
-                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
-                . "</div></ul>";
-            }
-            ?>
+<?php
+for ($i = 0; $i < sizeof($materiel); $i++) {
+    echo "<li class='matos_list'><img src ='" . $materiel[$i]['lien_img'] . "' width='80px' 'class='img'>" . ""
+    . "<div class='matos_elements' >" . $materiel[$i]["nom"];
+}
+?>
         </ul>  
     </p>
-</div>
-
-            <!-- Ajout des boutons JEUX HTML -->
-            <div class = "ajout_jeux">
-                <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-                    <input class = "" name="ajout_jeux" type ="submit" value = ajouter >
-                </form>
-            </div>
-
-            <div class = "modif_jeux">
-                <form method='post'> 
-                    <input class = "" name="modif_jeux" type ="submit" value = modifier >
-                </form>
-            </div>
-
-            <div class = "supr_jeux">
-                <form method='post'> 
-                    <input class = "" name="supr_jeux" type ="submit" value = suprimer >
-                </form>
-            </div><!-- comment -->
-            <p>
-            <ul class="item_jeux">
-    <?php
-    for ($i = 0; $i < sizeof($jeux); $i++) {
-        echo "<form method='post'> 
-                <input name='test2' type ='submit' value = 'Test' ></form>"
-        . "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-        . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-        . "<img src =Images/plus width='5%' id='prout'>"
-        . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div></ul>";
-    }
-    ?>
-            </ul> 
-            </p>
-
-
+    <!-- Ajout des boutons MATERIEL HTML -->
+    <div class = "ajout_matos">
+        <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
+            <input class = "" name="ajout_matos" type ="submit" value = ajouter >
+        </form>
     </div>
 
-    <footer>
-        <p>
-            Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
-        </p>
-    </footer>
+    <div class = "modif_matos">
+        <form method='post'> 
+            <input class = "" name="modif_matos" type ="submit" value = modifier >
+        </form>
+    </div>
+
+
+    <div class = "supr_matos">
+        <form method='post'> 
+            <input class = "" name="supr_matos" type ="submit" value = suprimer >
+        </form>
+    </div>
+</div>
+
+<!-- 2eme section : matériel -->
+
+<div id="matos">
+    <h1 class = "titre_part">
+        Matériel
+    </h1>
+    <p>
+    <ul class="item_matos">
+<?php
+for ($i = 0; $i < sizeof($materiel); $i++) {
+    echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
+    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+    . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+    . "</div></ul>";
+}
+?>
+    </ul>  
+</p>
+</div>
+
+<!-- Ajout des boutons JEUX HTML -->
+<div class = "ajout_jeux">
+    <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
+        <input class = "" name="ajout_jeux" type ="submit" value = ajouter >
+    </form>
+</div>
+
+<div class = "modif_jeux">
+    <form method='post'> 
+        <input class = "" name="modif_jeux" type ="submit" value = modifier >
+    </form>
+</div>
+
+<div class = "dispo_jeux">
+    <form method='post'> 
+        <input class = "" name="dispo_jeux" type ="submit" value = "rendre disponible"  >
+    </form>
+</div>
+
+<div class = "supr_jeux">
+    <form method='post'> 
+        <input class = "" name="supr_jeux" type ="submit" value = suprimer >
+    </form>
+</div><!-- comment -->
+<p>
+<ul class="item_jeux">
+<?php
+for ($i = 0; $i < sizeof($jeux); $i++) {
+    echo "<form method='post'> 
+                <input name='test2' type ='submit' value = 'Test' ></form>"
+    . "<ul class='jeux_list'><img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+    . "<img src =Images/plus width='5%' id='prout'>"
+    . "<div class='dispo' id='prout'>" . $jeux[$i]["nombre_reserves"] . "</div></ul>";
+}
+?>
+</ul> 
+</p>
+
+
+</div>
+
+<footer>
+    <p>
+        Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
+    </p>
+</footer>
 
 </body>

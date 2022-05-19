@@ -60,7 +60,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 color: white;
                 font-style: italic;
                 padding: 30 px;
-                font-size : 2vw;
+                font-size : 1vw;
             }
 
         </style>

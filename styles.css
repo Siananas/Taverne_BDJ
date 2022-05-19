@@ -104,6 +104,7 @@ h1.banniere {
     color: white;
     font-variant : small-caps;
     text-indent: 20px; 
+    font-size: 5vw;
 }
 
 p.intro    {
@@ -183,6 +184,7 @@ div#snacks {
     background-color: #FAF5DE;
 }
 
+
 ul.snack_list{
     background-color: white;
     margin: 20px;
@@ -208,6 +210,16 @@ ul.snack_list div.prix{
     display: inline-block;
     padding:10px;
 }
+/*snacks coté admin*/
+div.bloc_nombre {
+    width: 30%;
+}
+.bloc_nombre_item {
+    width: 100%;
+    font-size: 3vw;
+    text-align: right;
+}
+
 
 /* Liste jeux*/
 

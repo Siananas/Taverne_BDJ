@@ -33,9 +33,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <nav class = "banniere">
             <ul>
                 <li class = "appel">
-                    <a href="#"><img src="tests/Image_test/icon_tel" width="100px" height="100px"/></a>
+                    <a href="appel_vendeur.php" target="_BLANK"><img src="tests/Image_test/icon_tel" width="100px" height="100px"/></a>
                 </li>
-                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.jpg" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.png" width="100px" height="100px"/> &ensp;</a>
                     <ul class="sous">
                         <li><a href="login_admin.php" target="_BLANK">Connection administrateur</a></li>
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>
@@ -90,7 +90,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <div id="snacks">
             <h1 class = "titre_part">Snacks</h1>
             <p> Voici tous les snacks que nous vous proposons :
-            <ul class="snack_bloc">
+            <div class="snack_bloc">
                 <?php
                 for ($i = 0; $i < sizeof($snacks); $i++) {
                     if ($snacks[$i]["dispo"] != 0) {
@@ -101,7 +101,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     }
                 }
                 ?>
-            </ul>
+            </div>
         </p>
     </div>
 
@@ -133,27 +133,22 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </h3>
         <p>
             Voici tous les jeux que nous vous proposons :
-        <ul class="item_jeux">
+        <div class="item_jeux">
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
 
                 $nb = strval($i);
                 $bouton = "btn$nb";
+                    echo "<ul class='jeux_list'>
+                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
                 if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] == 0) {
-                    echo "<ul class='jeux_list'>          
-                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                    . "<div class='nondispo' id='prout'>Non dispo</div>"
-                    . "<i><div class='btnjeux'><form method='post'> 
+                echo "<div class='nondispo' id='prout'>Non dispo</div>";}
+                else{echo "<div class='dispo' id='prout'>Dispo</div>";}
+                
+                echo "<i><div class='btnjeux'><form method='post'> 
                 <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
-                } else {
-                    echo "<ul class='jeux_list'>          
-                <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                    . "<div class='dispo' id='prout'>Dispo</div>"
-                    . "<i><div class='btnjeux'><form method='post'> 
-                <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
-                }
+                
                 if (isset($_POST[$bouton])) {
                     echo "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div>";
                 }
@@ -161,7 +156,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 echo '</ul>';
             }
             ?>
-        </ul>         
+        </div>         
         </p>
 </div>
 

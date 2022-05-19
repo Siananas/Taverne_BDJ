@@ -30,7 +30,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <h1 class = "banniere">Taverne BDJ</h1>
         <nav class = "banniere">
             <ul>
-                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.jpg" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.png" width="100px" height="100px"/> &ensp;</a>
                     <ul class="sous">
                         <li><a href="vue_generale.php" target="_BLANK">Déconnection administrateur</a></li>
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>
@@ -273,11 +273,25 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- 3eme section : location jeux de société -->
-    <div id="jeux">
-        <h1 class = "jeux">
-            Jeux
-            </h3>
+    <!-- 2eme section : matériel -->
+    
+    <div id="matos">
+        <h1 class = "titre_part">
+            Matériel
+        </h1>
+        <p>
+        <ul class="item_matos">
+            <?php
+            for ($i = 0; $i < sizeof($materiel); $i++) {
+                echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
+                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+                . "</div></ul>";
+            }
+            ?>
+        </ul>  
+    </p>
+</div>
 
             <!-- Ajout des boutons JEUX HTML -->
             <div class = "ajout_jeux">
@@ -322,4 +336,3 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </footer>
 
 </body>
-</html>

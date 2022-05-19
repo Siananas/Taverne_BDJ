@@ -52,7 +52,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <!-- 1ere section : snacks -->
 
         <div id="snacks">
-            <h1 class = "snack">Snacks</h1>
+            <h1 class = "titre_part">Snacks</h1>
             <ul class="snack_bloc">
 
                 <?php
@@ -216,7 +216,10 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     </form>
                 </div>
 
+                <?php
+                // AFFICHAGE
 
+                for ($i = 0; $i < sizeof($snacks); $i++) {
 
 
 <?php
@@ -236,6 +239,8 @@ for ($i = 0; $i < sizeof($snacks); $i++) {
         </p>
     </div>
 
+        
+        
     <!-- 2eme section : matériel -->
 
     <div id="matos">

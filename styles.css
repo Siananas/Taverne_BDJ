@@ -316,6 +316,13 @@ div.description{
 div.snack_bloc{
     text-align: center;
 }
+div.matos_bloc {
+    text-align: center;
+}
+
+div.jeux_bloc {
+    text-align: center;
+}
 
 div#inline{
     display: inline-block;
@@ -338,6 +345,10 @@ input#btn_modif:hover{
     background-color: #FAF5DE;
     border-color:black;
     transition:0.5s all;
+}
+
+.item{
+    font-size: 2vw;
 }
 
 

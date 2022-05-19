@@ -307,9 +307,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <div class="item_jeux">
         <?php
         for ($i = 0; $i < sizeof($jeux); $i++) {
-            echo "<form method='post'> 
-                <input name='test2' type ='submit' value = 'Test' ></form>"
-            . "<ul class='jeux_list'>"
+            echo "<ul class='jeux_list'>"
             . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
             . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
             . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"

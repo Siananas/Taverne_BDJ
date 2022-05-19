@@ -8,7 +8,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     <head>
         <meta charset="UTF-8">
         <title>TaverneBDJ</title>
-        <link rel="stylesheet" href="styles.css"/>
 
 
         <style>
@@ -23,16 +22,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             a.retour {
                 background-color: red ;
             }
+
+
+
+            nav.menu-nav ul{
+                width: 100%;
+                margin: 15px;
+                text-align: center;
+                padding : 0;
+            }
+
+            nav.menu-nav ul li.btn{
+                display: inline-block;
+                list-style-type: none;
+                width: 45%;
+            }
+
+            nav.menu-nav ul li.btn a{
+                color: white;
+                text-decoration: none;
+                padding : 10px;
+                border-radius: 100px;
+                border: 4px double #cccccc;
+                font-size : 1vw;
+                text-align: center;
+                width: 100%;
+            }
+
+            nav.menu-nav ul li.btn:hover a{
+                color: black;
+                transition:0.5s all;
+                background-color: #FAF5DE
+            }
+
+            footer{
+                background-color: black;
+                color: white;
+                font-style: italic;
+                padding: 30 px;
+            }
+
         </style>
     </head>
     <body class='body'>
         <h1 class="banniere">Es-tu sûr(e) de vouloir contacter un vendeur ?</h1>
-        
+
         <div class ="intro">
             <nav class="menu-nav"> 
                 <ul> <!--//Stocker les differentes puces dans une balise-->
                     <li class="btn"> <!--//création d'un nouvelle puce-->
-                        <a class="valider" href="#" target="_BLANK"> 
+                        <a class="valider"> 
                             Valider
                         </a>
                     </li>

@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
                 vertical-align: baseline;
                 background-color: #F6F3E4;
                 width: max-content;
-                padding:3em;
+                padding:2em;
                 margin: 20% auto;
                 border-style: double;
                 border-width: 8px;

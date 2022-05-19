@@ -60,12 +60,14 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 // BTN AJOUTER
                 if (isset($_POST['ajout_snack'])) { // Si Lecture du bouton ...
                     echo "<div class = 'action_email'> 
-                             <div class = 'action'> 
-                                <form method='post'>
-                                    <input type = 'text' name='snack_name' placeholder='Nom du snack' required><br/>
-                                    <input type = 'text' name='snack_img' placeholder='Lien image' required><br/>
-                                    <input type = 'float' name='snack_prix' placeholder='Prix' required><br/>
-                                    <input type='submit' name='form_ajout' if='form_ajout'>
+                             <div class = 'action' > 
+                                <form method='post' class='champ_modif'>
+                                <div >
+                                    <input type = 'text' name='snack_name' placeholder='Nom du snack' required class='item'><br/>
+                                    <input type = 'text' name='snack_img' placeholder='Lien image' required class='item'><br/>
+                                    <input type = 'float' name='snack_prix' placeholder='Prix' required class='item'><br/>
+                                    <input type='submit' name='form_ajout' if='form_ajout' class='item'> </div>
+                                    <hr color='#DE9426' size='3px' width='50%'>
                                 </form>
                              </div>
                             </div>";
@@ -101,8 +103,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     echo "<div class = 'action_email'> 
                          <div class = 'action'> 
                             <form method='post'>
-                                <input type = 'text' name='snack_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_modif_snack' if='selection_snack'> 
+                                <input type = 'text' name='snack_name' placeholder='Nom actuel' required class='item'><br/>
+                                <input type='submit' name='selection_snack' if='selection_snack' class='item'> 
+                                <hr color='#DE9426' size='3px' width='50%'>
                             </form>
                          </div>
                         </div>";
@@ -124,19 +127,20 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         for ($i = 0; $i < sizeof($snacks_cible); $i++) {
 
                             // Aficchage des anciennes données
-                            echo "<div class = 'ancienne donne'> 
-                                Nom actuel : " . $snacks_cible[$i]["nom"] . "<br/> Lien actuel : " . $snacks_cible[$i]['lien_img'] . "<br/> Prix_actuel : " . $snacks_cible[$i]["prix"] . "
-                                </div>";
+                            echo "<div class = 'ancienne donne' class='item'> 
+                                <div class='item'><b>Nom actuel : </b>" . $snacks_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $snacks_cible[$i]['lien_img'] . "<br/> <b>Prix_actuel : </b>" . $snacks_cible[$i]["prix"] . "€
+                                </div></div>";
                         }
 
                         // Nouveau form
                         echo "<div class = 'action_email'> 
                                 <div class = 'action'> 
                                    <form method='post'>
-                                       <input type = 'text' name='snack_name' placeholder='Nouveau nom du snack' required><br/>
-                                       <input type = 'text' name='snack_img' placeholder='Nouveau Lien image' required><br/>
-                                       <input type = 'float' name='snack_prix' placeholder='Nouveau Prix' required>
-                                       <input type='submit' name='form_snack_modif' if='form_modif'> 
+                                       <input type = 'text' name='snack_name' placeholder='Nouveau nom du snack' required class='item'><br/>
+                                       <input type = 'text' name='snack_img' placeholder='Nouveau Lien image' required class='item'><br/>
+                                       <input type = 'float' name='snack_prix' placeholder='Nouveau Prix' required class='item'></br>
+                                       <input type='submit' name='form_snack_modif' if='form_modif' class='item'> 
+                                       <hr color='#DE9426' size='3px' width='50%'>
                                    </form>
                                 </div>
                                </div>";
@@ -185,8 +189,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     echo "<div class = 'action_email'> 
                          <div class = 'action'> 
                             <form method='post'>
-                                <input type = 'text' name='snack_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_dispo_snack' if='selection_dispo_snack'> 
+                                <input type = 'text' name='snack_name' placeholder='Nom actuel' required class='item'><br/>
+                                <input type='submit' name='selection_snack' if='selection_snack' class='item'> 
+                                <hr color='#DE9426' size='3px' width='50%'>
                             </form>
                          </div>
                         </div>";
@@ -282,16 +287,16 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     </form>
                 </div>
 
-<?php
+                <?php
 // AFFICHAGE
 
-for ($i = 0; $i < sizeof($snacks); $i++) {
-    echo "<div class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
-    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
-    . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
-    . "</div> <hr color='#DE9426' size='5px' width='95%'> </div>";
-}
-?>
+                for ($i = 0; $i < sizeof($snacks); $i++) {
+                    echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                    . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
+                    . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
+                    . "</div> <hr color='#8d6951' size='5px' width='95%'> </ul>";
+                }
+                ?>
             </div>
         </p>
     </div>
@@ -306,17 +311,14 @@ for ($i = 0; $i < sizeof($snacks); $i++) {
         </h1>
         <p>
         <ul class="item_matos">
-<?php
-for ($i = 0; $i < sizeof($materiel); $i++) {
-    echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
-    . "<div class='nom' >" . $materiel[$i]["nom"] . ""
-    . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
-    . "</div></ul>";
-}
-?>
-
-                            
-            
+            <?php
+            for ($i = 0; $i < sizeof($materiel); $i++) {
+                echo "<ul class='matos_list'><img src ='" . $materiel[$i]['img'] . "' width='50%' 'class='matos_img'>" . ""
+                . "<div class='nom' >" . $materiel[$i]["nom"] . ""
+                . "</div><div class='dispo'>" . $materiel[$i]["nombre"] . " disponibles"
+                . "</div></ul>";
+            }
+            ?>
         </ul>  
     </p>
     <!-- Ajout des boutons MATERIEL HTML -->
@@ -574,16 +576,16 @@ for ($i = 0; $i < sizeof($materiel); $i++) {
 
     <p>
     <div class="item_jeux">
-<?php
-for ($i = 0; $i < sizeof($jeux); $i++) {
-    echo "<ul class='jeux_list'>"
-    . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-    . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
-    . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
-    . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
-}
-?>
+        <?php
+        for ($i = 0; $i < sizeof($jeux); $i++) {
+            echo "<ul class='jeux_list'>"
+            . "<img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
+            . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+            . "<div class='bloc_nombre' id='prout'><div class='bloc_nombre_item'>Inventaire : " . $jeux[$i]["nombre"] . "</div>"
+            . "<div class='bloc_nombre_item'>Réservés : " . $jeux[$i]["nombre_reserves"] . "</div></div>"
+            . "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div></ul>";
+        }
+        ?>
     </div> 
 </p>
 </div>

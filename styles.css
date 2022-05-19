@@ -185,20 +185,21 @@ div#snacks {
 }
 
 
-div.snack_list{
+ul.snack_list{
+    padding:0;
     background-color: white;
     margin: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 1px lightgray;
 }
 
-div.snack_list div.nom{
+ul.snack_list div.nom{
     text-align: left;
     font-size:4vw;
     width: 35%;
 }
 
-div.snack_list div.prix{
+ul.snack_list div.prix{
     text-align: right;
     vertical-align: top;
     font-size:4vw;
@@ -316,6 +317,13 @@ div.description{
 div.snack_bloc{
     text-align: center;
 }
+div.matos_bloc {
+    text-align: center;
+}
+
+div.jeux_bloc {
+    text-align: center;
+}
 
 div#inline{
     display: inline-block;
@@ -338,6 +346,10 @@ input#btn_modif:hover{
     background-color: #FAF5DE;
     border-color:black;
     transition:0.5s all;
+}
+
+.item{
+    font-size: 2vw;
 }
 
 

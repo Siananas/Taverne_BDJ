@@ -143,19 +143,17 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                 echo "<ul class='jeux_list'>
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                . "<div class='bloc_reserve' id='prout'>";
-                if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] == 0) {
+                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
+                if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] <= 0) {
                     echo "<div class='nondispo' id='prout'>Non dispo</div>";
                 } else {
-                    echo "<div class='dispo' id='prout'>Dispo</div>";
+                    echo "<div class='dispo' id='prout'>Dispo</div><form method='post'> 
+                        <input name=".$bouton_reserv." type ='submit' value = Reserver id='btn_modif'>
+                    </form>";
                 }
 
-                echo "<form method='post'> 
-                        <input name=".$bouton_reserv." type ='submit' value = Reserver>
-                    </form>";
 
-                echo "</div><i><div class='btnjeux'><form method='post'> 
+                echo "<i><div class='btnjeux'><form method='post'> 
                 <input  name=" . $bouton_desription . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
 
                 if (isset($_POST[$bouton_desription])) {
@@ -169,8 +167,8 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         'old_name' => $jeux[$i]["nom"],
                         'new_nombre' => $jeux[$i]["nombre_reserves"] + 1
                     ]);
-                    echo 'Vous venez de réserver ' . $jeux[$i]["nom"].
-                    'Nombre restant: ' . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] - 1);
+                    echo '<div class="item">Vous venez de réserver ' . $jeux[$i]["nom"].
+                    'Nombre restant: ' . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves']-1).'</div>';
                 }
 
                 echo '</ul>';

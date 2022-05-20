@@ -128,7 +128,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                             // Aficchage des anciennes données
                             echo "<div class = 'ancienne donne' class='item'> 
-                                <div class='item'><b>Nom actuel : </b>" . $snacks_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $snacks_cible[$i]['lien_img'] . "<br/> <b>Prix_actuel : </b>" . $snacks_cible[$i]["prix"] . "€
+                                <div class='item'><b>Nom actuel : </b>" . $snacks_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $snacks_cible[$i]['lien_img'] . "<br/> <b>Prix actuel : </b>" . $snacks_cible[$i]["prix"] . "€
                                 </div></div>";
                         }
 
@@ -377,8 +377,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                     if (!empty($jeux_name) && !empty($id_image) && !empty($jeux_description) && $jeux_disponible != 0) {
 
-                        echo $jeux_name . '<br/>' . $id_image . '<br/>' . $jeux_description .'<br/>' . $jeux_disponible;
-                        $q = $db->prepare("INSERT INTO jeux(nom, lien_img, description, jeux_disponible)  VALUES(:nom, :img, :description, :nombre)");
+                        $q = $db->prepare("INSERT INTO jeux(nom, id_image, description, nombre)  VALUES(:nom, :img, :description, :nombre)");
 
                         $q->execute([
                             'nom' => $jeux_name,
@@ -420,7 +419,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                             // Aficchage des anciennes données
                             echo "<div class = 'ancienne donne' class='item'> 
-                                <div class='item'><b>Nom actuel : </b>" . $jeux_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $jeux_cible[$i]['lien_img'] . "<br/> <b>description_actuel : </b>" . $jeux_cible[$i]["description"] ."<br/> <b>nombre_actuel : </b>" . $jeux_cible[$i]["nombre"] .  "
+                                <div class='item'><b>Nom actuel : </b>" . $jeux_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $jeux_cible[$i]['id_image'] . "<br/> <b>description actuel : </b>" . $jeux_cible[$i]["description"] ."<br/> <b>nombre : </b>" . $jeux_cible[$i]["nombre"] .  "
                                 </div></div>";
                         }
 
@@ -460,7 +459,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                 'new_name' => $jeux_name
                             ]); 
 
-                            $q = $db->prepare("UPDATE jeux set lien_img = :new_image WHERE nom = :old_name");
+                            $q = $db->prepare("UPDATE jeux set id_image = :new_image WHERE nom = :old_name");
                             $q->execute([
                                 'old_name' => $jeux_cible[$i]["nom"],
                                 'new_image' => $id_image
@@ -571,12 +570,6 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     <div class = "modif_jeux" id='inline'>
         <form method='post'> 
             <input class = "" name="modif_jeux" type ="submit" value = Modifier id='btn_modif'>
-        </form>
-    </div>
-
-    <div class = "dispo_jeux" id='inline'>
-        <form method='post'> 
-            <input class = "" name="dispo_jeux" type ="submit" value = "Disponibilité" id='btn_modif'>
         </form>
     </div>
 

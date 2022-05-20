@@ -4,9 +4,12 @@ session_start(); // démarrage de la session pour sauvegarder les variable (doit
 <!DOCTYPE html>
 
 <?php
+// APPEL DE LA BDD
+
 include 'database.php';
 global $bd;
 
+//DECLARATION DES ARRAYS LISTES DES INFOS SNACKS, MATERIEL ET JEUX
 $sql = $db->prepare("SELECT * FROM snacks");
 $sql->execute();
 $snacks = $sql->fetchAll(\PDO::FETCH_ASSOC);
@@ -29,13 +32,16 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </head>
 
     <body>
+        
+        <!-- BANNIERE -->
+        
         <h1 class = "banniere">Taverne BDJ</h1>
         <nav class = "banniere">
             <ul>
-                <li class = "appel">
-                    <a href="appel_vendeur.php" target="_BLANK"><img src="Images/icon_tel" width="100px" height="100px"/></a>
+                <li class = "appel"> <!-- btn appel a un vendeur -->
+                    <a href="<!-- BANNIERE -->appel_vendeur.php" target="_BLANK"><img src="Images/icon_tel" width="100px" height="100px"/></a>
                 </li>
-                <li class="deroulant"><a href="#"><img src="Images/Tibou.png" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="Images/Tibou.png" width="100px" height="100px"/> &ensp;</a>  <!-- btn menu déroulant -->
                     <ul class="sous">
                         <li><a href="login_admin.php" target="_BLANK">Connection administrateur</a></li>
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>
@@ -43,8 +49,11 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     </ul>
                 </li>
             </ul>
-        </nav> <!-- bannière -->
+        </nav> 
 
+        
+        <!-- TEXTE INTRODUCTIF, REGLES -->
+        
         <div class ="intro">
             <p class = "intro"> Bonjour cher Peufien ! </p>
 
@@ -92,9 +101,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             <p> Voici tous les snacks que nous vous proposons :
             <div class="snack_bloc">
                 <?php
-                for ($i = 0; $i < sizeof($snacks); $i++) {
-                    if ($snacks[$i]["dispo"] != 0) {
-                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>" . ""
+                for ($i = 0; $i < sizeof($snacks); $i++) {  //Liste php contenant les differentes infos snacks
+                    if ($snacks[$i]["dispo"] != 0) { //Snack non affiché si indisponible
+                        echo "<ul class='snack_list'><img src ='" . $snacks[$i]['lien_img'] . "' width='15%' id='prout'>"
                         . "<div id='prout' class='nom' >" . $snacks[$i]["nom"] . ""
                         . "</div>" . "<div class='prix' id='prout' ><b> " . $snacks[$i]["prix"] . "€</b>"
                         . "</div> <hr color='#8d6951' size='4px' width='95%'> </ul>";
@@ -126,7 +135,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </p>
 </div>
 
-<!-- 3eme section : tion jeux de société -->
+<!-- 3eme section : jeux de société -->
 <div id="jeux">
     <h1 class = "titre_part">
         Jeux
@@ -137,6 +146,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             <?php
             for ($i = 0; $i < sizeof($jeux); $i++) {
 
+                // déclaration variables boutons description et reservation
                 $nb = strval($i);
                 $bouton_desription = "btn_desription$nb";
                 $bouton_reserv = "btn_reserv$nb";
@@ -144,6 +154,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 echo "<ul class='jeux_list'>
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
                 . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
+                
+                //Si le jeux est disponible, affichage 'dispo' et du bouton reserver
+                //affichage dispo
                 if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] <= 0) {
                     echo "<div class='nondispo' id='prout'>Non dispo</div>";
                 } else {
@@ -152,7 +165,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     </form>";
                 }
 
-
+                //btn reserver
                 echo "<i><div class='btnjeux'><form method='post'> 
                 <input  name=" . $bouton_desription . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
 
@@ -183,6 +196,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </p>
 </div>
 
+<!-- footer du site -->
 <footer>
     Copyright &copy; BDJ - 2022-2023 - All Right Reserved 
 </footer>

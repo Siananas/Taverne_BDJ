@@ -30,13 +30,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
         <div class='format'>
             <h1>TavernBDJ</h1>
 
-            <form method="post">
+            <form method="post"> <!-- création d'un form -->
                 <input type="text" name="mdp" id="mdp">
                 <input type="submit" name="formsend" id=formsend">
             </form>
             <?php
             if (isset($_POST["formsend"])) {
-                if ($_POST["mdp"] === "hello") {
+                if ($_POST["mdp"] === "hello") { //test si correspond au mdp
                     echo "very very good";
                     header("Location: vue_admin.php");
                     die();

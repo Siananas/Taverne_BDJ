@@ -30,19 +30,22 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
     </head>
 
     <body>
+        <!-- BANNIERE -->
         <h1 class = "banniere">Taverne BDJ</h1>
         <nav class = "banniere">
             <ul>
-                <li class="deroulant"><a href="#"><img src="Images/Tibou.png" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="Images/Tibou.png" width="100px" height="100px"/> &ensp;</a> <!-- btn appel vendeur -->
                     <ul class="sous">
-                        <li><a href="vue_generale.php" target="_BLANK">Déconnection administrateur</a></li>
+                        <li><a href="vue_generale.php" target="_BLANK">Déconnection administrateur</a></li> <!-- menu déroulant -->
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>
                         <li><a href="contact_respo_site.php" target="_BLANK">Nous contacter</a></li>
                     </ul>
                 </li>
             </ul>
-        </nav> <!-- bannière -->
+        </nav>
 
+        
+        <!-- TEXTE INTRODUCTIF -->
         <div class ="intro">
             <p class = "intro"> Bonjour cher vendeur ! </p>
             <p class ='alinea'>Tu es ici en charge de la tenue du fabuleux site de la Taverne BDJ. Ta mission, si tu l'accepte, 
@@ -52,8 +55,10 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 <br><br>
         </div>
 
+        
         <!-- 1ere section : snacks -->
 
+        
         <div id="snacks">
             <h1 class = "titre_part">Snacks</h1>
             <div class="snack_bloc">
@@ -306,6 +311,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
 
     <!-- 2eme section : matériel -->
+    
+    
+    
 
     <div id="matos" class='matos_bloc'>
         <h1 class = "titre_part">

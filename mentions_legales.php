@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html>
-    <style>
+    <style> /*Syle des mentions légales*/
         h1.banniere {
             color: white;
             text-align: center;

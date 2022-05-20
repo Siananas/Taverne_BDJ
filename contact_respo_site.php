@@ -30,6 +30,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
             <p class="intro">Tu as des commentaires à nous faire ?</p>
             <p>Tu peux nous contacter en remplissant le formulaire ci-dessous :</p>
+            
+            <!-- affichage des boutons -->
             <form method="post">
                 <p>Nom : </p>
                 <input type="text" name="nom" id="nom">

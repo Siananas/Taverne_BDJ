@@ -162,13 +162,18 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
 
                 // Incrémentation du nombre de réservation
                 if (isset($_POST[$bouton_reserv])) {
-                    $q = $db->prepare("UPDATE jeux set nombre_reserves = :new_nombre WHERE nom = :old_name");
-                    $q->execute([
-                        'old_name' => $jeux[$i]["nom"],
-                        'new_nombre' => $jeux[$i]["nombre_reserves"] + 1
-                    ]);
-                    echo '<div class="item">Vous venez de réserver ' . $jeux[$i]["nom"].
-                    'Nombre restant: ' . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves']-1).'</div>';
+                    if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] > 0) {
+                        $q = $db->prepare("UPDATE jeux set nombre_reserves = :new_nombre WHERE nom = :old_name");
+                        $q->execute([
+                            'old_name' => $jeux[$i]["nom"],
+                            'new_nombre' => $jeux[$i]["nombre_reserves"] + 1
+                        ]);
+                        echo 'Vous venez de réserver ' . $jeux[$i]["nom"] .
+                        'Nombre restant: ' . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] - 1);
+                    }
+                    else{
+                        echo "Ce jeu n'est plus disponible";
+                    }
                 }
 
                 echo '</ul>';

@@ -66,7 +66,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                     <input type = 'text' name='snack_name' placeholder='Nom du snack' required class='item'><br/>
                                     <input type = 'text' name='snack_img' placeholder='Lien image' required class='item'><br/>
                                     <input type = 'float' name='snack_prix' placeholder='Prix' required class='item'><br/>
-                                    <input type='submit' name='form_ajout' if='form_ajout' class='item'> </div>
+                                    <input type='submit' name='form_ajout_snack' if='form_ajout_snack' class='item'> </div>
                                     <hr color='#DE9426' size='3px' width='50%'>
                                 </form>
                              </div>
@@ -74,7 +74,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 }
 
                 //Une fois qu'on valide le Form, on effectue cette action
-                if (isset($_POST['form_ajout'])) { //Si on valide le form
+                if (isset($_POST['form_ajout_snack'])) { //Si on valide le form
                     //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $snack_name et $snack_img (se sont les "name" dans le post)
                     extract($_POST);
 
@@ -164,13 +164,13 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             $q = $db->prepare("UPDATE snacks set nom = :new_name WHERE nom = :old_name");
                             $q->execute([
                                 'old_name' => $snacks_cible[$i]["nom"],
-                                'new_name' => $snack_name,
-                            ]);
+                                'new_name' => $snack_name
+                            ]); 
 
-                            $q = $db->prepare("UPDATE snacks set lien_img = :new_image WHERE nom = :old_image");
+                            $q = $db->prepare("UPDATE snacks set lien_img = :new_image WHERE nom = :old_name");
                             $q->execute([
                                 'old_name' => $snacks_cible[$i]["nom"],
-                                'new_image' => $snack_img,
+                                'new_image' => $snack_img
                             ]);
 
                             $q = $db->prepare("UPDATE snacks set prix = :new_prix WHERE nom = :old_name");
@@ -354,41 +354,37 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         Jeux
     </h1>
 
-        <?php
+                <?php
                 // BTN AJOUTER
                 if (isset($_POST['ajout_jeux'])) { // Si Lecture du bouton ...
                     echo "<div class = 'action_email'> 
-                             <div class = 'action'> 
-                                <form method='post'>
-                                    <input type = 'text' name='jeux_name' placeholder='Nom du jeux' required><br/>
-                                    <input type = 'text' name='jeux_img' placeholder='Lien image' required><br/>
-                                    <input type = 'float' name='jeux_prix' placeholder='Prix' required><br/>
-                                    <input type='submit' name='form_ajout' if='form_ajout'>
+                             <div class = 'action' > 
+                                <form method='post' class='champ_modif'>
+                                <div >
+                                    <input type = 'text' name='jeux_name' placeholder='Nom du jeux' required class='item'><br/>
+                                    <input type = 'text' name='id_image' placeholder='Lien image' required class='item'><br/>
+                                    <input type = 'float' name='jeux_disponible' placeholder='Nombre disponible' required class='item'><br/>
+                                    <input type = 'text' name='jeux_description' placeholder='Description du jeu' required class='item'><br/>
+                                    <input type='submit' name='form_ajout_jeux' if='form_ajout_jeux' class='item'> </div>
+                                    <hr color='#DE9426' size='3px' width='50%'>
                                 </form>
                              </div>
                             </div>";
                 }
 
-                //Une fois qu'on valide le Form, on effectue cette action
-                if (isset($_POST['form_ajout'])) { //Si on valide le form
-                    //On extrait les variables du form. dans ce cas, on retrouve 2 variables, $jeux_name et $jeux_img (se sont les "name" dans le post)
+                if (isset($_POST['form_ajout_jeux'])) { //Si on valide le form
                     extract($_POST);
 
-                    //On verifie que des valeurs ont bien été rentrées
-                    if (!empty($jeux_name) && !empty($jeux_img) && $jeux_prix != 0) {
+                    if (!empty($jeux_name) && !empty($id_image) && !empty($jeux_description) && $jeux_disponible != 0) {
 
-                        //Echo des variables pour verifier visuellement
-                        echo $jeux_name . '<br/>' . $jeux_img . '<br/>' . $jeux_prix;
+                        echo $jeux_name . '<br/>' . $id_image . '<br/>' . $jeux_description .'<br/>' . $jeux_disponible;
+                        $q = $db->prepare("INSERT INTO jeux(nom, lien_img, description, jeux_disponible)  VALUES(:nom, :img, :description, :nombre)");
 
-                        //Inserer des données dans la BDD
-                        //On prepaer la requette. Ici, on veut inserer un nom et une img dans le jeux. On leur insere les valeurs associées aux variables 'nom' et 'img' (methode securisée)
-                        $q = $db->prepare("INSERT INTO jeux(nom, id_image, prix, dispo)  VALUES(:nom, :img, :prix, :dispo)");
-                        //On execute la requette en attribuant aux variables 'nom' et 'img' les variables du Form
                         $q->execute([
                             'nom' => $jeux_name,
-                            'img' => $jeux_img,
-                            'prix' => $jeux_prix,
-                            'dispo' => 1
+                            'img' => $id_image,
+                            'description' => $jeux_description,
+                            'nombre' => $jeux_disponible,    
                         ]);
                     }
                 }
@@ -399,8 +395,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     echo "<div class = 'action_email'> 
                          <div class = 'action'> 
                             <form method='post'>
-                                <input type = 'text' name='jeux_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_modif_jeux' if='selection_jeux'> 
+                                <input type = 'text' name='jeux_name' placeholder='Nom actuel' required class='item'><br/>
+                                <input type='submit' name='selection_modif_jeux' if='selection_jeux' class='item'> 
+                                <hr color='#DE9426' size='3px' width='50%'>
                             </form>
                          </div>
                         </div>";
@@ -422,18 +419,21 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         for ($i = 0; $i < sizeof($jeux_cible); $i++) {
 
                             // Aficchage des anciennes données
-                            echo "<div class = 'ancienne donne'> 
-                                Nom actuel : " . $jeux_cible[$i]["nom"] . "<br/> Lien actuel : " . $jeux_cible[$i]['id_image'] . "
-                                </div>";
+                            echo "<div class = 'ancienne donne' class='item'> 
+                                <div class='item'><b>Nom actuel : </b>" . $jeux_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $jeux_cible[$i]['lien_img'] . "<br/> <b>description_actuel : </b>" . $jeux_cible[$i]["description"] ."<br/> <b>nombre_actuel : </b>" . $jeux_cible[$i]["nombre"] .  "
+                                </div></div>";
                         }
 
                         // Nouveau form
                         echo "<div class = 'action_email'> 
                                 <div class = 'action'> 
                                    <form method='post'>
-                                       <input type = 'text' name='jeux_name' placeholder='Nouveau nom du jeux' required><br/>
-                                       <input type = 'text' name='jeux_img' placeholder='Nouveau Lien image' required><br/>
-                                       <input type='submit' name='form_jeux_modif' if='form_modif'> 
+                                       <input type = 'text' name='jeux_name' placeholder='Nouveau nom du jeux' required class='item'><br/>
+                                       <input type = 'text' name='id_image' placeholder='Nouveau Lien image' required class='item'><br/>
+                                       <input type = 'float' name='jeux_disponible' placeholder='Nombre disponible' required class='item'><br/>
+                                       <input type = 'text' name='jeux_description' placeholder='Description du jeu' required class='item'><br/>
+                                       <input type='submit' name='form_jeux_modif' if='form_modif' class='item'> 
+                                       <hr color='#DE9426' size='3px' width='50%'>
                                    </form>
                                 </div>
                                </div>";
@@ -457,15 +457,26 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             $q = $db->prepare("UPDATE jeux set nom = :new_name WHERE nom = :old_name");
                             $q->execute([
                                 'old_name' => $jeux_cible[$i]["nom"],
-                                'new_name' => $jeux_name,
-                            ]);
+                                'new_name' => $jeux_name
+                            ]); 
 
-                            $q = $db->prepare("UPDATE jeux set id_image = :new_image WHERE nom = :old_image");
+                            $q = $db->prepare("UPDATE jeux set lien_img = :new_image WHERE nom = :old_name");
                             $q->execute([
                                 'old_name' => $jeux_cible[$i]["nom"],
-                                'new_image' => $jeux_img,
+                                'new_image' => $id_image
+                            ]);
+                            
+                            $q = $db->prepare("UPDATE jeux set nombre = :new_nombre WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $jeux_cible[$i]["nom"],
+                                'new_nombre' => $jeux_disponible
                             ]);
 
+                            $q = $db->prepare("UPDATE jeux set description = :new_description WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $jeux_cible[$i]["nom"],
+                                'new_description' => $jeux_description
+                            ]);
                             echo '<br/> modify worked ';
                         }
                     }
@@ -477,12 +488,13 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     echo "<div class = 'action_email'> 
                          <div class = 'action'> 
                             <form method='post'>
-                                <input type = 'text' name='jeux_name' placeholder='Nom actuel' required><br/>
-                                <input type='submit' name='selection_dispo_jeux' if='selection_dispo_jeux'> 
+                                <input type = 'text' name='jeux_name' placeholder='Nom actuel' required class='item'><br/>
+                                <input type='submit' name='selection_jeux' if='selection_jeux' class='item'> 
+                                <hr color='#DE9426' size='3px' width='50%'>
                             </form>
                          </div>
                         </div>";
-                }
+                } */
                 
                 // Modification des données DISPO
                 if (isset($_POST['selection_dispo_jeux'])) {
@@ -517,7 +529,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                               
                         }
                     }
-                }   */
+                }   
 
                 
                 // BTN SUPRIMER
@@ -547,7 +559,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                     }
                 }
                 
-                ?>    
+                ?>
     
     <!-- Ajout des boutons JEUX HTML -->
     <div class = "ajout_jeux" id='inline'>

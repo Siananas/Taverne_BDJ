@@ -33,9 +33,9 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         <nav class = "banniere">
             <ul>
                 <li class = "appel">
-                    <a href="appel_vendeur.php" target="_BLANK"><img src="tests/Image_test/icon_tel" width="100px" height="100px"/></a>
+                    <a href="appel_vendeur.php" target="_BLANK"><img src="Images/icon_tel" width="100px" height="100px"/></a>
                 </li>
-                <li class="deroulant"><a href="#"><img src="tests/Image_test/Tibou.png" width="100px" height="100px"/> &ensp;</a>
+                <li class="deroulant"><a href="#"><img src="Images/Tibou.png" width="100px" height="100px"/> &ensp;</a>
                     <ul class="sous">
                         <li><a href="login_admin.php" target="_BLANK">Connection administrateur</a></li>
                         <li><a href="mentions_legales.php" target="_BLANK">Mentions légales</a></li>

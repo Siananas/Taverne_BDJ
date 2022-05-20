@@ -324,24 +324,177 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
         </ul>  
     </p>
     <!-- Ajout des boutons MATERIEL HTML -->
-    <div class = "ajout_matos" id='inline'>
+    <div class = "ajout_materiel" id='inline'>
         <form method='post'> <!-- Ajout du bouton (il doit etre dans un form) -->
-            <input class = "" name="ajout_matos" type ="submit" value = Ajouter id='btn_modif'>
+            <input class = "" name="ajout_materiel" type ="submit" value = Ajouter id='btn_modif'>
         </form>
     </div>
 
-    <div class = "modif_matos" id='inline'>
+    <div class = "modif_materiel" id='inline'>
         <form method='post'> 
-            <input class = "" name="modif_matos" type ="submit" value = Modifier id='btn_modif'>
+            <input class = "" name="modif_materiel" type ="submit" value = Modifier id='btn_modif'>
         </form>
     </div>
 
 
-    <div class = "supr_matos" id='inline'>
+    <div class = "supr_materiel" id='inline'>
         <form method='post'> 
-            <input class = "" name="supr_matos" type ="submit" value = Supprimer id='btn_modif'>
+            <input class = "" name="supr_materiel" type ="submit" value = Supprimer id='btn_modif'>
         </form>
     </div>
+    
+      <?php
+                // BTN AJOUTER
+                if (isset($_POST['ajout_materiel'])) { // Si Lecture du bouton ...
+                    echo "<div class = 'action_email'> 
+                             <div class = 'action' > 
+                                <form method='post' class='champ_modif'>
+                                <div >
+                                    <input type = 'text' name='materiel_name' placeholder='Nom du materiel' required class='item'><br/>
+                                    <input type = 'text' name='img' placeholder='Lien image' required class='item'><br/>
+                                    <input type = 'float' name='materiel_disponible' placeholder='Nombre disponible' required class='item'><br/>
+                                    <input type='submit' name='form_ajout_materiel' if='form_ajout_materiel' class='item'> </div>
+                                    <hr color='#DE9426' size='3px' width='50%'>
+                                </form>
+                             </div>
+                            </div>";
+                }
+
+                if (isset($_POST['form_ajout_materiel'])) { //Si on valide le form
+                    extract($_POST);
+
+                    if (!empty($materiel_name) && !empty($img) && $materiel_disponible != 0) {
+                        
+                        $mail ="";
+
+                        $q = $db->prepare("INSERT INTO materiel(nom, img, nombre, mail)  VALUES(:nom, :new_img, :nombre, :mail)");
+
+                        $q->execute([
+                            'nom' => $materiel_name,
+                            'new_img' => $img,
+                            'nombre' => $materiel_disponible,
+                            'mail' => $mail
+                        ]);
+                    }
+                }
+
+                // BTN MODIFICATION
+                // Affichage du formulaire pour selectionner l'objet à modifier
+                if (isset($_POST['modif_materiel'])) {
+                    echo "<div class = 'action_email'> 
+                         <div class = 'action'> 
+                            <form method='post'>
+                                <input type = 'text' name='materiel_name' placeholder='Nom actuel' required class='item'><br/>
+                                <input type='submit' name='selection_modif_materiel' if='selection_materiel' class='item'> 
+                                <hr color='#DE9426' size='3px' width='50%'>
+                            </form>
+                         </div>
+                        </div>";
+                }
+
+                // Affichage du formulaire de modification
+                if (isset($_POST['selection_modif_materiel'])) {
+                    extract($_POST);
+                    if (!empty($materiel_name)) {
+
+                        // On récupère les données des items ayant le nom rentré par l'utilisateur 
+                        $sql = $db->prepare("SELECT * FROM materiel WHERE nom = :name");
+                        $sql->execute(
+                                [
+                                    'name' => $materiel_name
+                        ]);
+                        $materiel_cible = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+                        for ($i = 0; $i < sizeof($materiel_cible); $i++) {
+
+                            // Aficchage des anciennes données
+                            echo "<div class = 'ancienne donne' class='item'> 
+                                <div class='item'><b>Nom actuel : </b>" . $materiel_cible[$i]["nom"] . "<br/> <b>Lien actuel : </b>" . $materiel_cible[$i]['img'] . "<br/> <b>nombre : </b>" . $materiel_cible[$i]["nombre"] .  "
+                                </div></div>";
+                        }
+
+                        // Nouveau form
+                        echo "<div class = 'action_email'> 
+                                <div class = 'action'> 
+                                   <form method='post'>
+                                       <input type = 'text' name='materiel_name' placeholder='Nouveau nom du materiel' required class='item'><br/>
+                                       <input type = 'text' name='img' placeholder='Nouveau Lien image' required class='item'><br/>
+                                       <input type = 'float' name='materiel_disponible' placeholder='Nombre disponible' required class='item'><br/>
+                                       <input type='submit' name='form_materiel_modif' if='form_modif' class='item'> 
+                                       <hr color='#DE9426' size='3px' width='50%'>
+                                   </form>
+                                </div>
+                               </div>";
+                    }
+                }
+
+                // Modification des données MODIF
+                if (isset($_POST['form_materiel_modif'])) {
+                    extract($_POST);
+                    if (!empty($materiel_name)) {
+
+                        // On récupère les données des items ayant le nom rentré par l'utilisateur 
+                        $sql = $db->prepare("SELECT * FROM materiel WHERE nom = :name");
+                        $sql->execute(
+                                [
+                                    'name' => $materiel_name
+                        ]);
+                        $materiel_cible = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+                        for ($i = 0; $i < sizeof($materiel_cible); $i++) {
+                            $q = $db->prepare("UPDATE materiel set nom = :new_name WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $materiel_cible[$i]["nom"],
+                                'new_name' => $materiel_name
+                            ]); 
+
+                            $q = $db->prepare("UPDATE materiel set img = :new_image WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $materiel_cible[$i]["nom"],
+                                'new_image' => $img
+                            ]);
+                            
+                            $q = $db->prepare("UPDATE materiel set nombre = :new_nombre WHERE nom = :old_name");
+                            $q->execute([
+                                'old_name' => $materiel_cible[$i]["nom"],
+                                'new_nombre' => $materiel_disponible
+                            ]);
+
+                            echo '<br/> modify worked ';
+                        }
+                    }
+                }   
+
+                
+                // BTN SUPRIMER
+                // Affichage du formulaire pour selectionner l'objet à modifier
+                if (isset($_POST['supr_materiel'])) {
+                    echo "<div class = 'action_email'> 
+                         <div class = 'action'> 
+                            <form method='post'>
+                                <input type = 'text' name='materiel_name' placeholder='Nom actuel' required><br/>
+                                <input type='submit' name='selection_supr_materiel' if='selection_dispo_materiel'> 
+                            </form>
+                         </div>
+                        </div>";
+                }
+                
+                // Modification des données SUPR
+                if (isset($_POST['selection_supr_materiel'])) {
+                    extract($_POST);
+                    if (!empty($materiel_name)) {
+                        $sql2 = $db->prepare("DELETE FROM materiel WHERE nom = :name");
+                        $sql2->execute(
+                            [
+                                'name' => $materiel_name
+                            ]);
+                        echo $materiel_name." a été suprimer.";
+       
+                    }
+                }
+                
+                ?>
+    
 </div>
 
 
@@ -385,7 +538,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             'nom' => $jeux_name,
                             'img' => $id_image,
                             'description' => $jeux_description,
-                            'nombre' => $jeux_disponible,    
+                            'nombre' => $jeux_disponible    
                         ]);
                     }
                 }
@@ -479,41 +632,6 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                                 'new_description' => $jeux_description
                             ]);
                             echo '<br/> modify worked ';
-                        }
-                    }
-                }
-                
-                // Modification des données DISPO
-                if (isset($_POST['selection_dispo_jeux'])) {
-                    extract($_POST);
-                    if (!empty($jeux_name)) {
-
-                        $sql2 = $db->prepare("SELECT * FROM jeux WHERE nom = :name");
-                        $sql2->execute(
-                            [
-                                'name' => $jeux_name
-                            ]);
-                        $jeux_cible = $sql2->fetchAll(\PDO::FETCH_ASSOC);
-
-                        for ($i = 0; $i < sizeof($jeux_cible); $i++) {
-
-                            if ($jeux_cible[$i]["dispo"] == 0) {
-                                $q = $db->prepare("UPDATE jeux set dispo = :new_dispo WHERE nom = :name");
-                                $q->execute([
-                                'name' => $jeux_cible[$i]["nom"],
-                                'new_dispo' => 1
-                                ]);
-                                echo $jeux_cible[$i]["nom"]." est maintenant disponible !";
-                            }
-                            else {
-                                $q = $db->prepare("UPDATE jeux set dispo = :new_dispo WHERE nom = :name");
-                                $q->execute([
-                                'name' => $jeux_cible[$i]["nom"],
-                                'new_dispo' => 0
-                                ]);
-                                echo $jeux_cible[$i]["nom"]." n'est plus disponible disponible.";
-                            }
-                              
                         }
                     }
                 }   

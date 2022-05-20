@@ -169,7 +169,7 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                             'new_nombre' => $jeux[$i]["nombre_reserves"] + 1
                         ]);
                         echo "<div class='item'> Vous venez de réserver " . $jeux[$i]["nom"] .
-                        " Nombre restant: " . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] - 1)."</div>";
+                        ", nombre restant: " . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] - 1)."</div>";
                     }
                     else{
                         echo "<div class='item'> Ce jeu n'est plus disponible</div>";

@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 
 <?php
-session_start();
+session_start(); // démarrage de session pour les variables
+
+// BASE DE DONNE
 include 'database.php';
 global $bd;
 
@@ -480,20 +482,6 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                         }
                     }
                 }
-
-                /* BTN DISPO
-                // Affichage du formulaire pour selectionner l'objet à modifier
-                if (isset($_POST['dispo_jeux'])) {
-                    echo "<div class = 'action_email'> 
-                         <div class = 'action'> 
-                            <form method='post'>
-                                <input type = 'text' name='jeux_name' placeholder='Nom actuel' required class='item'><br/>
-                                <input type='submit' name='selection_jeux' if='selection_jeux' class='item'> 
-                                <hr color='#DE9426' size='3px' width='50%'>
-                            </form>
-                         </div>
-                        </div>";
-                } */
                 
                 // Modification des données DISPO
                 if (isset($_POST['selection_dispo_jeux'])) {

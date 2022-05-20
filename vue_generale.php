@@ -138,27 +138,39 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
             for ($i = 0; $i < sizeof($jeux); $i++) {
 
                 $nb = strval($i);
-                $bouton = "btn$nb";
-                    echo "<ul class='jeux_list'>
+                $bouton_desription = "btn_desription$nb";
+                $bouton_reserv = "btn_reserv$nb";
+
+                echo "<ul class='jeux_list'>
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
-                            . "<div class='bloc_reserve' id='prout'>";
+                . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                . "<div class='bloc_reserve' id='prout'>";
                 if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] == 0) {
-                echo "<div class='nondispo' id='prout'>Non dispo</div>";}
-                else{
-                    echo "<div class='dispo' id='prout'>Dispo</div>";}
-                
-                    
-                    
+                    echo "<div class='nondispo' id='prout'>Non dispo</div>";
+                } else {
+                    echo "<div class='dispo' id='prout'>Dispo</div>";
+                }
+
                 echo "<form method='post'> 
-                        <input name='ajout_snack' type ='submit' value = Reserver>
+                        <input name=".$bouton_reserv." type ='submit' value = Reserver>
                     </form>";
-                    
+
                 echo "</div><i><div class='btnjeux'><form method='post'> 
-                <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
-                
-                if (isset($_POST[$bouton])) {
+                <input  name=" . $bouton_desription . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
+
+                if (isset($_POST[$bouton_desription])) {
                     echo "<div class='description'><u>Description:</u> " . $jeux[$i]["description"] . "</div>";
+                }
+
+                // Incrémentation du nombre de réservation
+                if (isset($_POST[$bouton_reserv])) {
+                    $q = $db->prepare("UPDATE jeux set nombre_reserves = :new_nombre WHERE nom = :old_name");
+                    $q->execute([
+                        'old_name' => $jeux[$i]["nom"],
+                        'new_nombre' => $jeux[$i]["nombre_reserves"] + 1
+                    ]);
+                    echo 'Vous venez de réserver ' . $jeux[$i]["nom"].
+                    'Nombre restant: ' . ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] - 1);
                 }
 
                 echo '</ul>';

@@ -269,6 +269,11 @@ ul.jeux_list form input.btnjeux{
     margin-bottom:20px;
 }
 
+ul.jeux_list div.bloc_reserve{
+    width: 35%;
+    background-color: red;
+    }
+
 /*Liste matos*/
 
 ul.item_matos ul.matos_list {

@@ -141,12 +141,20 @@ $materiel = $sql->fetchAll(\PDO::FETCH_ASSOC);
                 $bouton = "btn$nb";
                     echo "<ul class='jeux_list'>
                 <img src ='" . $jeux[$i]['id_image'] . "' width='15%' id='prout'>" . ""
-                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>";
+                    . "<div class='nom' id='prout'>" . $jeux[$i]["nom"] . "</div>"
+                            . "<div class='bloc_reserve' id='prout'>";
                 if ($jeux[$i]['nombre'] - $jeux[$i]['nombre_reserves'] == 0) {
                 echo "<div class='nondispo' id='prout'>Non dispo</div>";}
-                else{echo "<div class='dispo' id='prout'>Dispo</div>";}
+                else{
+                    echo "<div class='dispo' id='prout'>Dispo</div>";}
                 
-                echo "<i><div class='btnjeux'><form method='post'> 
+                    
+                    
+                echo "<form method='post'> 
+                        <input name='ajout_snack' type ='submit' value = Reserver>
+                    </form>";
+                    
+                echo "</div><i><div class='btnjeux'><form method='post'> 
                 <input  name=" . $bouton . " value='En savoir plus' type='submit' class='btnjeux'></form></div></i>";
                 
                 if (isset($_POST[$bouton])) {

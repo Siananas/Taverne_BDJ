@@ -1,7 +1,6 @@
-
 /* styles de la bannière */
 
-nav.banniere{
+nav.banniere {
     width: 100%;
     background-color: black;
     position: sticky;
@@ -11,13 +10,13 @@ nav.banniere{
     font-family: Lavanderia;
 }
 
-nav.banniere ul{
+nav.banniere ul {
     list-style-type: none;
     background-color: black;
-    padding:0;
+    padding: 0;
 }
 
-nav.banniere ul li{
+nav.banniere ul li {
     float: none;
     display: inline-block;
     width: 49%;
@@ -25,13 +24,13 @@ nav.banniere ul li{
     background-color: black;
 }
 
-nav.banniere ul::after{
+nav.banniere ul::after {
     display: table;
     clear: both;
     background-color: black;
 }
 
-nav.banniere a{
+nav.banniere a {
     display: block;
     text-decoration: none;
     color: white;
@@ -39,51 +38,55 @@ nav.banniere a{
     padding: 10px;
 }
 
-nav.banniere a:hover{
+nav.banniere a:hover {
     color: black;
     background-color: #DE9426;
-    transition:0.5s all;
+    transition: 0.5s all;
 }
 
-.sous{
-    display: none ;
+.sous {
+    display: none;
     box-shadow: 0px 1px 2px #CCC;
     background-color: black;
     position: absolute;
     width: 50%;
     z-index: 1000;
 }
-nav > ul li:hover .sous{
+
+nav>ul li:hover .sous {
     display: block;
 }
-.sous li{
+
+.sous li {
     float: none;
     width: 100%;
     text-align: left;
     background-color: black;
 }
-.sous a{
+
+.sous a {
     border-bottom: none;
     background-color: black;
 }
-.sous a:hover{
+
+.sous a:hover {
     border-bottom: none;
-    background-color: RGBa(200,200,200,0.1);
+    background-color: RGBa(200, 200, 200, 0.1);
 }
 
 .deroulant {
     text-align: right;
 }
 
-.deroulant > a::after{
+.deroulant>a::after {
     font-size: 12px;
 }
 
-.appel{
+.appel {
     text-align: left;
 }
 
-.conteneur{
+.conteneur {
     height: 1500px;
     background-color: black;
 }
@@ -93,94 +96,94 @@ h1.banniere {
     text-align: center;
     background-color: black;
     font-weight: 900;
-    font-variant : small-caps;
+    font-variant: small-caps;
     padding: 20px;
 }
 
 
 /* styles de la page principale*/
 
-.titre_part   {
+.titre_part {
     background-color: #DE9426;
     color: white;
-    font-variant : small-caps;
-    text-indent: 20px; 
+    font-variant: small-caps;
+    text-indent: 20px;
     font-size: 5vw;
 }
 
-p.intro    {
+p.intro {
     padding: 1em;
     color: black;
     font-size: 4vw;
     font-style: italic;
-    font-variant : small-caps;
+    font-variant: small-caps;
 }
 
-p          {
+p {
     margin: 1em;
     color: black;
     font-size: 2.5vw;
 }
 
-p.alinea{
+p.alinea {
     margin: 1em;
     color: black;
-    text-indent: 2.5vw; 
+    text-indent: 2.5vw;
 }
 
 
 /*Style des boutons snacks matos et jeux*/
-nav.menu-nav ul{
+nav.menu-nav ul {
     width: 100%;
     margin: 15px;
     text-align: center;
-    padding : 0;
+    padding: 0;
 }
 
-nav.menu-nav ul li.btn{
+nav.menu-nav ul li.btn {
     display: inline-block;
     list-style-type: none;
-    position : center;
+    position: center;
     width: 30%;
 }
 
-nav.menu-nav ul li.btn a{
+nav.menu-nav ul li.btn a {
     color: white;
     font-size: 4vw;
     text-decoration: none;
-    padding : 10px;
-    position : center;
+    padding: 10px;
+    position: center;
     border-radius: 100px;
     border: 4px double #cccccc;
-    font-size : 5vw;
+    font-size: 5vw;
     text-align: center;
     width: 100%;
 }
 
 a.snack {
-    background-color: #5B4434 ;
+    background-color: #5B4434;
 }
 
 a.matos {
-    background-color: #765844 ;
+    background-color: #765844;
 }
 
 a.jeux {
-    background-color: #8d6951 ;
+    background-color: #8d6951;
 }
 
-nav.menu-nav ul li.btn:hover a{
+nav.menu-nav ul li.btn:hover a {
     color: black;
-    transition:0.5s all;
-    background-color: #FAF5DE ;
+    transition: 0.5s all;
+    background-color: #FAF5DE;
 }
 
 
 
 /*Style des items dans la liste snacks*/
-div.item_snack{
+div.item_snack {
     list-style-type: none;
-    padding:10px;
+    padding: 10px;
 }
 
 div#snacks {
@@ -188,31 +191,31 @@ div#snacks {
 }
 
 
-ul.snack_list{
-    padding:0;
+ul.snack_list {
+    padding: 0;
     background-color: white;
     margin: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 1px lightgray;
 }
 
-ul.snack_list div.nom{
+ul.snack_list div.nom {
     text-align: left;
-    font-size:4vw;
+    font-size: 4vw;
     width: 35%;
 }
 
-ul.snack_list div.prix{
+ul.snack_list div.prix {
     text-align: right;
     vertical-align: top;
-    font-size:4vw;
+    font-size: 4vw;
     width: 35%;
 }
 
-#prout{
+#prout {
     vertical-align: middle;
     display: inline-block;
-    padding:10px;
+    padding: 10px;
 }
 
 
@@ -220,6 +223,7 @@ ul.snack_list div.prix{
 div.bloc_nombre {
     width: 30%;
 }
+
 .bloc_nombre_item {
     width: 100%;
     font-size: 3vw;
@@ -229,8 +233,8 @@ div.bloc_nombre {
 
 /* Style des items dans la liste jeux*/
 
-ul.jeux_list{
-    padding:0;
+ul.jeux_list {
+    padding: 0;
     background-color: white;
     margin: 20px;
     border-radius: 20px;
@@ -240,94 +244,96 @@ ul.jeux_list{
 
 div#jeux {
     background-color: #FAF5DE;
-    
+
 }
 
-ul.jeux_list div.nom{
+ul.jeux_list div.nom {
     text-align: left;
-    font-size:4vw;
+    font-size: 4vw;
     width: 35%;
 }
 
-ul.jeux_list div.nondispo{
+ul.jeux_list div.nondispo {
     text-align: right;
     vertical-align: top;
-    font-size:3vw;
+    font-size: 3vw;
     width: 30%;
-    color:lightgrey;
+    color: lightgrey;
 }
 
-ul.jeux_list div.dispo{
+ul.jeux_list div.dispo {
     text-align: right;
     vertical-align: top;
-    font-size:3vw;
+    font-size: 3vw;
     width: 30%;
 }
 
-ul.jeux_list form input.btnjeux{
+ul.jeux_list form input.btnjeux {
     border-radius: 40px;
-    text-align:center ;
+    text-align: center;
     border: none;
-    background:none;
-    color:#DE9426;
-    font-size:2vw;
-    margin-bottom:20px;
+    background: none;
+    color: #DE9426;
+    font-size: 2vw;
+    margin-bottom: 20px;
 }
 
-ul.jeux_list div.bloc_reserve{
+ul.jeux_list div.bloc_reserve {
     width: 35%;
     text-align: right;
     padding-right: 1em;
-    }
+}
 
 /*Style des items dans la liste matos*/
 
 ul.item_matos ul.matos_list {
     display: inline-block;
     background-color: #FAF5DE;
-    border-radius:40px; 
+    border-radius: 40px;
     text-align: center;
     box-shadow: 3px 3px 3px grey;
 }
 
-ul.item_matos{
+ul.item_matos {
     text-align: center;
     list-style-type: none;
     padding: 0;
 }
 
 ul.matos_list {
-    padding:0;
+    padding: 0;
     width: 30%;
     height: 0;
     padding-bottom: 30%;
     margin: 40px;
     list-style-type: none;
 }
-ul.matos_list .matos_img{
-    margin:5%;
+
+ul.matos_list .matos_img {
+    margin: 5%;
 }
 
-ul.matos_list div.nom{
-    font-size:3vw;
-    margin:5%;
+ul.matos_list div.nom {
+    font-size: 3vw;
+    margin: 5%;
 }
 
 ul.matos_list div.dispo {
-    font-size:2vw;
-    margin:5%;
+    font-size: 2vw;
+    margin: 5%;
 }
 
-div.description{
-    font-size:2vw;
+div.description {
+    font-size: 2vw;
     text-align: justify;
-    padding:10px 50px 20px;
+    padding: 10px 50px 20px;
 }
 
 /*boutons modifs*/
-div.snack_bloc{
+div.snack_bloc {
     text-align: center;
 }
+
 div.matos_bloc {
     text-align: center;
 }
@@ -338,7 +344,7 @@ div.jeux_bloc {
 
 /*Style des champs de texte des options de modifications de la bdd*/
 
-.item{
+.item {
     font-size: 2vw;
 }
 
@@ -349,32 +355,34 @@ input#btn_modif {
     background-color: #8d6951;
     display: inline-block;
     margin: 1em;
-    padding:1em;
+    padding: 1em;
     font-size: 2vw;
     border-color: white;
     border-radius: 5px;
-    color:white;
+    color: white;
     box-shadow: 2px 2px 2px lightgray;
 }
-input#btn_modif:hover{
+
+input#btn_modif:hover {
     color: black;
     background-color: #FAF5DE;
-    border-color:black;
-    transition:0.5s all;
+    border-color: black;
+    transition: 0.5s all;
 }
 
-div#inline{
+div#inline {
     display: inline-block;
     text-align: center;
 }
 
 /*footer*/
-footer{
+footer {
     background-color: black;
     color: white;
     font-style: italic;
     padding: 30 px;
 }
+
 h3.mentions {
     text-align: center;
     font-style: italic;

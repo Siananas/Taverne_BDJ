@@ -1,14 +1,14 @@
 <?php
 
 define('HOST', 'localhost');
-define('DB_NAME','taverne_bdj');
-define('USER','root');
-define('PASS','root');
+define('DB_NAME', 'taverne_bdj');
+define('USER', 'root');
+define('PASS', 'root');
 
-try{
+try {
     $db = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USER, PASS);
-    $db->setAttribute(PDO::ATTR_ERRMODE ,PDO::ERRMODE_EXCEPTION);
-}catch(PDOException $e){
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
     echo $e;
 }
 
